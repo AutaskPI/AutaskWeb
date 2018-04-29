@@ -1,0 +1,55 @@
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    font-size: 16px;
+    color: #48bbed;
+}
+
+.button-collapse {
+    color: #48bbed;
+}
+
+#cadastro {
+    background-color: #44444445;
+}
+
+.teal-text.text-lighten-2 {
+    color: #48bbed !important;
+}
+
+#botao {
+    padding: 9px;
+    position: relative;
+    top: 29px;
+}
+
+#txtComeco,
+txtComeco2 {
+    top: 20px;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+    position: relative;
+    top: 106px;
+}
+
+.teal {
+    background-color: #4c99bb !important;
+}

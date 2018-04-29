@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="img/logoOficial.png" type="image/x-icon" />
+    <title>Autask</title>
+
+    <!-- Link CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/cadastro.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+    <header>
+        <!-- Menu -->
+        <nav id="menufixo" class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="index.html" class="brand-logo">Autask</a>
+                <ul class="right hide-on-med-and-down">
+                    <img class="imgLogo" src="img/logoOficial.png" alt="Logo" style="border: 0;position: absolute;width: 4%;right: 101%;bottom: 23%;">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">A Empresa</a></li>
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li id="cadastro">
+                        <a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a></li>
+                            <li><a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Menu Mobile -->
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">A Empresa</a></li>
+                    <li><a href="#">Planos</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a></li>
+                    <li><a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
+
+
+        <!-- Inicio do Section -->
+        <div class="container">
+            <div class="row" style="position: relative ;top:45px">
+
+                <h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Fisica</h1>
+                <form class="col s12">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" type="text" class="validate">
+                            <label for="name">Nome Completo</label>
+                        </div>
+                        <!--<div class="input-field col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Segundo Name</label>
+                        </div>-->
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <input id="CPF" type="text" class="validate">
+                            <label for="CPF">CPF</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input type="text" class="datepicker">
+                            <label for="Data-nascimento">Data de Nascimento</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="telefone" type="text" class="validate">
+                            <label for="telefone">Telefone</label>
+                        </div>                   
+                        <div class="input-field col s6">
+                            <select>
+						  <option value="" disabled selected>Estado</option>
+						  <option value="1">São Paulo</option>
+						  <option value="2">Rio de Janeiro</option>
+						  <option value="3">Paraná</option>
+						</select>
+                            <label>Estado</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Senha</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="con-password" type="password" class="validate">
+                            <label for="con-password">Confirmar Senha</label>
+                        </div>
+                    </div>
+
+                    <div id="botao" class="row right-align">
+                        <a class="waves-effect grey lighten-3t btn">Cadastrar-se</a>
+                       <!-- <a class="waves-effect grey lighten-3t btn" href="index.html">Voltar</a>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Fim section -->
+
+        <!-- Começo Roda Pé -->
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Compania</h5>
+                        <p class="grey-text text-lighten-4">texto,texto,texto,texto,texto,texto,texto,texto,texto,texto</p>
+
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">teste</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="white-text">teste</h5>
+                        <ul>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                            <li><a class="white-text" href="#!">teste</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    Made by Filho.Reginaldo
+                </div>
+            </div>
+        </footer>
+        <!-- Fim Roda Pé -->
+
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('select').material_select();
+
+                $('.datepicker').pickadate({
+                    selectMonths: true,
+                    selectYears: 100,
+                    today: "Hoje",
+                    clear: 'Limpar',
+                    close: 'Ok',
+                    closeOnSelect: false
+                });
+
+            });
+        </script>
+</body>
+
+</html>

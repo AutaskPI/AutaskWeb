@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="img/logoOficial.png" type="image/x-icon" />
+    <title>Autask</title>
+
+    <!-- Link CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/login.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+
+    <!-- Menu -->
+    <nav id="menufixo" class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo">Autask</a>
+            <ul class="right hide-on-med-and-down">
+                <img class="imgLogo" src="img/logoOficial.png" alt="Logo" style="border: 0;position: absolute;width: 4%;right: 101%;bottom: 23%;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">A Empresa</a></li>
+                <li><a href="#">Planos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li id="cadastro">
+                    <a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a></li>
+                        <li><a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Menu Mobile -->
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">A Empresa</a></li>
+                <li><a href="#">Planos</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a></li>
+                <li><a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <div class="col s12 m4 container center-align">
+
+        <hgroup>
+            <h3 class="center-align">Login</h3>
+        </hgroup>
+
+        <form class="center-align">
+            <div class="group">
+                <input id="email" type="email" class="validate" placeholder="Email">
+            </div>
+            <div class="group">
+                <input id="password" type="password" class="validate" placeholder="Senha">
+            </div>
+            <div id="btn-cadastrar">
+                <button type="button" class="btn"><a href= javascript:teste1(); >Cadastre-se</a></button><br>
+            </div>
+            <a id="voltar" class="center-align" href="javascript:window.history.go(-1)">Voltar</a>
+        </form>
+    </div>
+    <footer>
+        <p>Developer Filho.Reginaldo</p>
+    </footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+<script>
+    function teste1() {
+        window.open('painel.html', '_blank');
+    }
+</script>
+
+</html>
