@@ -1,16 +1,18 @@
-.navbar-nav{
-background:#1f80ab;
-display: inline;
+body nav{
+    background:#1d7daa;
+}
+
+li{
+    display: inline;
 }
 
 a{
-color:#444;
-text-decoration: none;
+    color:#444;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-size:35px;
 }
 
-#logonav{
-    border:0;
-    position:absolute;
-    width:4%;
-    left:8%;
+i{
+    font-size: 35px;
 }
