@@ -20,13 +20,14 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <img src="img/logoOficial.png" style="width: 3%;margin-left: 3%;">
         <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
                     <a class="nav-link" href="index.html">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">Dashboard</span>
@@ -43,77 +44,60 @@
                         <i class="fa fa-fw fa-table"></i>
                         <span class="nav-link-text">Tables</span>
                     </a>
-                </li>
+                </li>-->
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-wrench"></i>
-                        <span class="nav-link-text">Components</span>
+                        <span class="nav-link-text">Cadastro</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="navbar.html">Navbar</a>
+                            <a href="Cadastro_Serviço.html">Cadastro de Serviço</a>
                         </li>
                         <li>
-                            <a href="cards.html">Cards</a>
+                            <a href="#">Cadastro de Estabelecimento</a>
+                        </li>
+                        <li>
+                                <a href="#">Cadastro de Funcionario</a>
+                        </li>
+                        <li>
+                                <a href="#">Cadastro de Agenda</a>
+                        </li>
+                        <li>
+                                <a href="#">Cadastro de não cliente</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-file"></i>
-                        <span class="nav-link-text">Example Pages</span>
+                        <span class="nav-link-text">Financeiro</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="login.html">Login Page</a>
-                        </li>
-                        <li>
-                            <a href="register.html">Registration Page</a>
-                        </li>
-                        <li>
-                            <a href="forgot-password.html">Forgot Password Page</a>
-                        </li>
-                        <li>
-                            <a href="blank.html">Blank Page</a>
+                            <a href="#">Deashboard de ganho</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
-                        <span class="nav-link-text">Menu Levels</span>
+                        <span class="nav-link-text">Agenda</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="#">Second Level Item</a>
+                            <a href="#">Registros</a>
                         </li>
                         <li>
-                            <a href="#">Second Level Item</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Item</a>
-                        </li>
-                        <li>
-                            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-                            <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                            </ul>
+                            <a href="#">Agenda</a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                     <a class="nav-link" href="#">
                         <i class="fa fa-fw fa-link"></i>
                         <span class="nav-link-text">Link</span>
-                    </a>
+                    </a>-->
                 </li>
             </ul>
             <ul class="navbar-nav sidenav-toggler">
@@ -127,7 +111,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-fw fa-envelope"></i>
-                        <span class="d-lg-none">Messages
+                        <span class="d-lg-none">Notificações
               <span class="badge badge-pill badge-primary">12 New</span>
                         </span>
                         <span class="indicator text-primary d-none d-lg-block">
@@ -135,30 +119,30 @@
             </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-                        <h6 class="dropdown-header">New Messages:</h6>
+                        <h6 class="dropdown-header">Novas Notificações:</h6>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
-                            <strong>David Miller</strong>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+                            <strong>Renato Lombardi</strong>
+                            <span class="small float-right text-muted">04:20 AM</span>
+                            <div class="dropdown-message small">Hey! O grupo do Autask e monstro!</div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
-                            <strong>Jane Smith</strong>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+                            <strong>Pri</strong>
+                            <span class="small float-right text-muted">01:40 AM</span>
+                            <div class="dropdown-message small">Queria estar na faculdade com vocês T_T</div>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
-                            <strong>John Doe</strong>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+                            <strong>Reginaldo</strong>
+                            <span class="small float-right text-muted">11:00 AM</span>
+                            <div class="dropdown-message small">Vou pagar um BK para todos!!!(Sera?)</div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item small" href="#">View all messages</a>
+                        <a class="dropdown-item small" href="#">Ver todas as Notificações</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <!--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-fw fa-bell"></i>
                         <span class="d-lg-none">Alerts
@@ -200,7 +184,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item small" href="#">View all alerts</a>
                     </div>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0 mr-lg-2">
                         <div class="input-group">
@@ -215,7 +199,7 @@
                 </li>
                 <li id="sair" class="nav-item">
                     <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
-                        <i class="fa fa-fw fa-sign-out "></i>Logout</a>
+                        <i class="fa fa-fw fa-sign-out "></i>Sair</a>
                 </li>
             </ul>
         </div>
