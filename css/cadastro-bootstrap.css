@@ -1,0 +1,16 @@
+.navbar-nav{
+background:#1f80ab;
+display: inline;
+}
+
+a{
+color:#444;
+text-decoration: none;
+}
+
+#logonav{
+    border:0;
+    position:absolute;
+    width:4%;
+    left:8%;
+}
