@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastro de Funcionario</title>
+    <title>Cadastro de Horarios Disponiveis</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
@@ -56,13 +56,13 @@
                             <a href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
                         </li>
                         <li>
-                                <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
+                            <a href="Cadastro_Profissional.html">Cadastro de Proffisional</a>
                         </li>
                         <li>
-                                <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
+                            <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
                         </li>
                         <li>
-                                <a href="#">Cadastro de não cliente</a>
+                            <a href="#">Cadastro de não cliente</a>
                         </li>
                     </ul>
                 </li>
@@ -207,27 +207,29 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="display-4">Cadastro de Funcionario</h1>
+                    <h1 class="display-4">Cadastro de Horarios Disponiveis</h1>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-sm-12 text-center">
                     <form class="col s12">
                         <div class="row">
-                            <div class="form-group col-sm-6">
-                                <label for="inputnome">Nome do Funcionario</label>
-                                <input type="text" class="form-control" id="inputnome" placeholder="Nome">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="inputprofissional">Tipo do Serviço</label>
-                                <input type="text" class="form-control" id="inputprofissional" placeholder="Qual serviço ele prestara?">
+                            <div class="form-group col-sm-12">
+                                <label for="inputestabelecimento">Escolha o Estabelecimento</label>
+                                <select id="inputestabelecimento" class="form-control">
+                                    <option selected>Escolha...</option>
+                                    <option>Legend's</option>
+                                    <option>Never</option>
+                                    <option>Die</option>
+                                </select>
                             </div>
                             <div class="form-group col-sm-12">
-                                <label for="inputdescricao">Descrição do serviço</label>
-                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
-                            <div class="col-sm-12 mt-5">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                <button type="submit" class="btn btn-primary">Cancelar</button>
+                                <label for="inputtempo">Escolha a data</label>
+                                <select id="inputestabelecimento" class="form-control">
+                                        <option selected>Esta tela esta sob pendencia ainda</option>
+                                        <option>Legend's</option>
+                                        <option>Never</option>
+                                        <option>Die</option>
                             </div>
                         </div>
                     </form>
