@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastro de Funcionario</title>
+    <title>Cadastro de Serviço</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
@@ -207,20 +207,42 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="display-4">Cadastro de Funcionario</h1>
+                    <h1 class="display-4">Cadastro de Cliente</h1>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-sm-12 text-center">
                     <form class="col s12">
                         <div class="row">
-                            <div class="form-group col-sm-6">
-                                <label for="inputnome">Nome do Funcionario</label>
-                                <input type="text" class="form-control" id="inputnome" placeholder="Nome">
+                            <div class="form-group col-sm-12">
+                                <label for="inputnome">Nome</label>
+                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Completo">
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="inputprofissional">Tipo do Serviço</label>
-                                <input type="text" class="form-control" id="inputprofissional" placeholder="Qual serviço ele prestara?">
+                                    <label for="choseestabelecimento">Serviço do Estabelecimento</label>
+                                    <select id="choseestabelecimento" class="form-control">
+                                        <option selected>Escolha...</option>
+                                        <option>Legend's</option>
+                                        <option>Never</option>
+                                        <option>Die</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                    <label for="choseprofissional">Nome do Profissional</label>
+                                    <select id="choseprofissional" class="form-control">
+                                        <option selected>Escolha...</option>
+                                        <option>Legend's</option>
+                                        <option>Never</option>
+                                        <option>Die</option>
+                                    </select>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="inputtempo">Horario do Serviço</label>
+                                <input type="text" class="form-control" id="inputtempo" placeholder="Hora">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="inputvalor">Valor do Serviço</label>
+                                <input type="number" class="form-control" id="inputvalor" min="0" placeholder="R$">
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="inputdescricao">Descrição do serviço</label>
