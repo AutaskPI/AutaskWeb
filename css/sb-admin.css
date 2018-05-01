@@ -42,7 +42,7 @@ body.fixed-nav {
 }
 
 .scroll-to-top:hover {
-  background: #343a40;
+  background:#1aa3ff;
 }
 
 .scroll-to-top i {
@@ -226,7 +226,7 @@ body.fixed-nav {
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-  background-color: #212529;
+  background-color: #494f56;
 }
 
 #mainNav.fixed-top.navbar-dark .sidenav-toggler a i {
@@ -359,7 +359,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 @media (min-width: 992px) {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #343a40;
+    background: #494f56;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
     color: white !important;
