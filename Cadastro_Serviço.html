@@ -25,24 +25,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                    <a class="nav-link" href="index.html">
-                        <i class="fa fa-fw fa-dashboard"></i>
-                        <span class="nav-link-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fa fa-fw fa-area-chart"></i>
-                        <span class="nav-link-text">Charts</span>
-                    </a>
-                </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="tables.html">
-                        <i class="fa fa-fw fa-table"></i>
-                        <span class="nav-link-text">Tables</span>
-                    </a>
-                </li>-->
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-user-circle"></i>
@@ -91,11 +73,6 @@
                         </li>
                     </ul>
                 </li>
-                <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-fw fa-link"></i>
-                        <span class="nav-link-text">Link</span>
-                    </a>-->
                 </li>
             </ul>
             <ul class="navbar-nav sidenav-toggler">
@@ -140,49 +117,6 @@
                         <a class="dropdown-item small" href="#">Ver todas as Notificações</a>
                     </div>
                 </li>
-                <!--<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-fw fa-bell"></i>
-                        <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-                        </span>
-                        <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-                        <h6 class="dropdown-header">New Alerts:</h6>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
-                            <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-                            <span class="small float-right text-muted">11:21 AM</span>
-                            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item small" href="#">View all alerts</a>
-                    </div>
-                </li>-->
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0 mr-lg-2">
                         <div class="input-group">
@@ -205,39 +139,7 @@
     <!-- Começo do conteudo interno-->
     <div class="content-wrapper">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="display-4">Cadastro de Serviço</h1>
-                </div>
-            </div>
-            <div class="row mb-5">
-                <div class="col-sm-12 text-center">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="form-group col-sm-12">
-                                <label for="inputnome">Nome do Serviço</label>
-                                <input type="text" class="form-control" id="inputnome" placeholder="Serviço">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="inputtempo">Tempo de serviço</label>
-                                <input type="text" class="form-control" id="inputtempo" placeholder="Tempo">
-                            </div>
-                            <div class="form-group col-sm-6">
-                                <label for="inputvalor">Valor do Serviço</label>
-                                <input type="number" class="form-control" id="inputvalor" min="0" placeholder="R$">
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="inputdescricao">Descrição do serviço</label>
-                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
-                            </div>
-                            <div class="col-sm-12 mt-5">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                <button type="submit" class="btn btn-primary">Cancelar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#servico">Cadastro</button>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -277,6 +179,52 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
     </div>
+    <!-- Cadastro de Serviço-->
+    <div class="modal" id="servico" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Cadastro</h2>
+                        <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h1 class="display-4">Cadastro de Serviço</h1>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-sm-12 text-center">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="inputnome">Nome do Serviço</label>
+                                            <input type="text" class="form-control" id="inputnome" placeholder="Serviço">
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="inputtempo">Tempo de serviço</label>
+                                            <input type="text" class="form-control" id="inputtempo" placeholder="Tempo">
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="inputvalor">Valor do Serviço</label>
+                                            <input type="number" class="form-control" id="inputvalor" min="0" placeholder="R$">
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <label for="inputdescricao">Descrição do serviço</label>
+                                            <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

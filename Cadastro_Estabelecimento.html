@@ -208,87 +208,7 @@
     <!-- Começo do conteudo interno-->
     <div class="content-wrapper">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="display-4">Cadastro de Estabelecimento</h1>
-                </div>
-            </div>
-            <div class="row mb-5">
-                <div class="col-sm-12 text-center">
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="form-group col-sm-12">
-                                <label for="inputnome">Nome Fantasia</label>
-                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Fantasia">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputhorario">Horário de Funcionamento</label>
-                                <input type="text" class="form-control" id="inputhorario" placeholder="Horario">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputcontato">E-mail de contato</label>
-                                <input type="text" class="form-control" id="inputcontato" placeholder="E-mail">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputvalor">Escolha uma imagem</label>
-                                <input type="file" class="form-control-file" id="exampleInputFile"aria-describedby="filehelp">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputcnpj">CNPJ</label>
-                                <input type="text" class="form-control" id="inputhorario" placeholder="CNPJ">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputelefone">Telefone</label>
-                                <input type="text" class="form-control" id="inputelefone" placeholder="Telefone">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <label for="inputcelular">Celular</label>
-                                <input type="text" class="form-control" id="inputcelular" placeholder="Celular">
-                            </div>
-                            <div class="form-group col-sm-12">
-                                <label for="inputdescricao">Descrição do Estabelecimento</label>
-                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
-                            </div>
-                        </div>
-                            <h2>Endereço</h2>
-                                <div class="row">
-                                    <div class="form-group col-sm-4">
-                                        <label for="cep">Cep</label>
-                                        <input type="text" class="form-control" id="cep" placeholder="Escreva seu cep">
-                                    </div>
-                                    <div class="form-group col-sm-4">
-                                        <label for="rua">Rua</label>
-                                        <input type="text" class="form-control" id="rua" placeholder="Rua" disabled>
-                                    </div>
-                                    <div class="form-group col-sm-4">
-                                        <label for="cidade">Cidade</label>
-                                        <input type="text" class="form-control" id="cidade" placeholder="Cidade" disabled>
-                                    </div>
-                                    <div class="form-group col-sm-4">
-                                        <label for="bairro">Bairro</label>
-                                        <input type="text" class="form-control" id="bairro" placeholder="Bairro" disabled>
-                                    </div>
-                                    <div class="form-group col-sm-1">
-                                            <label for="uf">UF</label>
-                                            <input type="text" class="form-control" id="uf" placeholder="UF" disabled>
-                                    </div>
-                                    <div class="form-group col-sm-3">
-                                        <label for="complemento">Complemento</label>
-                                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
-                                    </div>
-                                    <div class="form-group col-sm-4">
-                                        <label for="numero">Numero</label>
-                                        <input type="text" class="form-control" id="numero" placeholder="N°">
-                                    </div>
-                                    
-                                    <div class="col-sm-12 mt-5">
-                                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                                        <button type="submit" class="btn btn-primary">Cancelar</button>
-                                    </div>
-                            </div>
-                    </form>
-                </div>
-            </div>
+            <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#Estabelecimento">Cadastro</button>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -318,6 +238,101 @@
                 <div class="modal-footer ">
                     <button class="btn btn-secondary " type="button " data-dismiss="modal ">Cancel</button>
                     <a class="btn btn-primary " href="login.html ">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Cadastro -->
+    <div class="modal" id="Estabelecimento" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="display-4">Cadastro de Estabelecimento</h5>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-sm-12 text-center">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="form-group col-sm-12">
+                                                <label for="inputnome">Nome Fantasia</label>
+                                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Fantasia">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputhorario">Horário de Funcionamento</label>
+                                                <input type="text" class="form-control" id="inputhorario" placeholder="Horario">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputcontato">E-mail de contato</label>
+                                                <input type="text" class="form-control" id="inputcontato" placeholder="E-mail">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                    <label for="inputcnpj">CNPJ</label>
+                                                    <input type="text" class="form-control" id="inputhorario" placeholder="CNPJ">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputvalor">Coloque sua logo!</label>
+                                                <input type="file" class="form-control-file" id="exampleInputFile"aria-describedby="filehelp">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputelefone">Telefone</label>
+                                                <input type="text" class="form-control" id="inputelefone" placeholder="Telefone">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label for="inputcelular">Celular</label>
+                                                <input type="text" class="form-control" id="inputcelular" placeholder="Celular">
+                                            </div>
+                                            <div class="form-group col-sm-12">
+                                                <label for="inputdescricao">Descrição do Estabelecimento</label>
+                                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
+                                            </div>
+                                        </div>
+                                            <h2>Endereço</h2>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="cep">Cep</label>
+                                                        <input type="text" class="form-control" id="cep" placeholder="Escreva seu cep">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="rua">Rua</label>
+                                                        <input type="text" class="form-control" id="rua" placeholder="Rua" disabled>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="cidade">Cidade</label>
+                                                        <input type="text" class="form-control" id="cidade" placeholder="Cidade" disabled>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="bairro">Bairro</label>
+                                                        <input type="text" class="form-control" id="bairro" placeholder="Bairro" disabled>
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                            <label for="uf">UF</label>
+                                                            <input type="text" class="form-control" id="uf" placeholder="UF" disabled>
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                            <label for="numero">Numero</label>
+                                                            <input type="text" class="form-control" id="numero" placeholder="N°">
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="complemento">Complemento</label>
+                                                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+                                                    </div>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+                <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button><!-- Esta feito para fechar somente-->
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
