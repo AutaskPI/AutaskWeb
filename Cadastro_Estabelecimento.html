@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,6 +15,9 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+
 
 </head>
 
@@ -209,19 +213,20 @@
                                             </div>
                                             <div class="form-group col-sm-6">
                                                     <label for="inputcnpj">CNPJ</label>
-                                                    <input type="text" class="form-control" id="inputhorario" placeholder="CNPJ">
+                                                    <input type="text" maxlength="18" class="form-control inputcnpj" name="inputcnpj" id="inputcnpj" placeholder="CNPJ">
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputvalor">Coloque sua logo!</label>
-                                                <input type="file" class="form-control-file" id="exampleInputFile"aria-describedby="filehelp">
+                                                <input type="file" class="form-control-file" id="inputvalor"aria-describedby="filehelp">
                                             </div>
                                             <div class="form-group col-sm-6">
+
                                                 <label for="inputelefone">Telefone</label>
-                                                <input type="text" class="form-control" id="inputelefone" placeholder="Telefone">
+                                                <input type="text" maxlength="10" class="form-control" id="inputelefone" placeholder="Telefone">
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputcelular">Celular</label>
-                                                <input type="text" class="form-control" id="inputcelular" placeholder="Celular">
+                                                <input type="text" maxlength="11" class="form-control" id="inputcelular" placeholder="Celular">
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="inputdescricao">Descrição do Estabelecimento</label>
@@ -268,20 +273,23 @@
                             </div>
                 </div>
                 <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button><!-- Esta feito para fechar somente-->
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        <button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+                        <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
     <script>
-    $(document).ready(function(){
+    
+	// Parte JavaScript--
+	$(document).ready(function() {
+		
+
         $('#buscarcep').click(function(){
             var cep = $('#cep').val();
             var url = 'https://viacep.com.br/ws/' +cep+ '/json';
             $.getJSON(url, function(data){
                 if("error" in data){
-
                 alert("Deu ruim");
             }
             $('#rua').val(data.logradouro);
@@ -289,10 +297,75 @@
             $('#cidade').val(data.localidade);
             $('#uf').val(data.uf);
             $('#complemento').val(data.complemento);
-
             })
         })
         })
+		
+		$(document).ready(function() {
+		
+         $('#cadastrar').click(function(){
+			 var nome =$('#inputnome').val();
+			 var horario =$('#inputhorario').val();
+			 var contato  =$('#inputcontato').val();
+			 var cnpj  =$('#inputcnpj').val();
+			 var valor  =$('#inputvalor').val();
+			 var telefone=$('#inputelefone').val();
+			 var celular=$('#inputcelular').val();
+			 var descricao=$('#inputdescricao').val();
+						
+						
+			
+			 if (nome==null || nome==""){
+				 
+				alert("Preencher o nome fantasia");
+			 }else if(horario==null || horario==""){
+				alert("Preencher o campo horario");
+				 
+			 }else if(contato==null || contato==""){
+				alert("Preencher o campo e-mail");
+				 
+			 }else if(cnpj==null || cnpj==""){
+				alert("Preencher o campo CNPJ");
+				
+			}else if(isNaN(cnpj)){
+				if(celular.length <18){
+				alert("Digite o campo CNPJ corretamente!");
+			}	
+				
+			 }else if(valor==null || valor==""){
+				alert("Selecionar o logo da sua empresa");
+				 
+			}else if((telefone==null) || (telefone=='')){
+				 alert("Preencher o campo telefone");
+				 
+			}else if(isNaN(telefone)){
+				if(telefone.length < 10){
+				alert("Digite o campo telefone corretamente!");
+			}	 
+				 
+			 }else if(celular==null || celular==""){
+				 alert("Preencher o campo celular");
+				 
+			}else if(isNaN(celular)){
+				var cel=celular.toString(celular);
+				var cel1 = cel.length;
+				if(cel1<11){
+				alert("Digite o campo celular corretamente!");
+			}
+				 
+			 }else if(descricao==null || descricao==""){
+				alert("Preencher o campo descrição");
+		
+			 }else{
+			 
+			 
+				alert("valido");	
+			 }
+			
+		 })
+	})	
+
+		
     </script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>
