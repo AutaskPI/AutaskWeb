@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -16,12 +16,19 @@
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+
 	
 
 
 </head>
-
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
+<style rel="stylesheet" type="text/css">
+	.esconder{
+		display:none;
+		color:red;
+	}
+</style>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
@@ -199,73 +206,101 @@
                                 <div class="col-sm-12 text-center">
                                     <form class="col s12">
                                         <div class="row">
+											<div class="form-group col-sm-12">
+                                                <label for="inputnome">Razão Social</label>
+                                                <input type="text" class="form-control" name="Nome" id="inputrazao" placeholder="Razão Social">
+												<p id="msgErrorazao" class="msgErro esconder">Preencher o campo razão social é obrigatório !</p>
+                                            </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="inputnome">Nome Fantasia</label>
-                                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Fantasia">
+                                                <input type="text" class="form-control" name="NomeFantasia" id="inputnome" placeholder="Nome Fantasia">
+												<p id="msgErroNome" class="msgErro esconder">Preencher o campo nome fantasia é obrigatório !</p>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputhorario">Horário de Funcionamento</label>
-                                                <input type="text" class="form-control" id="inputhorario" placeholder="Horario">
+                                                <input type="text" class="form-control" name="HorarioFuncionamento id="inputhorario" placeholder="Horario">
+												<p id="msgErrohorario" class="msgErro esconder">Preencher o campo horario é obrigatório !</p>
+												
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputcontato">E-mail de contato</label>
-                                                <input type="text" class="form-control" id="inputcontato" placeholder="E-mail">
+                                                <input type="text" class="form-control" name="EmailContato" id="inputcontato" placeholder="E-mail">
+												
+												
                                             </div>
                                             <div class="form-group col-sm-6">
                                                     <label for="inputcnpj">CNPJ</label>
-                                                    <input type="text" maxlength="18" class="form-control inputcnpj" name="inputcnpj" id="inputcnpj" placeholder="CNPJ">
+                                                    <input type="text" maxlength="18" class="form-control inputcnpj" name="CNPJ" id="inputcnpj" placeholder="CNPJ"
+													 pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+													<script type="text/javascript">$("#inputcnpj").mask("99.999.999/9999-99");</script>	
+														<p id="msgErrocnpj" class="msgErro esconder">Preencher o campo CNPJ é obrigatório !</p>
+														<p id="msgErrocnpj2" class="msgErro esconder">Digite o CNPJ!</p>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputvalor">Coloque sua logo!</label>
-                                                <input type="file" class="form-control-file" id="inputvalor"aria-describedby="filehelp">
+                                                <input type="file" class="form-control-file" name="CaminhoLogo" id="inputvalor"aria-describedby="filehelp">
                                             </div>
                                             <div class="form-group col-sm-6">
 
                                                 <label for="inputelefone">Telefone</label>
-                                                <input type="text" maxlength="10" class="form-control" id="inputelefone" placeholder="Telefone">
+                                                <input type="text/javascript" class="form-control" name="Telefone" id="inputelefone" placeholder="Telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+												<script type="text/javascript">$("#inputelefone").mask("(00) 0000-0000");</script>		                					
+												<p id="msgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
+												<p id="msgErrotelefone2" class="msgErro esconder">Digite o nuemro do telefone!</p>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="inputcelular">Celular</label>
-                                                <input type="text" maxlength="11" class="form-control" id="inputcelular" placeholder="Celular">
+                                                <input type="text" maxlength="11" class="form-control" name="Celular" id="inputcelular" placeholder="Celular" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+												<script type="text/javascript">$("#inputcelular").mask("(00) 00000-0000");</script>
+												<p id="msgErrocelular" class="msgErro esconder">Preencher o campo celular é obrigatório !</p>
+												<p id="msgErrocelular2" class="msgErro esconder">Digite o numero do celular!</p>
+												
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label for="inputdescricao">Descrição do Estabelecimento</label>
-                                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
+                                                <textarea class="form-control" rows="5" name="Descricao" id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
+													
                                             </div>
                                         </div>
                                             <h2>Endereço</h2>
                                                 <div class="row">
                                                     <div class="form-group col-sm-4">
                                                         <label for="cep">Cep</label>
-                                                        <input type="text" class="form-control" id="cep" placeholder="Escreva seu cep">
+                                                        <input type="text" class="form-control" name="CEP" id="cep" placeholder="Escreva seu cep" >
+														<script type="text/javascript">$("#cep").mask("00000-000");</script>
                                                         <small id="emailHelp" class="form-text text-muted text-left">Escreva somente os números</small>
+														<p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
+														<p id="msgErrocep2" class="msgErro esconder">Digite o CEP!</p>
+													
                                                     </div>
                                                     <div class="form-group col-sm-2">
                                                         <button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="rua">Rua</label>
-                                                        <input type="text" class="form-control" id="rua" placeholder="Rua" disabled>
+                                                        <input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="cidade">Cidade</label>
-                                                        <input type="text" class="form-control" id="cidade" placeholder="Cidade" disabled>
+                                                        <input type="text" class="form-control"name"Cidade" id="cidade" placeholder="Cidade" disabled>
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="bairro">Bairro</label>
-                                                        <input type="text" class="form-control" id="bairro" placeholder="Bairro" disabled>
+                                                        <input type="text" class="form-control" name="Bairro" id="bairro" placeholder="Bairro" disabled>
                                                     </div>
                                                     <div class="form-group col-sm-3">
                                                             <label for="uf">UF</label>
-                                                            <input type="text" class="form-control" id="uf" placeholder="UF" disabled>
+                                                            <input type="text" class="form-control" name="UF" id="uf" placeholder="UF" disabled>
                                                     </div>
                                                     <div class="form-group col-sm-3">
                                                             <label for="numero">Numero</label>
-                                                            <input type="text" class="form-control" id="numero" placeholder="N°">
+                                                            <input type="text" class="form-control" name="Numero" id="numero" placeholder="N°">
+															<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero!</p>
+															<p id="msgErronumero2" class="msgErro esconder">Digite o campo numero corretamente!</p>
                                                     </div>
                                                     <div class="form-group col-sm-6">
                                                         <label for="complemento">Complemento</label>
-                                                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
+                                                        <input type="text" class="form-control" name="Complemento" id="complemento" placeholder="Complemento">
                                                     </div>
                                             </div>
                                     </form>
@@ -273,8 +308,8 @@
                             </div>
                 </div>
                 <div class="modal-footer">
-                        <button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
                         <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
                 </div>
             </div>
         </div>
@@ -283,7 +318,7 @@
     
 	// Parte JavaScript--
 	$(document).ready(function() {
-		
+	
 
         $('#buscarcep').click(function(){
             var cep = $('#cep').val();
@@ -304,60 +339,104 @@
 		$(document).ready(function() {
 		
          $('#cadastrar').click(function(){
+			 var razao =$('#inputrazao').val();
 			 var nome =$('#inputnome').val();
 			 var horario =$('#inputhorario').val();
-			 var contato  =$('#inputcontato').val();
+			 var email =$('#inputcontato').val();
 			 var cnpj  =$('#inputcnpj').val();
 			 var valor  =$('#inputvalor').val();
 			 var telefone=$('#inputelefone').val();
 			 var celular=$('#inputcelular').val();
 			 var descricao=$('#inputdescricao').val();
-						
+			 var cep = $('#cep').val();
+			 var numero=$('#numero').val();	
+			
+		
+		
+		var emailFilter=/^.+@.+\..{2,}$/;
+		var illegalChars= /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+	
+		if(!(emailFilter.test(email))||email.match(illegalChars)){
+			/*	$("p").show().removeClass("ok").addClass("erro")
+			.text('Por favor, informe um email válido.');
+		}else{
+			$("p").show().addClass("ok")
+			.text('Email informado está correto!');*/0
+		} 
+			
+					
+			 if (razao==null || razao=="")
+				$('#msgErrorazao').fadeIn();
+			 else
+				$('#msgErrorazao').fadeOut(0);
 						
 			
-			 if (nome==null || nome==""){
-				 
-				alert("Preencher o nome fantasia");
-			 }else if(horario==null || horario==""){
-				alert("Preencher o campo horario");
-				 
-			 }else if(contato==null || contato==""){
-				alert("Preencher o campo e-mail");
-				 
-			 }else if(cnpj==null || cnpj==""){
-				alert("Preencher o campo CNPJ");
-				
-			}else if(isNaN(cnpj)){
-				if(celular.length <18){
-				alert("Digite o campo CNPJ corretamente!");
-			}	
-				
-			 }else if(valor==null || valor==""){
-				alert("Selecionar o logo da sua empresa");
-				 
-			}else if((telefone==null) || (telefone=='')){
-				 alert("Preencher o campo telefone");
-				 
-			}else if(isNaN(telefone)){
-				if(telefone.length < 10){
-				alert("Digite o campo telefone corretamente!");
-			}	 
-				 
-			 }else if(celular==null || celular==""){
-				 alert("Preencher o campo celular");
-				 
-			}else if(isNaN(celular)){
-				var cel=celular.toString(celular);
-				var cel1 = cel.length;
-				if(cel1<11){
-				alert("Digite o campo celular corretamente!");
-			}
-				 
-			 }else if(descricao==null || descricao==""){
-				alert("Preencher o campo descrição");
-		
-			 }else{
+			 if (nome==null || nome=="")
+				$('#msgErroNome').fadeIn();
+			 else
+				$('#msgErroNome').fadeOut(0);
 			 
+			 if(horario==null || horario=="")
+				$('#msgErrohorario').fadeIn();
+				else
+				$('#msgErrohorario').fadeOut(0);
+				 
+			 if(cnpj==null || cnpj=="")
+				$('#msgErrocnpj').fadeIn();
+				else{
+				$('#msgErrocnpj').fadeOut(0);
+				if (cnpj.length < 18)	
+				$('#msgErrocnpj2').fadeIn();
+				else
+				$('#msgErrocnpj2').fadeOut(0);
+			
+			}if((telefone==null) || (telefone==''))
+				$('#msgErrotelefone').fadeIn();
+				else{
+				$('#msgErrotelefone').fadeOut(0);
+				if (telefone.length < 14)	
+				$('#msgErrotelefone2').fadeIn();
+				else
+				$('#msgErrotelefone2').fadeOut(0);
+			
+				 
+			 }if(celular==null || celular=="")
+				$('#msgErrocelular').fadeIn();
+				else{
+					$('#msgErrocelular').fadeOut(0);
+					if (celular.length < 14)	
+						$('#msgErrocelular2').fadeIn();
+					else
+						$('#msgErrocelular2').fadeOut(0);
+				
+			
+			}if(cep==null || cep=="")
+				$('#msgErrocep').fadeIn();
+				else{
+				$('#msgErrocep').fadeOut(0);
+				if (cep.length < 9)	
+				$('#msgErrocep2').fadeIn();
+				else
+				$('#msgErrocep2').fadeOut(0);
+	
+	
+			}if(numero==null || numero=="")
+				$('#msgErronumero').fadeIn();
+				else
+				$('#msgErronumero').fadeOut(0);		
+
+			if(isNaN(numero))
+				$('#msgErronumero2').fadeIn();
+				else
+				$('#msgErronumero2').fadeOut(0);		
+			
+				 
+			 if(descricao==null || descricao==""){}
+			
+
+				
+			 else{
+							
 			 
 				alert("valido");	
 			 }
@@ -365,7 +444,7 @@
 		 })
 	})	
 
-		
+	<script>$("#inputelefone").mask("(00) 0000-009");</script>	
     </script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>
@@ -374,7 +453,6 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-    </div>
-</body>
 
+</body>
 </html>
