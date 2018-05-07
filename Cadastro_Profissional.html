@@ -7,15 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastro de Funcionario</title>
+    <title>Cadastro de Estabelecimento</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
+    <script src="js/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
+	<style rel="stylesheet" type="text/css">
+	.esconder{
+		display:none;
+		color:red;
+	}
+</style>	
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
@@ -205,18 +215,70 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                        <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
                     </div>
                 </div>
             </div>
         </div>
+	 </div>	
+ <script>
+    
+	// Parte JavaScript--//
+		
+		$(document).ready(function() {
+		     alert("valido");	
+		
+         $('#cadastrar').click(function(){
+			 var razao =$('#inputrazao').val();
+			 var nome =$('#inputnome').val();
+			 var horario =$('#inputhorario').val();
+			 var email =$('#inputcontato').val();
+			 var cnpj  =$('#inputcnpj').val();
+			 var valor  =$('#inputvalor').val();
+			 var telefone=$('#inputelefone').val();
+			 var celular=$('#inputcelular').val();
+			 var descricao=$('#inputdescricao').val();
+			 var cep = $('#cep').val();
+			 var numero=$('#numero').val();	
+			
+		
+		
+		var emailFilter=/^.+@.+\..{2,}$/;
+		var illegalChars= /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+	
+		if(!(emailFilter.test(email))||email.match(illegalChars)){
+			/*	$("p").show().removeClass("ok").addClass("erro")
+			.text('Por favor, informe um email válido.');
+		}else{
+			$("p").show().addClass("ok")
+			.text('Email informado está correto!');*/0
+		} 
+			
+					
+			 if (razao==null || razao=="")
+
+			
+				
+			 else{
+							
+			 
+				alert("valido");	
+			 }
+			
+		 })
+	})	
+
+		
+    </script>		
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-    </div>
+   
 </body>
 
 </html>
