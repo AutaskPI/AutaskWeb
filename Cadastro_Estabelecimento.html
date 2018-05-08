@@ -318,9 +318,13 @@
     
 	// Parte JavaScript--
 	$(document).ready(function() {
-	
-
-        $('#buscarcep').click(function(){
+		$('#inputrazao').blur(function(){
+			if ($(this).val() == null || $(this).val().trim() == "")
+				$('#msgErrorazao').fadeIn();
+			 else
+				$('#msgErrorazao').fadeOut(0);
+		});
+		$('#buscarcep').click(function(){
             var cep = $('#cep').val();
             var url = 'https://viacep.com.br/ws/' +cep+ '/json';
             $.getJSON(url, function(data){
@@ -333,10 +337,7 @@
             $('#uf').val(data.uf);
             $('#complemento').val(data.complemento);
             })
-        })
-        })
-		
-		$(document).ready(function() {
+        });
 		
          $('#cadastrar').click(function(){
 			 var razao =$('#inputrazao').val();

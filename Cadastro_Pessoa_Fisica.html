@@ -58,7 +58,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="name" type="text" class="validate">
+                            <input name="Nome" id="inputnome" type="text" class="validate">
                             <label for="name">Nome Completo</label>
                         </div>
                         <!--<div class="input-field col s6">
@@ -69,33 +69,34 @@
 
                     <div class="row">
                         <div class="input-field col s4">
-                            <input id="CPF" type="text" class="validate">
+                            <input id="inputcpf" name="CPF" type="text" class="validate">
                             <label for="CPF">CPF</label>
                         </div>
                         <div class="input-field col s4">
-                            <input type="text" class="datepicker">
+                            <input id="inputdata" name="DataNascimento" type="text" class="datepicker">
                             <label for="Data-nascimento">Data de Nascimento</label>
                         </div>
                         <div class="input-field col s4">
-                            <input id="email" type="email" class="validate">
+                            <input id="inputemail" name="EmailContato"type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
-                            <input id="telefone" type="text" class="validate">
+                        <div class="input-field col s4">
+                            <input id="inputtelefone" name="Telefone" type="text" class="validate">
                             <label for="telefone">Telefone</label>
-                        </div>                   
-                        <div class="input-field col s6">
-                            <select>
-						  <option value="" disabled selected>Estado</option>
-						  <option value="1">São Paulo</option>
-						  <option value="2">Rio de Janeiro</option>
-						  <option value="3">Paraná</option>
-						</select>
-                            <label>Estado</label>
-                        </div>
-                    </div>
+                        </div> 
+					<div class="row">
+                        <div class="input-field col s4">
+                            <input id="inputcelular" name="Celular" type="text" class="validate">
+                            <label for="celular">Celular</label>
+                    </div>             		
+					<div class="row">
+                        <div class="input-field col s4">
+                            <input id="inputcep" name="CEP" type="text" class="validate">
+                            <label for="cep">CEP</label>
+                    </div>  
+                   
                     <div class="row">
                         <div class="input-field col s6">
                             <input id="password" type="password" class="validate">
