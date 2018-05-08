@@ -14,7 +14,12 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
 </head>
-
+<style rel="stylesheet" type="text/css">
+	.esconder{
+		display:none;
+		color:red;
+	}
+</style>
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
@@ -199,32 +204,82 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label for="Nome">Nome do Serviço</label>
-                                            <input type="text" class="form-control" id="Nome" name="Nome" placeholder="Serviço">
+                                            <input type="text" class="form-control" id="inputnome" name="Nome" placeholder="Serviço">
+											<p id="msgErronome" class="msgErro esconder">Preencher o nome do serviço é obrigatório !</p>
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label for="TempoMin">Quanto tempo demora?</label>
-                                            <input type="text" class="form-control" id="TempoMin" Name="TempoMin" placeholder="Tempo">
+                                            <label for="TempoMin">Tempo de duração</label>
+                                            <input type="text" class="form-control" id="inputtempo" Name="TempoMin" placeholder="Tempo em minutos">
+											<p id="msgErrotempo" class="msgErro esconder">Preencher o tempo de duração é obrigatório !</p>
+											<p id="msgErrotempo2" class="msgErro esconder">Digite o tempo de duração corretamente, em minutos!</p>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="Valor">Valor do Serviço</label>
-                                            <input type="text" class="form-control" id="Valor" Name="Valor" min="0" placeholder="R$">
+                                            <input type="text" class="form-control" id="inputreal" Name="Valor" min="0" placeholder="R$">
+											<p id="msgErroreal" class="msgErro esconder">Preencher o valor do serviço é obrigatório !</p>
+											<p id="msgErroreal2" class="msgErro esconder">Digite o valor do serviço corretamente!</p>
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label for="Descricao">Descrição do serviço</label>
-                                            <textarea class="form-control" rows="5" id="Descricao" placeholder="Descreva seu serviço."></textarea>
-                                        </div>
+                                            <textarea class="form-control" rows="5" id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
+											<p id="msgErrodescricao" class="msgErro esconder">Preencher a descrição do serviço é obrigatório !</p>
+										</div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Cadastrar</button>
-                        <button type="submit" class="btn btn-primary">Cancelar</button>
+                       <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+					   <button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
                     </div>
                 </div>
             </div>
         </div>
+	<script>	
+	  //Parte JavaScript//
+		$(document).ready(function() {
+		
+			 
+		 $('#cadastrar').click(function(){	 
+			var nome =$('#inputnome').val();
+			var  tempo=$('#inputtempo').val();
+			var real=$('#inputreal').val();
+			var descricao=$('#inputdescricao').val();
+				
+			 if (nome==null || nome=="")
+				$('#msgErronome').fadeIn(); 
+			 else
+				$('#msgErronome').fadeOut(0);
+				
+			if (tempo==null || tempo=="")
+				$('#msgErrotempo').fadeIn();
+			 else{
+				$('#msgErrotempo').fadeOut(0);	
+			if(isNaN(tempo))
+					$('#msgErrotempo2').fadeIn();
+				else
+					$('#msgErrotempo2').fadeOut(0);		
+			}	
+				
+			if (real==null || real=="")
+				$('#msgErroreal').fadeIn();
+			 else{
+				$('#msgErroreal').fadeOut(0);	
+			if(isNaN(real))
+					$('#msgErroreal2').fadeIn();
+				else
+					$('#msgErroreal2').fadeOut(0);		
+			}	
+			
+		    if (descricao==null || descricao=="")
+				$('#msgErrodescricao').fadeIn(); 
+			 else
+				$('#msgErrodescricao').fadeOut(0);	
+					
+	})	
+})
+	</script>			
 </body>
 
 </html>
