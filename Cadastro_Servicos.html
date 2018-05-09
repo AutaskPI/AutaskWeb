@@ -7,25 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastro de Estabelecimento</title>
+    <title>Cadastro de Serviço</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
-    <script src="js/jquery.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
-
 </head>
-
-<body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
-	<style rel="stylesheet" type="text/css">
+<style rel="stylesheet" type="text/css">
 	.esconder{
 		display:none;
 		color:red;
 	}
-</style>	
+</style>
+<body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
@@ -149,7 +144,7 @@
     <!-- Começo do conteudo interno-->
     <div class="content-wrapper">
         <div class="container-fluid">
-            <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#profissional">Cadastrar Profissional</button>
+                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#servico">Cadastro</button>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -183,18 +178,24 @@
             </div>
         </div>
     </div>
-    <!--Cadastro de Proffisional-->
-    <div class="modal" id="profissional" tabindex="-1" role="dialog">
+    <script src="vendor/jquery/jquery.min.js "></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js "></script>
+    </div>
+    <!-- Cadastro de Serviço-->
+    <div class="modal" id="servico" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Cadastro</h5>
+                        <h2 class="modal-title">Cadastro</h2>
                         <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 text-center">
-                                <h5 class="display-4">Cadastro de Funcionario</h5>
+                                <h1 class="display-4">Cadastro de Serviço</h1>
                             </div>
                         </div>
                         <div class="row mb-5">
@@ -202,32 +203,45 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="Nome">Nome do Funcionario</label>
-                                            <input type="text" class="form-control" id="inputnome" name="Nome" placeholder="Nome">
-											<p id="msgErronome" class="msgErro esconder">Preencher o campo nome do funcionario é obrigatório !</p>
+                                            <label for="Nome">Nome do Serviço</label>
+                                            <input type="text" class="form-control" id="inputnome" name="Nome" placeholder="Serviço">
+											<p id="msgErronome" class="msgErro esconder">Preencher o nome do serviço é obrigatório !</p>
                                         </div>
+										
+                                        <div class="form-group col-sm-6">
+                                            <label for="TempoMin">Tempo de duração</label>
+                                            <input type="text" class="form-control" id="inputtempo" Name="TempoMin" placeholder="Tempo em minutos">
+											<p id="msgErrotempo" class="msgErro esconder">Preencher o tempo de duração é obrigatório !</p>
+											<p id="msgErrotempo2" class="msgErro esconder">Digite o tempo de duração corretamente, em minutos!</p>
+                                        </div>
+										
+                                        <div class="form-group col-sm-6">
+                                            <label for="Valor">Valor do Serviço</label>
+                                            <input type="text" class="form-control" id="inputreal" Name="Valor" min="0" placeholder="R$">
+											<p id="msgErroreal" class="msgErro esconder">Preencher o valor do serviço é obrigatório !</p>
+											<p id="msgErroreal2" class="msgErro esconder">Digite o valor do serviço corretamente!</p>
+                                        </div>
+										
                                         <div class="form-group col-sm-12">
                                             <label for="Descricao">Descrição do serviço</label>
-                                            <textarea class="form-control" rows="5" id="inputdescricao" name="Descricao "placeholder="Descreva seu serviço."></textarea>
-											<p id="msgErrodescricao" class="msgErro esconder">Preencher o campo descrição do serviço é obrigatório !</p>
-                                        </div>
+                                            <textarea class="form-control" rows="5" id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
+											<p id="msgErrodescricao" class="msgErro esconder">Preencher a descrição do serviço é obrigatório !</p>
+										</div>
+										
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-						<button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-						<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+                       <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+					   <button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
                     </div>
                 </div>
             </div>
         </div>
-	 </div>	
- <script>
-    
-	// Parte JavaScript--//
-		
+	<script>	
+	  //Parte JavaScript//
 		$(document).ready(function() {
 			$('#inputnome').blur(function(){
 				if ($(this).val() == null || $(this).val().trim() == "")
@@ -235,45 +249,86 @@
 				else
 					$('#msgErronome').fadeOut(0);	
 				
-		});
+			});
+		
+			$('#inputtempo').blur(function(){
+				var tempo=$('#inputtempo').val();
+				if ($(this).val() == null || $(this).val().trim() == ""){
+					$('#msgErrotempo').fadeIn();
+					$('#msgErrotempo2').fadeOut(0);
+				}else{
+					$('#msgErrotempo').fadeOut(0);	
+					if(isNaN(tempo))
+						$('#msgErrotempo2').fadeIn();
+					else
+						$('#msgErrotempo2').fadeOut(0);		
+				}	
+			
+			});
+			
+			$('#inputreal').blur(function(){
+				var real=$('#inputreal').val();
+				if ($(this).val() == null || $(this).val().trim() == ""){
+					$('#msgErroreal').fadeIn();
+					$('#msgErroreal2').fadeOut(0);	
+				}else{
+					$('#msgErroreal').fadeOut(0);	
+					if(isNaN(real))
+						$('#msgErroreal2').fadeIn();
+					else
+						$('#msgErroreal2').fadeOut(0);		
+					}	
+			});
+			
 			$('#inputdescricao').blur(function(){
 				if ($(this).val() == null || $(this).val().trim() == "")
 					$('#msgErrodescricao').fadeIn();
 				else
 					$('#msgErrodescricao').fadeOut(0);	
-				
-		});
-			
-		
+			});
+			 
 			 
 			$('#cadastrar').click(function(){	 
 				var nome =$('#inputnome').val();
+				var tempo=$('#inputtempo').val();
+				var real=$('#inputreal').val();
 				var descricao=$('#inputdescricao').val();
-					
-						
+				
 				if (nome==null || nome=="")
-					$('#msgErronome').fadeIn();
+					$('#msgErronome').fadeIn(); 
 				else
 					$('#msgErronome').fadeOut(0);
 				
+				if (tempo==null || tempo==""){
+					$('#msgErrotempo').fadeIn();
+					$('#msgErrotempo2').fadeOut(0);		
+				}else{
+					$('#msgErrotempo').fadeOut(0);	
+				if(isNaN(tempo))
+						$('#msgErrotempo2').fadeIn();
+					else
+						$('#msgErrotempo2').fadeOut(0);		
+				}	
+				
+				if (real==null || real==""){
+					$('#msgErroreal').fadeIn();
+					$('#msgErroreal2').fadeOut(0);	
+				}else{
+					$('#msgErroreal').fadeOut(0);	
+				if(isNaN(real))
+					$('#msgErroreal2').fadeIn();
+				else
+					$('#msgErroreal2').fadeOut(0);		
+				}	
+			
 				if (descricao==null || descricao=="")
-					$('#msgErrodescricao').fadeIn();
+					$('#msgErrodescricao').fadeIn(); 
 				else
 					$('#msgErrodescricao').fadeOut(0);	
-			
-
+					
+				})	
 			})
-		})			
-		
-    </script>		
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js "></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js "></script>
-   
+	</script>			
 </body>
 
 </html>

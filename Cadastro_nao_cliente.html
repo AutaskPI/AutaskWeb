@@ -59,20 +59,25 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="Cadastro_Serviço.html">Cadastro de Serviço</a>
+                            <a href="Cadastro_Servicos.html">Cadastro de Serviço</a>
                         </li>
+						
                         <li>
                             <a href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_nao_cliente.html">Cadastro de cliente</a>
                         </li>
+						
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -139,6 +144,7 @@
                             <span class="small float-right text-muted">01:40 AM</span>
                             <div class="dropdown-message small">Queria estar na faculdade com vocês T_T</div>
                         </a>
+						
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <strong>Reginaldo</strong>
@@ -271,6 +277,7 @@
                                                    <input type="text" class="form-control" name="Nome" id="inputnome" placeholder="Nome Completo">
 													<p id="msgErronome" class="msgErro esconder">Preencher o campo nome completo é obrigatório !</p>
                                                 </div>
+												
                                                 <div class="form-group col-sm-6">
                                                     <label for="Telefone">Telefone/Celular</label>
 													<input type="text/javascript" class="form-control" name="Telefone" id="inputelefone" placeholder="Telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
@@ -281,20 +288,22 @@
                                  
                                                 <div class="form-group col-sm-6">
                                                     <label for="Email">Email</label>
-                                                    <input type="e-mail" class="form-control" id="inputemail" name="Email" placeholder="Email">
+                                                    <input type="email" class="form-control" id="inputemail" name="Email" placeholder="Email">
 													<p id="msgErroemail" class="msgErro esconder">Preencher o campo e-mail é obrigatório!</p>
 													<p id="msgErroemail2" class="msgErro esconder">Digite o e-mail corretamente!</p>
                                                 </div>
+												
                                                 <div class="form-group col-sm-6">
                                                     <label for="CPF">CPF</label>
                                                     <input type="text" class="form-control" id="inputcpf" name="CPF" placeholder="CPF" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
 													<script type="text/javascript">$("#inputcpf").mask("000.000.000-00");</script>	
-																										
+													<p id="msgErrocpf2" class="msgErro esconder">Digite o numero do CPF corretamente!</p>
                                                 </div>
                                                 <div class="form-group col-sm-12">
                                                     <label for="inputdescricao">Descrição do serviço</label>
                                                     <textarea class="form-control" rows="5"id="inputdescricao" name="Descricao" placeholder="Descreva seu serviço."></textarea>
                                                 </div>
+												
                                             </div>
                                         </form>
                                     </div>
@@ -311,6 +320,7 @@
 	  //Parte JavaScript//
 		$(document).ready(function() {	
 			$('#inputnome').blur(function(){
+			
 				if ($(this).val() == null || $(this).val().trim() == "")
 					$('#msgErronome').fadeIn();
 				else
@@ -318,12 +328,19 @@
 				
 		});
 			$('#inputelefone').blur(function(){
-				if ($(this).val() == null || $(this).val().trim() == "")
+				var telefone=$('#inputelefone').val();
+				if ($(this).val() == null || $(this).val().trim() == ""){
 					$('#msgErrotelefone').fadeIn();
-				else
-					$('#msgErrotelefone').fadeOut(0);	
+					$('#msgErrotelefone2').fadeOut(0);
+				}else{
+					$('#msgErrotelefone').fadeOut(0);
+					if (telefone.length < 14)	
+						$('#msgErrotelefone2').fadeIn();
+					else
+						$('#msgErrotelefone2').fadeOut(0);
+					}
+				});	
 				
-		});
 			$('#inputemail').blur(function(){
 				if ($(this).val() == null || $(this).val().trim() == "")
 					$('#msgErroemail').fadeIn();
@@ -331,12 +348,20 @@
 					$('#msgErroemail').fadeOut(0);	
 				
 		});
+			$('#inputcpf').blur(function(){
+				var cpf=$('#inputcpf').val();
+				if ((cpf.length  > 0)&&( cpf.length  <14))
+					$('#msgErrocpf2').fadeIn();
+				else
+					$('#msgErrocpf2').fadeOut(0);		
+			});		
 		
 			 
 		 $('#cadastrar').click(function(){	 
 			var nome =$('#inputnome').val();
 			var telefone=$('#inputelefone').val();
 			var email=$('#inputemail').val();
+			var cpf=$('#inputcpf').val();
 				
 			 if (nome==null || nome=="")
 				$('#msgErronome').fadeIn();
@@ -347,7 +372,7 @@
 					$('#msgErrotelefone').fadeIn();
 				else{
 				$('#msgErrotelefone').fadeOut(0);
-					if (telefone.length < 14)	
+					if (telefone.length  < 14)
 						$('#msgErrotelefone2').fadeIn();
 					else
 						$('#msgErrotelefone2').fadeOut(0);		
@@ -356,6 +381,12 @@
 				$('#msgErroemail').fadeIn();
 			 else
 				$('#msgErroemail').fadeOut(0);			
+			
+			if ((cpf.length  > 0)&&( cpf.length  <14))
+				$('#msgErrocpf2').fadeIn();
+			else
+				$('#msgErrocpf2').fadeOut(0);	
+			
 					
 	})	
 })
