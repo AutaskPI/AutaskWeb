@@ -281,8 +281,8 @@
                                  
                                                 <div class="form-group col-sm-6">
                                                     <label for="Email">Email</label>
-                                                    <input type="text" class="form-control" id="inputemail" name="Email" placeholder="Email">
-													<p id="msgErroemail" class="msgErro esconder">Preencher o campo e-mail completo é obrigatório!</p>
+                                                    <input type="e-mail" class="form-control" id="inputemail" name="Email" placeholder="Email">
+													<p id="msgErroemail" class="msgErro esconder">Preencher o campo e-mail é obrigatório!</p>
 													<p id="msgErroemail2" class="msgErro esconder">Digite o e-mail corretamente!</p>
                                                 </div>
                                                 <div class="form-group col-sm-6">
@@ -309,7 +309,28 @@
         </div>
 	<script>	
 	  //Parte JavaScript//
-		$(document).ready(function() {
+		$(document).ready(function() {	
+			$('#inputnome').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErronome').fadeIn();
+				else
+					$('#msgErronome').fadeOut(0);	
+				
+		});
+			$('#inputelefone').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErrotelefone').fadeIn();
+				else
+					$('#msgErrotelefone').fadeOut(0);	
+				
+		});
+			$('#inputemail').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErroemail').fadeIn();
+				else
+					$('#msgErroemail').fadeOut(0);	
+				
+		});
 		
 			 
 		 $('#cadastrar').click(function(){	 

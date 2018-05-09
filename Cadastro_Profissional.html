@@ -229,6 +229,21 @@
 	// Parte JavaScript--//
 		
 		$(document).ready(function() {
+			$('#inputnome').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErronome').fadeIn();
+				else
+					$('#msgErronome').fadeOut(0);	
+				
+		});
+			$('#inputdescricao').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErrodescricao').fadeIn();
+				else
+					$('#msgErrodescricao').fadeOut(0);	
+				
+		});
+			
 		
 			 
 		 $('#cadastrar').click(function(){	 

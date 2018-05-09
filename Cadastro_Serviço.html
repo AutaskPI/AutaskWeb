@@ -239,7 +239,36 @@
 	<script>	
 	  //Parte JavaScript//
 		$(document).ready(function() {
-		
+			$('#inputnome').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErronome').fadeIn();
+				else
+					$('#msgErronome').fadeOut(0);	
+				
+		});
+			$('#inputtempo').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == ""){
+					$('#msgErrotempo').fadeIn();
+					$('#msgErrotempo2').fadeOut(0);
+				}else
+					$('#msgErrotempo').fadeOut(0);	
+			});
+			
+			$('#inputreal').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == ""){
+					$('#msgErroreal').fadeIn();
+					$('#msgErroreal2').fadeOut(0);	
+				}else
+					$('#msgErroreal').fadeOut(0);	
+			});
+			
+			$('#inputdescricao').blur(function(){
+				if ($(this).val() == null || $(this).val().trim() == "")
+					$('#msgErrodescricao').fadeIn();
+				else
+					$('#msgErrodescricao').fadeOut(0);	
+			});
+			 
 			 
 		 $('#cadastrar').click(function(){	 
 			var nome =$('#inputnome').val();
@@ -252,9 +281,10 @@
 			 else
 				$('#msgErronome').fadeOut(0);
 				
-			if (tempo==null || tempo=="")
+			if (tempo==null || tempo==""){
 				$('#msgErrotempo').fadeIn();
-			 else{
+				$('#msgErrotempo2').fadeOut(0);		
+			 }else{
 				$('#msgErrotempo').fadeOut(0);	
 			if(isNaN(tempo))
 					$('#msgErrotempo2').fadeIn();
@@ -262,9 +292,10 @@
 					$('#msgErrotempo2').fadeOut(0);		
 			}	
 				
-			if (real==null || real=="")
+			if (real==null || real==""){
 				$('#msgErroreal').fadeIn();
-			 else{
+				$('#msgErroreal2').fadeOut(0);	
+			 }else{
 				$('#msgErroreal').fadeOut(0);	
 			if(isNaN(real))
 					$('#msgErroreal2').fadeIn();

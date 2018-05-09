@@ -33,9 +33,11 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
         <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
+		
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
+		
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
@@ -47,15 +49,19 @@
                         <li>
                             <a href="Cadastro_Serviço.html">Cadastro de Serviço</a>
                         </li>
+						
                         <li>
                             <a href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
                         </li>
+						
                         <li>
                                 <a href="Cadastro_nao_cliente.html">Cadastro de cliente</a>
                         </li>
@@ -81,9 +87,11 @@
                         <li>
                             <a href="#">Registros</a>
                         </li>
+						
                         <li>
                             <a href="#">Agenda</a>
                         </li>
+						
                     </ul>
                 </li>
                 </li>
@@ -211,23 +219,24 @@
                                                 <input type="text" class="form-control" name="Nome" id="inputrazao" placeholder="Razão Social">
 												<p id="msgErrorazao" class="msgErro esconder">Preencher o campo razão social é obrigatório !</p>
                                             </div>
+											
                                             <div class="form-group col-sm-12">
                                                 <label for="inputnome">Nome Fantasia</label>
                                                 <input type="text" class="form-control" name="NomeFantasia" id="inputnome" placeholder="Nome Fantasia">
-												<p id="msgErroNome" class="msgErro esconder">Preencher o campo nome fantasia é obrigatório !</p>
+												<p id="msgErronome" class="msgErro esconder">Preencher o campo nome fantasia é obrigatório !</p>
                                             </div>
+											
                                             <div class="form-group col-sm-6">
                                                 <label for="inputhorario">Horário de Funcionamento</label>
-                                                <input type="text" class="form-control" name="HorarioFuncionamento id="inputhorario" placeholder="Horario">
+                                                <input type="text" class="form-control" name="HorarioFuncionamento" id="inputhorario" placeholder="Horario">
 												<p id="msgErrohorario" class="msgErro esconder">Preencher o campo horario é obrigatório !</p>
-												
                                             </div>
+											
                                             <div class="form-group col-sm-6">
                                                 <label for="inputcontato">E-mail de contato</label>
-                                                <input type="e-mail" class="form-control" name="EmailContato" id="inputcontato" placeholder="E-mail">
-												
-												
+                                                <input class="form-control" type="email" name="EmailContato" id="inputcontato" placeholder="Email">
                                             </div>
+											
                                             <div class="form-group col-sm-6">
                                                     <label for="inputcnpj">CNPJ</label>
                                                     <input type="text" maxlength="18" class="form-control inputcnpj" name="CNPJ" id="inputcnpj" placeholder="CNPJ"
@@ -236,10 +245,12 @@
 														<p id="msgErrocnpj" class="msgErro esconder">Preencher o campo CNPJ é obrigatório !</p>
 														<p id="msgErrocnpj2" class="msgErro esconder">Digite o CNPJ corretamente!</p>
                                             </div>
+											
                                             <div class="form-group col-sm-6">
                                                 <label for="inputvalor">Coloque sua logo!</label>
                                                 <input type="file" class="form-control-file" name="CaminhoLogo" id="inputvalor"aria-describedby="filehelp">
                                             </div>
+											
                                             <div class="form-group col-sm-6">
 
                                                 <label for="inputelefone">Telefone</label>
@@ -248,6 +259,7 @@
 												<p id="msgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
 												<p id="msgErrotelefone2" class="msgErro esconder">Digite o numero do telefone corretamente!</p>
                                             </div>
+											
                                             <div class="form-group col-sm-6">
                                                 <label for="inputcelular">Celular</label>
                                                 <input type="text" maxlength="11" class="form-control" name="Celular" id="inputcelular" placeholder="Celular" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
@@ -256,6 +268,7 @@
 												<p id="msgErrocelular2" class="msgErro esconder">Digite o numero do celular corretamente!</p>
 												
                                             </div>
+											
                                             <div class="form-group col-sm-12">
                                                 <label for="inputdescricao">Descrição do Estabelecimento</label>
                                                 <textarea class="form-control" rows="5" name="Descricao" id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
@@ -271,33 +284,39 @@
                                                         <small id="emailHelp" class="form-text text-muted text-left">Escreva somente os números</small>
 														<p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
 														<p id="msgErrocep2" class="msgErro esconder">Digite o CEP corretamente!</p>
-													
                                                     </div>
+													
                                                     <div class="form-group col-sm-2">
                                                         <button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
                                                     </div>
+													
                                                     <div class="form-group col-sm-6">
                                                         <label for="rua">Rua</label>
                                                         <input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
                                                     </div>
+													
                                                     <div class="form-group col-sm-6">
                                                         <label for="cidade">Cidade</label>
                                                         <input type="text" class="form-control"name"Cidade" id="cidade" placeholder="Cidade" disabled>
                                                     </div>
+													
                                                     <div class="form-group col-sm-6">
                                                         <label for="bairro">Bairro</label>
                                                         <input type="text" class="form-control" name="Bairro" id="bairro" placeholder="Bairro" disabled>
                                                     </div>
+													
                                                     <div class="form-group col-sm-3">
                                                             <label for="uf">UF</label>
                                                             <input type="text" class="form-control" name="UF" id="uf" placeholder="UF" disabled>
                                                     </div>
+													
                                                     <div class="form-group col-sm-3">
                                                             <label for="numero">Numero</label>
                                                             <input type="text" class="form-control" name="Numero" id="numero" placeholder="N°">
 															<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero é obrigatório!!</p>
 															<p id="msgErronumero2" class="msgErro esconder">Digite o numero corretamente!</p>
                                                     </div>
+													
                                                     <div class="form-group col-sm-6">
                                                         <label for="complemento">Complemento</label>
                                                         <input type="text" class="form-control" name="Complemento" id="complemento" placeholder="Complemento">
@@ -323,27 +342,113 @@
 				$('#msgErrorazao').fadeIn();
 			 else
 				$('#msgErrorazao').fadeOut(0);
+			});	
+			
+		$('#inputnome').blur(function(){
+			if ($(this).val() == null || $(this).val().trim() == "")
+				$('#msgErronome').fadeIn();
+			 else
+				$('#msgErronome').fadeOut(0);			
+			});
+		
+		$('#inputhorario').blur(function(){
+			if ($(this).val() == null || $(this).val().trim() == "")
+				$('#msgErrohorario').fadeIn();
+			 else
+				$('#msgErrohorario').fadeOut(0);	
+				
 		});
+		
+		$('#inputcnpj').blur(function(){
+			var cnpj=$('#inputcnpj').val();
+			if ($(this).val() == null || $(this).val().trim() == ""){
+				$('#msgErrocnpj').fadeIn();
+				$('#msgErrocnpj2').fadeOut(0);
+			}else{
+				$('#msgErrocnpj').fadeOut(0);
+				if (cnpj.length < 18)	
+					$('#msgErrocnpj2').fadeIn();
+				else
+					$('#msgErrocnpj2').fadeOut(0);
+				}
+			});	
+				
+		$('#inputelefone').blur(function(){
+			var telefone=$('#inputelefone').val();
+			if ($(this).val() == null || $(this).val().trim() == ""){
+				$('#msgErrotelefone').fadeIn();
+				$('#msgErrotelefone2').fadeOut(0);
+			}else{
+				$('#msgErrotelefone').fadeOut(0);
+				if (telefone.length < 14)	
+					$('#msgErrotelefone2').fadeIn();
+				else
+					$('#msgErrotelefone2').fadeOut(0);
+				}
+			});	
+				
+		$('#inputcelular').blur(function(){
+			var celular=$('#inputcelular').val();
+			if ($(this).val() == null || $(this).val().trim() == ""){
+				$('#msgErrocelular').fadeIn();
+				$('#msgErrocelular2').fadeOut(0);
+			}else{
+				$('#msgErrocelular').fadeOut(0);
+					if (celular.length < 14)	
+						$('#msgErrocelular2').fadeIn();
+					else
+						$('#msgErrocelular2').fadeOut(0);
+				}
+			});	
+			
+		$('#cep').blur(function(){
+			var cep=$('#cep').val();
+			if ($(this).val() == null || $(this).val().trim() == ""){
+				$('#msgErrocep').fadeIn();
+				$('#msgErrocep2').fadeOut(0);
+			}else{
+				$('#msgErrocep').fadeOut(0);
+					if (cep  .length < 9)	
+						$('#msgErrocep2').fadeIn();
+					else
+						$('#msgErrocep2').fadeOut(0);
+				}
+			});	
+			
+		$('#numero').blur(function(){
+			var numero=$('#numero').val();
+			if ($(this).val() == null || $(this).val().trim() == "")
+				$('#msgErronumero').fadeIn();
+			else{
+				$('#msgErronumero').fadeOut(0);		
+					if(isNaN(numero))
+						$('#msgErronumero2').fadeIn();
+					else
+						$('#msgErronumero2').fadeOut(0);		
+				}
+					
+			});	
+			
 		$('#buscarcep').click(function(){
             var cep = $('#cep').val();
             var url = 'https://viacep.com.br/ws/' +cep+ '/json';
-            $.getJSON(url, function(data){
-                if("error" in data){
-                alert("Deu ruim");
-            }
-            $('#rua').val(data.logradouro);
-            $('#bairro').val(data.bairro);
-            $('#cidade').val(data.localidade);
-            $('#uf').val(data.uf);
-            $('#complemento').val(data.complemento);
-            })
-        });
+				$.getJSON(url, function(data){
+					if("error" in data){
+						console.log("Deu bosta");
+					}
+				$('#rua').val(data.logradouro);
+				$('#bairro').val(data.bairro);
+				$('#cidade').val(data.localidade);
+				$('#uf').val(data.uf);
+				$('#complemento').val(data.complemento);
+				console.log("Deu certo");
+				})
+			});
 		
          $('#cadastrar').click(function(){
 			 var razao =$('#inputrazao').val();
 			 var nome =$('#inputnome').val();
 			 var horario =$('#inputhorario').val();
-			 var email =$('#inputcontato').val();
 			 var cnpj  =$('#inputcnpj').val();
 			 var valor  =$('#inputvalor').val();
 			 var telefone=$('#inputelefone').val();
@@ -352,85 +457,75 @@
 			 var cep = $('#cep').val();
 			 var numero=$('#numero').val();	
 			
-		
-		
-		var emailFilter=/^.+@.+\..{2,}$/;
-		var illegalChars= /[\(\)\<\>\,\;\:\\\/\"\[\]]/
-	
-		if(!(emailFilter.test(email))||email.match(illegalChars)){
-			/*	$("p").show().removeClass("ok").addClass("erro")
-			.text('Por favor, informe um email válido.');
-		}else{
-			$("p").show().addClass("ok")
-			.text('Email informado está correto!');*/0
-		} 
-			
 					
-			 if (razao==null || razao=="")
+			if (razao==null || razao=="")
 				$('#msgErrorazao').fadeIn();
-			 else
+			else
 				$('#msgErrorazao').fadeOut(0);
 						
-			
-			 if (nome==null || nome=="")
-				$('#msgErroNome').fadeIn();
-			 else
-				$('#msgErroNome').fadeOut(0);
+			if (nome==null || nome=="")
+				$('#msgErronome').fadeIn();
+			else
+				$('#msgErronome').fadeOut(0);
 			 
-			 if(horario==null || horario=="")
+			if(horario==null || horario=="")
 				$('#msgErrohorario').fadeIn();
-				else
+			else
 				$('#msgErrohorario').fadeOut(0);
 				 
-			 if(cnpj==null || cnpj=="")
+			if(cnpj==null || cnpj==""){
 				$('#msgErrocnpj').fadeIn();
-				else{
-				$('#msgErrocnpj').fadeOut(0);
-				if (cnpj.length < 18)	
-				$('#msgErrocnpj2').fadeIn();
-				else
 				$('#msgErrocnpj2').fadeOut(0);
-			
-			}if((telefone==null) || (telefone==''))
+			}else{
+				$('#msgErrocnpj').fadeOut(0);
+					if (cnpj.length < 18)	
+						$('#msgErrocnpj2').fadeIn();
+					else
+						$('#msgErrocnpj2').fadeOut(0);
+				}
+				
+			if((telefone==null) || (telefone=='')){
 				$('#msgErrotelefone').fadeIn();
-				else{
-				$('#msgErrotelefone').fadeOut(0);
-				if (telefone.length < 14)	
-				$('#msgErrotelefone2').fadeIn();
-				else
 				$('#msgErrotelefone2').fadeOut(0);
-			
+			}else{
+				$('#msgErrotelefone').fadeOut(0);
+					if (telefone.length < 14)	
+						$('#msgErrotelefone2').fadeIn();
+					else
+						$('#msgErrotelefone2').fadeOut(0);
+				}
 				 
-			 }if(celular==null || celular=="")
+			if(celular==null || celular==""){
 				$('#msgErrocelular').fadeIn();
-				else{
-					$('#msgErrocelular').fadeOut(0);
+				$('#msgErrocelular2').fadeOut(0);
+			}else{
+				$('#msgErrocelular').fadeOut(0);
 					if (celular.length < 14)	
 						$('#msgErrocelular2').fadeIn();
 					else
 						$('#msgErrocelular2').fadeOut(0);
+				}
 				
-			
-			}if(cep==null || cep=="")
+			if(cep==null || cep==""){
 				$('#msgErrocep').fadeIn();
-				else{
-				$('#msgErrocep').fadeOut(0);
-				if (cep  .length < 9)	
-				$('#msgErrocep2').fadeIn();
-				else
 				$('#msgErrocep2').fadeOut(0);
-	
-	
-			}if(numero==null || numero=="")
-				$('#msgErronumero').fadeIn();
-				else
-				$('#msgErronumero').fadeOut(0);		
-
-			if(isNaN(numero))
-				$('#msgErronumero2').fadeIn();
-				else
-				$('#msgErronumero2').fadeOut(0);		
+			}else{
+				$('#msgErrocep').fadeOut(0);
+					if (cep.length < 9)	
+						$('#msgErrocep2').fadeIn();
+					else
+						$('#msgErrocep2').fadeOut(0);
+				}
 			
+			if(numero==null || numero=="")
+				$('#msgErronumero').fadeIn();
+			else{
+				$('#msgErronumero').fadeOut(0);		
+				if(isNaN(numero))
+					$('#msgErronumero2').fadeIn();
+				else
+					$('#msgErronumero2').fadeOut(0);		
+				}
 				 
 			 if(descricao==null || descricao==""){}
 			
