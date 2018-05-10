@@ -108,7 +108,7 @@
 							<input id="inputcontato" name="EmailContato"type="email" class="validate">
 							<label for="email">Email</label>
 							<p id="msgErrocontato" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
-							<p id="msgErrocontato2" class="msgErro esconder">Digite o numero do E-mail corretamente!</p>
+							<p id="msgErrocontato2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
 						
 					</div>
@@ -120,12 +120,14 @@
 					<div class="row">
 						<div class="input-field col s6">
 							<label for="rua">Rua</label>
-                            <input type="text" class="form-control" name="Logradouro" id="inputrua" placeholder="Rua" disabled>
+                            <input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
 						</div>
 						
 							<div class="input-field col s6">
 							<label for="numero">Numero</label>
-                            <input type="text" class="form-control" name="Numero" id="numero" placeholder="N°">
+                            <input type="text" class="form-control" name="Numero" id="numero" placeholder="N°">	
+							<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero é obrigatório!!</p>
+							<p id="msgErronumero2" class="msgErro esconder">Digite o numero corretamente!</p>
 							</div>
 					</div>
 					
@@ -173,17 +175,28 @@
 						<div class="input-field col s4">
 							<input id="inputemail" name="Email"type="email" class="validate">
 							<label for="email">Email</label>
+							<p id="msgErroemail" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
+							<p id="msgErroemail2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
+						
 						<div class="input-field col s4">
 							<input id="inputsenha" name="CPF" type="text" class="validate">
 							<label for="senha">Senha</label>
+							<p id="msgErrosenha" class="msgErro esconder">Preencher o campo senha é obrigatório !</p>
+							<p id="msgErrosenha2" class="msgErro esconder">Senha precisa ter 4 ou mais caracteres!</p>
 						</div>
+						
 						<div class="input-field col s4">
 							<input id="inputconfirma" name="CPF" type="text" class="validate">
 							<label for="confirmarsenha">Confirmar Senha</label>
+							<p id="msgErroconfirma" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
+							<p id="msgErroconfirma2" class="msgErro esconder">As senhas nao se equivalem, digite a senha novamente!</p>
 						</div>
 					</div>
 					
+						<div class="modal-footer">
+							<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+						</div>					
 					
 		</div>
 		<!-- Fim section -->
@@ -198,6 +211,23 @@
 		<script>
 		// Java script//
 			$(document).ready(function() {
+			
+				$('#buscarcep').click(function(){
+					var cep = $('#cep').val();
+					var url = 'https://viacep.com.br/ws/' +cep+ '/json';
+					$.getJSON(url, function(data){
+					if("error" in data){
+						console.log("Deu bosta");
+						}
+						$('#rua').val(data.logradouro);
+						$('#bairro').val(data.bairro);
+						$('#cidade').val(data.localidade);
+						$('#uf').val(data.uf);
+						$('#complemento').val(data.complemento);
+						console.log("Deu certo");
+					})
+				});
+			
 				$('select').material_select();
 
 				$('.datepicker').pickadate({
@@ -257,7 +287,7 @@
 						$('#msgErrocpf2').fadeOut(0);
 					}else{
 						$('#msgErrocpf').fadeOut(0);
-						if (telefone.length < 14)	
+						if (cpf.length < 14)	
 							$('#msgErrocpf2').fadeIn();
 						else
 							$('#msgErrocpf2').fadeOut(0);
@@ -285,6 +315,121 @@
 					}
 				});	
 				
+				
+						
+				$('#inputemail').blur(function(){
+					if ($(this).val() == null || $(this).val().trim() == "")
+						$('#msgErroemail').fadeIn();
+					else
+						$('#msgErroemail').fadeOut(0);			
+				});			
+						
+				$('#inputsenha').blur(function(){
+					var senha=$('#inputsenha').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrosenha').fadeIn();
+						$('#msgErrosenha2').fadeIn();
+					}else
+						$('#msgErrosenha').fadeOut(0);		
+					if (senha.length < 4){	
+						$('#msgErrosenha2').fadeIn();
+						$('#msgErrosenha').fadeOut(0);	
+					}else
+						$('#msgErrosenha2').fadeOut(0);	
+						
+				});	
+				
+				$('#inputconfirma').blur(function(){ 
+					var senha=$('#inputsenha').val();
+					var senha2=$('#inputconfirma').val();
+					if(senha != senha2)
+						$('#msgErroconfirma2').fadeIn();
+					else
+						$('#msgErroconfirma2').fadeOut(0);	
+				});	
+				
+				$('#cadastrar').click(function(){
+					var nome =$('#inputnome').val();
+					var data =$('#inputdata').val();
+					var celular=$('#inputcelular').val();
+					var cpf=$('#inputcpf').val();
+					var contato=$('#inputcontato').val();
+					var numero=$('#numero').val();
+					var cep = $('#cep').val();
+					
+					
+					if (nome==null || nome=="")
+						$('#msgErronome').fadeIn();
+					else
+						$('#msgErronome').fadeOut(0);
+					
+					if (data==null || data=="")
+						$('#msgErrodata').fadeIn();
+					else
+						$('#msgErrodata').fadeOut(0);	
+
+					if (celular==null || celular==""){	
+						$('#msgErrocelular').fadeIn();
+						$('#msgErrocelular2').fadeOut(0);
+					}else{
+						$('#msgErrocelular').fadeOut(0);
+						if (celular.length < 14)	
+							$('#msgErrocelular2').fadeIn();
+						else
+							$('#msgErrocelular2').fadeOut(0);
+						}	
+						
+					if (telefone==null || telefone==""){
+						$('#msgErrotelefone').fadeIn();
+						$('#msgErrotelefone2').fadeOut(0);
+					}else{
+						$('#msgErrotelefone').fadeOut(0);
+						if (telefone.length < 14)	
+							$('#msgErrotelefone2').fadeIn();
+						else
+							$('#msgErrotelefone2').fadeOut(0);
+					}
+					
+					if (cpf==null || cpf==""){
+						$('#msgErrocpf').fadeIn();
+						$('#msgErrocpf2').fadeOut(0);
+					}else{
+						$('#msgErrocpf').fadeOut(0);
+						if (cpf.length < 14)	
+							$('#msgErrocpf2').fadeIn();
+						else
+							$('#msgErrocpf2').fadeOut(0);
+					}
+					
+					if (contato==null || contato=="")
+						$('#msgErrocontato').fadeIn();
+					else
+						$('#msgErrocontato').fadeOut(0);	
+						
+					if(numero==null || numero=="")
+						$('#msgErronumero').fadeIn();
+					else{
+						$('#msgErronumero').fadeOut(0);		
+						if(isNaN(numero))
+							$('#msgErronumero2').fadeIn();
+						else
+							$('#msgErronumero2').fadeOut(0);	
+						}
+						
+					if(cep==null || cep=="")	
+						$('#msgErrocep').fadeIn();
+						$('#msgErrocep2').fadeOut(0);
+					}else{
+						$('#msgErrocep').fadeOut(0);
+						if (cep  .length < 9)	
+							$('#msgErrocep2').fadeIn();
+						else
+							$('#msgErrocep2').fadeOut(0);
+					}
+				});		
+							
+					
+				});	
 
 			});
 		</script>
