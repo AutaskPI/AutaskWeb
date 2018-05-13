@@ -7,50 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cadastro de Serviço</title>
-    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
+    <title>Cadastros</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap.css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-    <script src="js/Viacep.js"></script>
+    <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>	
 </head>
+
+<style rel="stylesheet" type="text/css">
+	.esconder{
+		display:none;
+		color:red;
+	}
+</style>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <img src="img/logoOficial.png" style="width: 3%;margin-left: 3%;">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
+        <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
         <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
+		
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
+		
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <!--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-user-circle"></i>
                         <span class="nav-link-text"> Cadastro</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseComponents">
                         <li>
-                            <a href="Cadastro_Serviço.html">Cadastro de Serviço</a>
+                            <a href="Cadastro_Servicos.html">Cadastro de Serviço</a>
                         </li>
+						
                         <li>
-                            <a href="#">Cadastro de Estabelecimento</a>
+                            <a href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
                         </li>
+						
                         <li>
-                                <a href="#">Cadastro de Funcionario</a>
+                                <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
                         </li>
+						
                         <li>
-                                <a href="#">Cadastro de Agenda</a>
+                                <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
                         </li>
+						
                         <li>
-                                <a href="#">Cadastro de não cliente</a>
+                                <a href="Cadastro_nao_cliente.html">Cadastro de cliente</a>
                         </li>
                     </ul>
-                </li>-->
+                </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                         <i class="fa fa-briefcase"></i>
@@ -71,10 +84,13 @@
                         <li>
                             <a href="#">Registros</a>
                         </li>
+						
                         <li>
                             <a href="#">Agenda</a>
                         </li>
+						
                     </ul>
+                </li>
                 </li>
             </ul>
             <ul class="navbar-nav sidenav-toggler">
@@ -122,7 +138,7 @@
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0 mr-lg-2">
                         <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Procurar por...">
+                            <input class="form-control" type="text" placeholder="Procurar...">
                             <span class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fa fa-search"></i>
@@ -132,7 +148,7 @@
                     </form>
                 </li>
                 <li id="sair" class="nav-item">
-                    <a class=" nav-link " data-toggle="modal " data-target="exampleModal " href="login.html">
+                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
                         <i class="fa fa-fw fa-sign-out "></i>Sair</a>
                 </li>
             </ul>
@@ -142,11 +158,19 @@
         <div class="container-fluid ">
             <div class="row">
                 <div class="col">
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#Estabelecimento">Cadastrar Estabelecimento</button>
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#naocliente">Cadastrar Cliente não registrado</button>
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#Horariosdisponiveis">Cadastrar Horários disponiveis</button>
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#profissional">Cadastrar Profissional</button>
-                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#servico">Cadastrar Serviço</button>
+                    <a type="button"class="btn btn-primary" href="Cadastro_nao_cliente.html">Cadastro de cliente não cadastrado</a>
+					<br>
+					</br>
+					<a type="button"class="btn btn-primary" href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
+					<br>
+					</br>
+                    <a type="button"class="btn btn-primary" href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
+					<br>
+					</br>
+                    <a type="button"class="btn btn-primary" href="Cadastro_Servicos.html">Cadastro de Serviço</a>
+					<br>
+					</br>
+					<a type="button"class="btn btn-primary" href="Cadastro_Profissional.html">Cadastro de Profissional</a>
                 </div>
             </div>
         </div>
@@ -159,415 +183,7 @@
                 <small>Copyright © Autask Reviews 2018</small>
             </div>
         </div>
-    </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded " href="#page-top ">
-        <i class="fa fa-angle-up "></i>
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Logout Modal-->
-    <div class="modal fade " id="exampleModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog " role="document ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title " id="exampleModalLabel ">Ready to Leave?</h5>
-                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
-              <span aria-hidden="true ">×</span>
-            </button>
-                </div>
-                <div class="modal-body ">Select "Logout " below if you are ready to end your current session.</div>
-                <div class="modal-footer ">
-                    <button class="btn btn-secondary " type="button " data-dismiss="modal ">Cancel</button>
-                    <a class="btn btn-primary " href="login.html ">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Modal Cadastro de Estabelecimento-->
-    <div class="modal" id="Estabelecimento" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastro</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>x</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <div class="row">
-                                <div class="col-12 text-center">
-                                    <h5 class="display-4">Cadastro de Estabelecimento</h5>
-                                </div>
-                            </div>
-                            <div class="row mb-5">
-                                <div class="col-sm-12 text-center">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="form-group col-sm-12">
-                                                <label for="inputnome">Nome Fantasia</label>
-                                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Fantasia">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputhorario">Horário de Funcionamento</label>
-                                                <input type="text" class="form-control" id="inputhorario" placeholder="Horario">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputcontato">E-mail de contato</label>
-                                                <input type="text" class="form-control" id="inputcontato" placeholder="E-mail">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                    <label for="inputcnpj">CNPJ</label>
-                                                    <input type="text" class="form-control" id="inputhorario" placeholder="CNPJ">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputvalor">Coloque sua logo!</label>
-                                                <input type="file" class="form-control-file" id="exampleInputFile"aria-describedby="filehelp">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputelefone">Telefone</label>
-                                                <input type="text" class="form-control" id="inputelefone" placeholder="Telefone">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputcelular">Celular</label>
-                                                <input type="text" class="form-control" id="inputcelular" placeholder="Celular">
-                                            </div>
-                                            <div class="form-group col-sm-12">
-                                                <label for="inputdescricao">Descrição do Estabelecimento</label>
-                                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu Estabelecimento."></textarea>
-                                            </div>
-                                        </div>
-                                            <h2>Endereço</h2>
-                                                <div class="row">
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="cep">Cep</label>
-                                                        <input type="text" class="form-control" id="cep" placeholder="Escreva seu cep">
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="rua">Rua</label>
-                                                        <input type="text" class="form-control" id="rua" placeholder="Rua" disabled>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="cidade">Cidade</label>
-                                                        <input type="text" class="form-control" id="cidade" placeholder="Cidade" disabled>
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="bairro">Bairro</label>
-                                                        <input type="text" class="form-control" id="bairro" placeholder="Bairro" disabled>
-                                                    </div>
-                                                    <div class="form-group col-sm-3">
-                                                            <label for="uf">UF</label>
-                                                            <input type="text" class="form-control" id="uf" placeholder="UF" disabled>
-                                                    </div>
-                                                    <div class="form-group col-sm-3">
-                                                            <label for="numero">Numero</label>
-                                                            <input type="text" class="form-control" id="numero" placeholder="N°">
-                                                    </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label for="complemento">Complemento</label>
-                                                        <input type="text" class="form-control" id="complemento" placeholder="Complemento">
-                                                    </div>
-                                            </div>
-                                    </form>
-                                </div>
-                            </div>
-                </div>
-                <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button><!-- Esta feito para fechar somente-->
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Cadastro Cliente não usuario-->
-    <div class="modal" id="naocliente" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5>Cadastro</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
-                </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                <h5 class="display-4">Cadastro de Cliente</h5>
-                            </div>
-                        </div>
-                            <div class="row mb-5">
-                                <div class="col-sm-12 text-center">
-                                    <form class="col s12">
-                                        <div class="row">
-                                            <div class="form-group col-sm-12">
-                                                <label for="inputnome">Nome</label>
-                                                <input type="text" class="form-control" id="inputnome" placeholder="Nome Completo">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputtelefone">Telefone</label>
-                                                <input type="number" class="form-control" id="inputtelefone" placeholder="Telefone">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputcelular">Celular</label>
-                                                <input type="number" class="form-control" id="inputcelular" placeholder="Celular">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputtempo">Email</label>
-                                                <input type="text" class="form-control" id="inputtempo" placeholder="Email">
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="inputvalor">CPF</label>
-                                                <input type="number" class="form-control" id="inputvalor" min="0" placeholder="CPF">
-                                            </div>
-                                            <div class="form-group col-sm-12">
-                                                <label for="inputdescricao">Descrição do serviço</label>
-                                                <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button><!-- Esta feito para fechar somente-->
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-    <!--Cadastro de Proffisional-->
-    <div class="modal" id="profissional" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastro</h5>
-                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h5 class="display-4">Cadastro de Funcionario</h5>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-sm-12 text-center">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputnome">Nome do Funcionario</label>
-                                        <input type="text" class="form-control" id="inputnome" placeholder="Nome">
-                                    </div>
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputdescricao">Descrição do serviço</label>
-                                        <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cadastro de Serviço-->
-    <div class="modal" id="servico" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Cadastro</h2>
-                    <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h1 class="display-4">Cadastro de Serviço</h1>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-sm-12 text-center">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputnome">Nome do Serviço</label>
-                                        <input type="text" class="form-control" id="inputnome" placeholder="Serviço">
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label for="inputtempo">Tempo de serviço</label>
-                                        <input type="text" class="form-control" id="inputtempo" placeholder="Tempo">
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label for="inputvalor">Valor do Serviço</label>
-                                        <input type="number" class="form-control" id="inputvalor" min="0" placeholder="R$">
-                                    </div>
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputdescricao">Descrição do serviço</label>
-                                        <textarea class="form-control" rows="5"id="inputdescricao" placeholder="Descreva seu serviço."></textarea>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                    <button type="submit" class="btn btn-primary">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <div class="modal" id="Horariosdisponiveis" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastro</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>x</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 text-center">
-                            <h5 class="display-5">Cadastro de Horarios Disponiveis</h5>
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <div class="col-sm-12 text-center">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputestabelecimento">Escolha o Estabelecimento</label>
-                                        <select id="inputestabelecimento" class="form-control">
-                                            <option selected>Escolha...</option>
-                                            <option>Legend's</option>
-                                            <option>Never</option>
-                                            <option>Die</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-sm-12">
-                                        <label for="inputtempo">Escolha a data</label>
-                                        <select id="inputestabelecimento" class="form-control">
-                                                <option selected>Esta tela esta sob pendencia ainda</option>
-                                                <option>Legend's</option>
-                                                <option>Never</option>
-                                                <option>Die</option>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cadastrar</button><!-- Esta feito para fechar somente-->
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js "></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js "></script>
-    <!--Script Via cep com tecla enter bind-->
-    <script>
-        $(document).ready(function(){
-            $(document).bind('keypress', function(e) {
-            if(e.keyCode==13){
-                 $('#cep').trigger('click');
-             }
-        });
-
-        $('#cep').click(function(){
-            var cep = $('#cep').val();
-            var url = 'https://viacep.com.br/ws/' +cep+ '/json';
-            $.getJSON(url, function(data){
-                if("error" in data){
-
-                alert("Deu ruim");
-            }
-            $('#rua').val(data.logradouro);
-            $('#bairro').val(data.bairro);
-            $('#cidade').val(data.localidade);
-            $('#uf').val(data.uf);
-            $('#complemento').val(data.complemento);
-
-            })
-        })
-        })
-    </script>
-    </div>
+  
 </body>
 
 </html>

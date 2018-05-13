@@ -2,16 +2,26 @@
 <html lang="Pt-br">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="img/logoOficial.png" type="image/x-icon" />
-    <title>Autask</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="img/logoOficial.png" type="image/x-icon" />
+	<script src="js/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
+	<title>Autask</title>
 
-    <!-- Link CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="css/cadastro.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<!-- Link CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link href="css/cadastro.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	
 </head>
+<style rel="stylesheet" type="text/css">
+	.esconder{
+		display:none;
+		color:red;
+	}
+</style>
 
 <body>
 
@@ -48,134 +58,383 @@
         </nav>
 
         <!-- Inicio do Section -->
-        <div class="container">
-            <div class="row" style="position: relative ;top:45px">
+		<div class="container">
+			<div class="row" style="position: relative ;top:45px">
+				<!-- Texto Titulo da página -->
+				<h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Juridica</h1>
+				<!-- Comeco do formulario -->
+				<form class="col s12">
+				
+					<div class="row">
+						<div class="input-field col s12">
+							<input name="Nome" id="inputnome" type="text" class="validate">
+							<label for="name">Razão Social</label>
+							<p id="msgErronome" class="msgErro esconder">Preencher o campo razão social é obrigatório !</p>
+						</div>
+					</div>
 
-                <h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Juridica</h1>
-                <form class="col s12">
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="name" type="text" class="validate">
-                            <label for="name">Nome Fantasia</label>
-                        </div>
-                        <!--<div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Segundo Name</label>
-                        </div>-->
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <input id="CNPJ" type="text" class="validate">
-                            <label for="CNPJ">CNPJ</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input type="text" class="datepicker">
-                            <label for="Data-nascimento">Email de cadastro</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input id="email" type="email" class="validate">
-                            <label for="email">Email para contato</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s4">
-                            <input id="telefone" type="text" class="validate">
-                            <label for="telefone">Telefone</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input id="celular" type="text" class="validate">
-                            <label for="Celular">Celular</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <select>
-						  <option value="" disabled selected>Estado</option>
-						  <option value="1">São Paulo</option>
-						  <option value="2">Rio de Janeiro</option>
-						  <option value="3">Paraná</option>
-						</select>
-                            <label>Estado</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Senha</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="con-password" type="password" class="validate">
-                            <label for="con-password">Confirmar Senha</label>
-                        </div>
-                    </div>
-
-                    <div id="botao" class="row right-align">
-                        <a class="waves-effect grey lighten-3t btn">Cadastrar-se</a>
-                        <!--<a class="waves-effect grey lighten-3t btn" href="index.html">Voltar</a>-->
-                    </div>
-                </form>
-            </div>
-        </div>
+					<div class="row">	
+						<div class="input-field col s6">
+							<label for="inputcelular">Celular</label>
+                            <input type="text"  class="form-control" name="Celular" id="inputcelular"  pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+							<script type="text/javascript">$("#inputcelular").mask("(00) 0000-00000");</script>
+							<p id="msgErrocelular" class="msgErro esconder">Preencher o campo celular é obrigatório !</p>
+							<p id="msgErrocelular2" class="msgErro esconder">Digite o numero do celular corretamente!</p>
+						</div>
+						
+						<div class="input-field col s6">
+							<label for="inputelefone">Telefone</label>
+                            <input type="text" class="form-control" name="Telefone" id="inputelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+							<script type="text/javascript">$("#inputelefone").mask("(00) 0000-0000");</script>		                					
+							<p id="msgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
+							<p id="msgErrotelefone2" class="msgErro esconder">Digite o numero do telefone corretamente!</p>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="input-field col s6">
+							<label for="cnpj">CNPJ</label>
+                            <input type="text" class="form-control" id="inputcnpj" name="CNPJ"  pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+							<script type="text/javascript">$("#inputcnpj").mask("99.999.999/9999-99");</script>	
+							<p id="msgErrocnpj" class="msgErro esconder">Preencher o campo cnpj é obrigatório !</p>
+							<p id="msgErrocnpj2" class="msgErro esconder">Digite o numero do cnpj corretamente!</p>
+						</div>
+						
+						<div class="input-field col s6">
+							<input id="inputcontato" name="EmailContato"type="email" class="validate">
+							<label for="email">Email</label>
+							<p id="msgErrocontato2" class="msgErro esconder">Digite o E-mail corretamente!</p>
+						</div>
+						
+					</div>
+					
+					<br>
+					<hr>
+					<br>
+					
+					<div class="row">
+						<div class="input-field col s6">
+							<label for="rua">Rua</label>
+                            <input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
+						</div>
+						
+							<div class="input-field col s6">
+							<label for="numero">Numero</label>
+                            <input type="text" class="form-control" name="Numero" id="numero"  >	
+							<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero é obrigatório!!</p>
+							<p id="msgErronumero2" class="msgErro esconder">Digite o numero corretamente!</p>
+							</div>
+					</div>
+					
+					<div class="row">
+						<div class="input-field col s6">	
+							<label for="complemento">Complemento</label>
+                            <input type="text" class="form-control" name="Complemento" id="complemento" ">	
+						</div>
+						
+						<div class="input-field col s6">
+							<label for="bairro">Bairro</label>
+							<input type="text" class="form-control" name="Bairro" id="bairro"  placeholder="Bairro" disabled>
+						</div>	
+					</div>	
+					
+					<div class="row">		
+						<div class="input-field col s4">
+							<label for="cidade">Cidade</label>
+                            <input type="text" class="form-control"name="Cidade" id="cidade"  placeholder="Cidade"disabled>
+						</div>
+						
+						<div class="input-field col s4">
+							<label for="uf">UF</label>
+                            <input type="text" class="form-control" name="UF" id="uf" placeholder="UF" disabled>
+						</div>
+						
+						<div class="input-field col s4">
+							<label for="cep">CEP</label>
+							<input type="text" class="form-control" name="CEP" id="cep" >
+							<script type="text/javascript">$("#cep").mask("00000-000");</script>
+                            <p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
+							<p id="msgErrocep2" class="msgErro esconder">Digite o CEP corretamente!</p>
+						</div>	
+						
+						 <div class="form-group col-sm-4">
+                            <button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
+                         </div>
+					</div>
+					
+					<br>
+					<hr>
+					<br>
+					
+					<div class="row">
+						<div class="input-field col s4">
+							<input id="inputemail" name="Email"type="email" class="validate">
+							<label for="email">Email</label>
+							<p id="msgErroemail" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
+							<p id="msgErroemail2" class="msgErro esconder">Digite o E-mail corretamente!</p>
+						</div>
+						
+						<div class="input-field col s4">
+							<input id="inputsenha" name="Senha" type="text" class="validate">
+							<label for="senha">Senha</label>
+							<p id="msgErrosenha" class="msgErro esconder">Preencher o campo senha é obrigatório !</p>
+							<p id="msgErrosenha2" class="msgErro esconder">Senha precisa ter 4 ou mais caracteres!</p>
+						</div>
+						
+						<div class="input-field col s4">
+							<input id="inputconfirma" name="Confirmar" type="text" class="validate">
+							<label for="confirmarsenha">Confirmar Senha</label>
+							<p id="msgErroconfirma" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
+							<p id="msgErroconfirma2" class="msgErro esconder">As senhas nao se equivalem, digite a senha novamente!</p>
+						</div>
+					</div>
+					
+						<div class="modal-footer">
+							<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+						</div>					
+					
+		</div>
         <!-- Fim section -->
 
-        <!-- Começo Roda Pé -->
-        <footer class="page-footer teal">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Compania</h5>
-                        <p class="grey-text text-lighten-4">texto,texto,texto,texto,texto,texto,texto,texto,texto,texto</p>
-
-
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">teste</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                        </ul>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">teste</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                            <li><a class="white-text" href="#!">teste</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    Made by Filho.Reginaldo
-                </div>
-            </div>
-        </footer>
-        <!-- Fim Roda Pé -->
 
 
         <!--  Scripts-->
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="js/materialize.js"></script>
         <script src="js/init.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('select').material_select();
+		<script>
+		// Java script//
+			$(document).ready(function() {
+			
+				$('#buscarcep').click(function(){
+					var cep = $('#cep').val();
+					var url = 'https://viacep.com.br/ws/' +cep+ '/json';
+					$.getJSON(url, function(data){
+					if("error" in data){
+						console.log("Deu bosta");
+						}
+						$('#rua').val(data.logradouro);
+						$('#bairro').val(data.bairro);
+						$('#cidade').val(data.localidade);
+						$('#uf').val(data.uf);
+						$('#complemento').val(data.complemento);
+						console.log("Deu certo");
+					})
+				});
+				
+				$('#inputnome').blur(function(){
+					if ($(this).val() == null || $(this).val().trim() == "")
+						$('#msgErronome').fadeIn();
+					else
+						$('#msgErronome').fadeOut(0);			
+				});		
+							
+				$('#inputcelular').blur(function(){
+					var celular=$('#inputcelular').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrocelular').fadeIn();
+						$('#msgErrocelular2').fadeOut(0);
+					}else{
+						$('#msgErrocelular').fadeOut(0);
+						if (celular.length < 14)	
+							$('#msgErrocelular2').fadeIn();
+						else
+							$('#msgErrocelular2').fadeOut(0);
+						}
+				});	
+				$('#inputelefone').blur(function(){
+					var telefone=$('#inputelefone').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrotelefone').fadeIn();
+						$('#msgErrotelefone2').fadeOut(0);
+					}else{
+						$('#msgErrotelefone').fadeOut(0);
+						if (telefone.length < 14)	
+							$('#msgErrotelefone2').fadeIn();
+						else
+							$('#msgErrotelefone2').fadeOut(0);
+					}
+				});	
+				
+				$('#inputcnpj').blur(function(){
+					var cnpj=$('#inputcnpj').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrocnpj').fadeIn();
+						$('#msgErrocnpj2').fadeOut(0);
+					}else{
+						$('#msgErrocnpj').fadeOut(0);
+						if (cnpj.length < 18)	
+							$('#msgErrocnpj2').fadeIn();
+						else
+							$('#msgErrocnpj2').fadeOut(0);
+					}
+				});	
+				
+				$('#inputcontato').blur(function(){
+					if ($(this).val() == null || $(this).val().trim() == "")
+						$('#msgErrocontato').fadeIn();
+					else
+						$('#msgErrocontato').fadeOut(0);			
+				});	
+						
+				$('#numero').blur(function(){
+					var numero=$('#numero').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErronumero').fadeIn();
+						$('#msgErronumero2').fadeOut(0);
+					}else{
+						$('#msgErronumero').fadeOut(0);		
+						if(isNaN(numero))
+							$('#msgErronumero2').fadeIn();
+						else
+							$('#msgErronumero2').fadeOut(0);	
+						}
+					});
+					
+				$('#cep').blur(function(){
+					var cep=$('#cep').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrocep').fadeIn();
+						$('#msgErrocep2').fadeOut(0);
+					}else{
+						$('#msgErrocep').fadeOut(0);
+						if (cep  .length < 9)	
+							$('#msgErrocep2').fadeIn();
+						else
+							$('#msgErrocep2').fadeOut(0);
+					}
+				});	
+				
+				
+						
+				$('#inputemail').blur(function(){
+					if ($(this).val() == null || $(this).val().trim() == "")
+						$('#msgErroemail').fadeIn();
+					else
+						$('#msgErroemail').fadeOut(0);			
+				});			
+						
+				$('#inputsenha').blur(function(){
+					var senha=$('#inputsenha').val();
+					if ($(this).val() == null || $(this).val().trim() == ""){
+						$('#msgErrosenha').fadeIn();
+						$('#msgErrosenha2').fadeOut(0);	
+					}else{
+						$('#msgErrosenha').fadeOut(0);		
+						if (senha.length < 4){	
+							$('#msgErrosenha2').fadeIn();
+							$('#msgErrosenha').fadeOut(0);	
+						}else
+							$('#msgErrosenha2').fadeOut(0);	
+					}	
+				});	
+				
+				$('#inputconfirma').blur(function(){ 
+					var senha=$('#inputsenha').val();
+					var senha2=$('#inputconfirma').val();
+					if(senha != senha2)
+						$('#msgErroconfirma2').fadeIn();
+					else
+						$('#msgErroconfirma2').fadeOut(0);	
+				});	
+				
+				$('#cadastrar').click(function(){
+					var nome =$('#inputnome').val();
+					var data =$('#inputdata').val();
+					var celular=$('#inputcelular').val();
+					var cnpj=$('#inputcnpj').val();
+					var contato=$('#inputcontato').val();
+					var telefone=$('#inputtelefone').val();
+					var numero=$('#numero').val();
+					var cep = $('#cep').val();
+					var senha = $('#inputsenha').val();
+					var confirma = $('#inputconfirma').val();
+					
+					
+					if (nome==null || nome=="")
+						$('#msgErronome').fadeIn();
+					else
+						$('#msgErronome').fadeOut(0);	
 
-                $('.datepicker').pickadate({
-                    selectMonths: true,
-                    selectYears: 100,
-                    today: "Hoje",
-                    clear: 'Limpar',
-                    close: 'Ok',
-                    closeOnSelect: false
-                });
+					if (celular==null || celular==""){	
+						$('#msgErrocelular').fadeIn();
+						$('#msgErrocelular2').fadeOut(0);
+					}else{
+						$('#msgErrocelular').fadeOut(0);
+						if (celular.length < 14)	
+							$('#msgErrocelular2').fadeIn();
+						else
+							$('#msgErrocelular2').fadeOut(0);
+						}	
+						
+					if (telefone==null || telefone==""){
+						$('#msgErrotelefone').fadeIn();
+						$('#msgErrotelefone2').fadeOut(0);
+					}else{
+						$('#msgErrotelefone').fadeOut(0);
+						if (telefone.length < 14)	
+							$('#msgErrotelefone2').fadeIn();
+						else
+							$('#msgErrotelefone2').fadeOut(0);
+					}
+					
+					if (cnpj==null || cnpj==""){
+						$('#msgErrocnpj').fadeIn();
+						$('#msgErrocnpj2').fadeOut(0);
+					}else{
+						$('#msgErrocnpj').fadeOut(0);
+						if (cnpj.length < 18)	
+							$('#msgErrocnpj2').fadeIn();
+						else
+							$('#msgErrocnpj2').fadeOut(0);
+					}	
+						
+					if(numero==null || numero=="")
+						$('#msgErronumero').fadeIn();
+					else{
+						$('#msgErronumero').fadeOut(0);		
+						if(isNaN(numero))
+							$('#msgErronumero2').fadeIn();
+						else
+							$('#msgErronumero2').fadeOut(0);	
+						}
+						
+					if(cep==null || cep==""){	
+						$('#msgErrocep').fadeIn();
+						$('#msgErrocep2').fadeOut(0);
+					}else{
+						$('#msgErrocep').fadeOut(0);
+						if (cep  .length < 9)	
+							$('#msgErrocep2').fadeIn();
+						else
+							$('#msgErrocep2').fadeOut(0);
+					}
+					
+					if(senha==null || senha==""){
+						$('#msgErrosenha').fadeIn();
+						$('#msgErrosenha2').fadeOut(0);	
+					}else{
+						$('#msgErrosenha').fadeOut(0);		
+						if (senha.length < 4){	
+							$('#msgErrosenha2').fadeIn();
+							$('#msgErrosenha').fadeOut(0);	
+						}else
+							$('#msgErrosenha2').fadeOut(0);	
+					}	
+					
+					if(confirma != senha)
+						$('#msgErroconfirma2').fadeIn();
+					else
+						$('#msgErroconfirma2').fadeOut(0);	
+					
+				});		
+							
+					
+				});	
 
-            });
-        </script>
+			
+		</script>
+
 </body>
 
 </html>
