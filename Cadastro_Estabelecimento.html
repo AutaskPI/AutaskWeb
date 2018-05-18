@@ -17,6 +17,8 @@
     <script src="js/jquery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>	
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
@@ -156,9 +158,34 @@
     </nav>
     <!-- Começo do conteudo interno-->
     <div class="content-wrapper">
+			<div style="text-center">
+				<h4>Cadastro do Estabelecimento</h4>
+			</div>	
+			<br></br>
         <div class="container-fluid">
             <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Estabelecimento" id="cadastro">Cadastro</button>
         </div>
+		<br></br> 
+		<div>
+			<table id="example" class="display" style="width:100%">
+				<thead>
+					<tr>
+						<th id="erazao">Razão Social</th>
+						<th id="enome">Nome Fantasia</th>
+						<th id="edescricao">Descrição</th>
+						<th id="ehorario">Horario de funcionamento</th>
+						<th id="ecnpj">CNPJ</th>
+						<th id="ecelular">Celular</th>
+						<th id="elogadoro">Logadoro</th>
+						<th id="euf">UF</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					
+				</tbody>
+		 </table>
+		 </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -333,6 +360,10 @@
     
 	// Parte JavaScript--
 	$(document).ready(function() {
+	
+		$('#example').DataTable();
+			
+		
 		$('#inputrazao').blur(function(){
 			if ($(this).val() == null || $(this).val().trim() == "")
 				$('#msgErrorazao').fadeIn();
@@ -545,6 +576,6 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 </body>
 </html>

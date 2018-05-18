@@ -13,6 +13,8 @@
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 </head>
 <style rel="stylesheet" type="text/css">
 	.esconder{
@@ -146,6 +148,22 @@
         <div class="container-fluid">
                 <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#servico">Cadastro</button>
         </div>
+		<br></br>
+		<div>
+		<table id="example" class="display" style="width:100%">
+			<thead>
+				<tr>
+					<th id="snome">Nome</th>
+					<th id="sdescricao">Descrição</th>
+					<th id="sduracao">Duração do serviço</th>
+					<th id="svalor">Valor</th>
+				</tr>
+			</thead>
+			<tbody>
+		
+			</tbody>
+		</table>
+	</div>	
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -239,6 +257,9 @@
 	<script>	
 	  //Parte JavaScript//
 		$(document).ready(function() {
+			
+			$('#example').DataTable();
+			
 			$('#inputnome').blur(function(){
 				if ($(this).val() == null || $(this).val().trim() == "")
 					$('#msgErronome').fadeIn();
@@ -310,7 +331,9 @@
 					
 	})	
 })
-	</script>			
+	</script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>	
 </body>
 
 </html>
