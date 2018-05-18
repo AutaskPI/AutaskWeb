@@ -15,14 +15,22 @@
     <link href="css/index.css" rel="stylesheet">
 </head>
 
-<body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
+<body class="fixed-nav sticky-footer" id="page-top">
+        <style rel="stylesheet" type="text/css">
+            .esconder{
+                display:none;
+                color:red;
+            }
+        </style>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="box-shadow: 0 -5px 15px 4px black !important;background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
         <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
@@ -75,7 +83,7 @@
                 </li>
                 </li>
             </ul>
-            <ul class="navbar-nav sidenav-toggler">
+            <ul class="navbar-nav sidenav-toggler" style="background-color:#444">
                 <li class="nav-item">
                     <a class="nav-link text-center" id="sidenavToggler">
                         <i class="fa fa-fw fa-angle-left"></i>
@@ -84,8 +92,8 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li id="sair" class="nav-item">
-                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
-                        <i class="fa fa-fw fa-sign-out "></i>Sair</a>
+                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html" >
+                        <i class="fa fa-fw fa-sign-out " ></i>Sair</a>
                 </li>
             </ul>
         </div>

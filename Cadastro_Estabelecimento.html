@@ -17,8 +17,7 @@
     <script src="js/jquery.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>	
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
@@ -29,7 +28,7 @@
 	}
 </style>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
         <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
 		
@@ -95,7 +94,7 @@
                 </li>
                 </li>
             </ul>
-            <ul class="navbar-nav sidenav-toggler">
+            <ul class="navbar-nav sidenav-toggler" style="background-color:#444">
                 <li class="nav-item">
                     <a class="nav-link text-center" id="sidenavToggler">
                         <i class="fa fa-fw fa-angle-left"></i>
@@ -135,10 +134,8 @@
 					</tr>
 				</thead>
 				<tbody>
-
-					
 				</tbody>
-		 </table>
+		    </table>
 		 </div>
     </div>
     <!-- /.container-fluid-->
@@ -255,8 +252,8 @@
                                             <h2>Endereço</h2>
                                                 <div class="row">
                                                     <div class="form-group col-sm-4">
-                                                        <label for="cep">Cep</label>
-                                                        <input type="text" class="form-control" name="CEP" id="cep" placeholder="Escreva seu cep" >
+                                                        <label for="cep">CEP</label>
+                                                        <input type="text" class="form-control" name="CEP" id="cep" placeholder="Escreva seu CEP" >
 														<script type="text/javascript">$("#cep").mask("00000-000");</script>
                                                         <small id="emailHelp" class="form-text text-muted text-left">Escreva somente os números</small>
 														<p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
