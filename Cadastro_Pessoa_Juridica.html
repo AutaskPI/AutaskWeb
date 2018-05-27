@@ -337,13 +337,18 @@
 				
 				$('#cadastrar').click(function(){
 					var nome =$('#inputnome').val();
-					var data =$('#inputdata').val();
 					var celular=$('#inputcelular').val();
 					var cnpj=$('#inputcnpj').val();
 					var contato=$('#inputcontato').val();
-					var telefone=$('#inputtelefone').val();
-					var numero=$('#numero').val();
+					var telefone=$('#inputelefone').val();
+					var rua=$('#rua').val();
 					var cep = $('#cep').val();
+				    var bairro= $('#bairro').val();
+					var uf = $('#uf').val();
+					var cidade = $('#cidade').val();
+					var numero=$('#numero').val();
+					var complemento= $('#complemento').val();
+					var email = $('#inputemail').val();
 					var senha = $('#inputsenha').val();
 					var confirma = $('#inputconfirma').val();
 					
@@ -423,6 +428,26 @@
 						$('#msgErroconfirma2').fadeIn();
 					else
 						$('#msgErroconfirma2').fadeOut(0);	
+						
+					var Juridica = {
+						Nome:string = nome,
+						TipoPessoa:"J",
+						CNPJ:string = cnpj,
+						Telefone:string= telefone,
+						Celular:string= celular,
+						EmailContato:string= contato,
+						CEP: string= cep,
+						Logradouro: string= rua,
+						Bairro: string= bairro,
+						UF: string= uf,
+						Cidade: string= cidade,
+						Numero: string= numero,
+						Complemento: string= complemento,
+						Email: string = email,
+						Senha: string= senha,
+						Confirmar: string= confirma
+						}
+					console.log(Juridica);		
 					
 				});		
 							

@@ -190,7 +190,7 @@
                                     <form class="col s12">
                                         <div class="row">
 											<div class="form-group col-sm-12">
-                                                <label for="inputnome">Razão Social</label>
+                                                <label for="inputrazao">Razão Social</label>
                                                 <input type="text" class="form-control" name="Nome" id="inputrazao" placeholder="Razão Social">
 												<p id="msgErrorazao" class="msgErro esconder">Preencher o campo razão social é obrigatório !</p>
                                             </div>
@@ -302,7 +302,7 @@
                 </div>
                 <div class="modal-footer">
                         <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-						<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+						<button id="cadastrar" type="button" class="btn btn-primary">Cadastrar </button><!-- Esta feito para fechar somente-->
                 </div>
             </div>
         </div>
@@ -418,108 +418,168 @@
 				$('#bairro').val(data.bairro);
 				$('#cidade').val(data.localidade);
 				$('#uf').val(data.uf);
-				$('#complemento').val(data.complemento);
+                $('#complemento').val(data.complemento);
+                $('#numero').val(data.numero);
 				console.log("Deu certo");
 				})
 			});
 		
          $('#cadastrar').click(function(){
-			 var razao =$('#inputrazao').val();
-			 var nome =$('#inputnome').val();
-			 var horario =$('#inputhorario').val();
-			 var cnpj  =$('#inputcnpj').val();
-			 var valor  =$('#inputvalor').val();
-			 var telefone=$('#inputelefone').val();
-			 var celular=$('#inputcelular').val();
-			 var descricao=$('#inputdescricao').val();
-			 var cep = $('#cep').val();
-			 var numero=$('#numero').val();	
-			
-					
-			if (razao==null || razao=="")
-				$('#msgErrorazao').fadeIn();
-			else
-				$('#msgErrorazao').fadeOut(0);
-						
-			if (nome==null || nome=="")
-				$('#msgErronome').fadeIn();
-			else
-				$('#msgErronome').fadeOut(0);
-			 
-			if(horario==null || horario=="")
-				$('#msgErrohorario').fadeIn();
-			else
-				$('#msgErrohorario').fadeOut(0);
-				 
-			if(cnpj==null || cnpj==""){
-				$('#msgErrocnpj').fadeIn();
-				$('#msgErrocnpj2').fadeOut(0);
-			}else{
-				$('#msgErrocnpj').fadeOut(0);
-					if (cnpj.length < 18)	
-						$('#msgErrocnpj2').fadeIn();
-					else
-						$('#msgErrocnpj2').fadeOut(0);
-				}
-				
-			if((telefone==null) || (telefone=='')){
-				$('#msgErrotelefone').fadeIn();
-				$('#msgErrotelefone2').fadeOut(0);
-			}else{
-				$('#msgErrotelefone').fadeOut(0);
-					if (telefone.length < 14)	
-						$('#msgErrotelefone2').fadeIn();
-					else
-						$('#msgErrotelefone2').fadeOut(0);
-				}
-				 
-			if(celular==null || celular==""){
-				$('#msgErrocelular').fadeIn();
-				$('#msgErrocelular2').fadeOut(0);
-			}else{
-				$('#msgErrocelular').fadeOut(0);
-					if (celular.length < 14)	
-						$('#msgErrocelular2').fadeIn();
-					else
-						$('#msgErrocelular2').fadeOut(0);
-				}
-				
-			if(cep==null || cep==""){
-				$('#msgErrocep').fadeIn();
-				$('#msgErrocep2').fadeOut(0);
-			}else{
-				$('#msgErrocep').fadeOut(0);
-					if (cep.length < 9)	
-						$('#msgErrocep2').fadeIn();
-					else
-						$('#msgErrocep2').fadeOut(0);
-				}
-			
-			if(numero==null || numero=="")
-				$('#msgErronumero').fadeIn();
-			else{
-				$('#msgErronumero').fadeOut(0);		
-				if(isNaN(numero))
-					$('#msgErronumero2').fadeIn();
-				else
-					$('#msgErronumero2').fadeOut(0);		
-				}
-				 
-			 if(descricao==null || descricao==""){}
-			
+             
+            var Estabelecimento = {
+            Nome:string = razao,
+            TipoPessoa:"J",
+            CNPJ:string = cnpj,
+            Telefone:string= telefone,
+            Celular:string= celular,
+            EmailContato:string= contato,
+            NomeFantasia:string= nome,
+            Descricao:string= descricao,
+            HorarioFuncionamento: string= horario,
+            Logradouro: string= rua,
+            CEP: string= cep,
+            Bairro: string= bairro,
+            UF: string= uf,
+            Cidade: string= cidade,
+            Numero: string= numero,
+            Complemento: string= complemento,
+            CaminhoLogo: string= valor
 
-				
-			 else{
-							
-			 
-				alert("valido");	
-			 }
+
+        }
+        console.log(Estabelecimento);
 			
-		 })
+         })
+         
 	})	
 
-	<script>$("#inputelefone").mask("(00) 0000-009");</script>	
+	function validarFomulario(){
+		var razao =$('#inputrazao').val();
+		 var nome =$('#inputnome').val();
+		 var horario =$('#inputhorario').val();
+		 var cnpj  =$('#inputcnpj').val();
+		 var valor  =$('#inputvalor').val();
+		 var contato =$('#inputcontato').val();
+		 var telefone=$('#inputelefone').val();
+		 var celular=$('#inputcelular').val();
+		 var descricao=$('#inputdescricao').val();
+		 var cep = $('#cep').val();
+		 var numero=$('#numero').val();	
+		 var rua =$('#rua').val();
+		 var bairro =$('#bairro').val();
+		 var cidade =$('#cidade').val();
+		 var uf =$('#uf').val();
+		 var complemento =$('#complemento').val();
+		
+		if (razao==null || razao==""){
+			$('#msgErrorazao').fadeIn();
+			return true;
+			}
+		else
+			$('#msgErrorazao').fadeOut(0);
+			return false;
+			
+		if (nome==null || nome=="")
+			$('#msgErronome').fadeIn();
+			return true;
+		else
+			$('#msgErronome').fadeOut(0);
+			return false;
+		 
+		if(horario==null || horario=="")
+			$('#msgErrohorario').fadeIn();
+			return true
+		else{
+			$('#msgErrohorario').fadeOut(0);
+			return false;
+			 }
+		if(cnpj==null || cnpj==""){boolean validacpnj = true;
+			$('#msgErrocnpj').fadeIn();
+			$('#msgErrocnpj2').fadeOut(0);
+			return true
+		}else{
+			$('#msgErrocnpj').fadeOut(0);
+				if (cnpj.length < 18)	
+					$('#msgErrocnpj2').fadeIn();
+				else
+					$('#msgErrocnpj2').fadeOut(0);
+			return false;
+		}
+			
+		if((telefone==null) || (telefone=='')){
+			$('#msgErrotelefone').fadeIn();
+			$('#msgErrotelefone2').fadeOut(0);
+			return true
+		}else{
+			$('#msgErrotelefone').fadeOut(0);
+				if (telefone.length < 14)	
+					$('#msgErrotelefone2').fadeIn();
+				else
+					$('#msgErrotelefone2').fadeOut(0);
+			return false;
+			}
+			 
+		if(celular==null || celular==""){
+			$('#msgErrocelular').fadeIn();
+			$('#msgErrocelular2').fadeOut(0);
+			return true
+		}else{
+			$('#msgErrocelular').fadeOut(0);
+				if (celular.length < 14)	
+					$('#msgErrocelular2').fadeIn();
+				else
+					$('#msgErrocelular2').fadeOut(0);
+			return false;
+			}
+			
+		if(cep==null || cep==""){
+			$('#msgErrocep').fadeIn();
+			$('#msgErrocep2').fadeOut(0);
+			return true
+		}else{
+			$('#msgErrocep').fadeOut(0);
+				if (cep.length < 9)	
+					$('#msgErrocep2').fadeIn();
+				else
+					$('#msgErrocep2').fadeOut(0);
+			return false;
+			}
+		
+		if(numero==null || numero=="")
+			$('#msgErronumero').fadeIn();
+			return true
+		else{
+			$('#msgErronumero').fadeOut(0);		
+			if(isNaN(numero))
+				$('#msgErronumero2').fadeIn();
+			else
+				$('#msgErronumero2').fadeOut(0);		
+			return false;
+			}
+			 
+		 if(descricao==null || descricao==""){}
+		 else{		 
+			alert("valido");	
+		 }
+		
+		
+	}
+	
+	if(validacelular=true && validacep=true && validacpnj=true && validahorario=true && validanome=true && validanumero=true && validarFomulario=true && validarazao=true && validatelefone=true)
+		document.getElementbyid("cadastrar").disabled = true;
+	else
+		document.getElementbyid("cadastrar").disabled = false;
     </script>
+	
+    <!--<script>
+        $(document).click(#cadastrar)
+        var Estabelecimento = {
+            Nome:string = this.nome,
+            TipoPessoa:"J"
+        }
+        console.log(this.Estabelecimento);
+    </script>-->
+        
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>

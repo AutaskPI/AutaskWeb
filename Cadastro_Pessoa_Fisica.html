@@ -87,7 +87,7 @@
 						<div class="input-field col s4">
 							<label for="inputelefone">Telefone</label>
                             <input type="text" class="form-control" name="Telefone" id="inputelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
-							<script type="text/javascript">$("#inputelefone").mask("(00) 0000-0000");</script>		                					
+							<script type="text/javascript">$("#inputelefone").mask("(00) 0000-00000");</script>		                					
 							<p id="msgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
 							<p id="msgErrotelefone2" class="msgErro esconder">Digite o numero do telefone corretamente!</p>
 						</div>
@@ -266,7 +266,7 @@
 						$('#msgErrotelefone2').fadeOut(0);
 					}else{
 						$('#msgErrotelefone').fadeOut(0);
-						if (telefone.length < 14)	
+						if (telefone.length < 13)	
 							$('#msgErrotelefone2').fadeIn();
 						else
 							$('#msgErrotelefone2').fadeOut(0);
@@ -361,9 +361,15 @@
 					var celular=$('#inputcelular').val();
 					var cpf=$('#inputcpf').val();
 					var contato=$('#inputcontato').val();
-					var telefone=$('#inputtelefone').val();
-					var numero=$('#numero').val();
+					var telefone=$('#inputelefone').val();
+					var rua=$('#rua').val();
 					var cep = $('#cep').val();
+				    var bairro= $('#bairro').val();
+					var uf = $('#uf').val();
+					var cidade = $('#cidade').val();
+					var numero=$('#numero').val();
+					var complemento= $('#complemento').val();
+					var email = $('#inputemail').val();
 					var senha = $('#inputsenha').val();
 					var confirma = $('#inputconfirma').val();
 					
@@ -399,7 +405,7 @@
 						$('#msgErrotelefone2').fadeOut(0);
 					}else{
 						$('#msgErrotelefone').fadeOut(0);
-						if (telefone.length < 14)	
+						if (telefone.length < 13)	
 							$('#msgErrotelefone2').fadeIn();
 						else
 							$('#msgErrotelefone2').fadeOut(0);
@@ -458,6 +464,27 @@
 						$('#msgErroconfirma2').fadeIn();
 					else
 						$('#msgErroconfirma2').fadeOut(0);	
+						
+					var Pessoa = {
+						Nome:string = nome,
+						TipoPessoa:"F",
+						CPF:string = cpf,
+						DataNascimento: string= data,
+						Telefone:string= telefone,
+						Celular:string= celular,
+						EmailContato:string= contato,
+						CEP: string= cep,
+						Logradouro: string= rua,
+						Bairro: string= bairro,
+						UF: string= uf,
+						Cidade: string= cidade,
+						Numero: string= numero,
+						Complemento: string= complemento,
+						Email: string = email,
+						Senha: string= senha,
+						Confirmar: string= confirma
+						}
+					console.log(Pessoa);	
 					
 				});		
 							
