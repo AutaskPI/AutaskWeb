@@ -14,7 +14,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<link href="css/cadastro.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
 </head>
@@ -22,6 +22,9 @@
 	.esconder {
 		display: none;
 		color: red;
+		position: absolute;
+		top:35px;
+		font-size: 12px;
 	}
 </style>
 
@@ -134,26 +137,26 @@
 							<p id="msgErrocep2" class="msgErro esconder">Digite o CEP corretamente!</p>
 						</div>
 						<div class="form-group col-sm-4">
-								<button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
+							<button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
 						</div>
 						<div class="input-field col s12">
 							<label for="rua">Rua</label>
-							<input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua">
+							<input type="text" class="form-control" name="Logradouro" id="rua" placeholder="">
 						</div>
 						<div class="input-field col s6">
-								<label for="bairro">Bairro</label>
-								<input type="text" class="form-control" name="Bairro" id="bairro" placeholder="Bairro" disabled>
+							<label for="bairro">Bairro</label>
+							<input type="text" class="form-control" name="Bairro" id="bairro" placeholder="Bairro" disabled>
 						</div>
 						<div class="input-field col s6">
-								<label for="cidade">Cidade</label>
-								<input type="text" class="form-control" name="Cidade" id="cidade" placeholder="Cidade" disabled>
-							</div>
+							<label for="cidade">Cidade</label>
+							<input type="text" class="form-control" name="Cidade" id="cidade" placeholder="Cidade" disabled>
+						</div>
 						<div class="input-field col s4">
 							<label for="numero">Numero</label>
 							<input type="text" class="form-control" name="Numero" id="numero">
 							<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero é obrigatório!!</p>
 							<p id="msgErronumero2" class="msgErro esconder">Digite o numero corretamente!</p>
-						</div>				
+						</div>
 						<div class="input-field col s4">
 							<label for="complemento">Complemento</label>
 							<input type="text" class="form-control" name="Complemento" id="complemento">
@@ -221,10 +224,11 @@
 					});
 
 					$('#inputnome').blur(function () {
-						if ($(this).val() == null || $(this).val().trim() == "")
+						if ($(this).val() == null || $(this).val().trim() == ""){
 							$('#msgErronome').fadeIn(700);
-						else
+						}else{
 							$('#msgErronome').fadeOut(0);
+						}
 					});
 
 					$('#inputcelular').blur(function () {
@@ -352,7 +356,7 @@
 						var email = $('#inputemail').val();
 						var senha = $('#inputsenha').val();
 						var confirma = $('#inputconfirma').val();
-
+					
 
 						if (nome == null || nome == "")
 							$('#msgErronome').fadeIn();
@@ -429,11 +433,8 @@
 							$('#msgErroconfirma2').fadeIn();
 						else
 							$('#msgErroconfirma2').fadeOut(0);
-
-						$('#cadastrar').click(function () {
-							if (Validarformulario()) {
-
-
+						
+							if (Validarformulario()==true) {
 								var Juridica = {
 									Nome: string = nome,
 									TipoPessoa: "J",
@@ -458,100 +459,98 @@
 									url: "http://saulodacruz2-001-site1.itempurl.com/api/Usuario/Cadastrar",
 									data: Juridica,
 									success: function (retorno) {
-										if(retorno == "Cadastro realizado com sucesso !"){
+										if (retorno == "Cadastro realizado com sucesso !") {
 											$.confirm({
-    											title: 'Sucesso!',
-    											content:retorno,
+												title: 'Sucesso!',
+												content: retorno,
 												type: 'green',
 												typeAnimated: true,
 												buttons: {
-													Ok:{
+													Ok: {
 														text: 'Ok',
 														btnClass: 'btn-green',
-														action: function(){
-															window.location.href="index.html";
+														action: function () {
+															window.location.href = "index.html";
+														}
 													}
 												}
-											}
 											});
 										}
-										else{
+										else {
 											$.confirm({
-											title: 'Erro!',
-											content:retorno,
-											type: 'red',
-											typeAnimated: true,
-											buttons: {
-												Ok:{
-													text: 'Ok',
-													btnClass: 'btn-red',
-													action: function(){
-											}
-											}
-										}
-										});
+												title: 'Erro!',
+												content: retorno,
+												type: 'red',
+												typeAnimated: true,
+												buttons: {
+													Ok: {
+														text: 'Ok',
+														btnClass: 'btn-red',
+														action: function () {
+														}
+													}
+												}
+											});
 										}
 									},
 									error: function (erro) {
-										$.confirm({
-										title: 'Erro!',
-										content:"Aconteceu um erro na requisição: " + erro.responseText,
-										type: 'red',
-										typeAnimated: true,
-										buttons: {
-											Ok:{
-												text: 'Ok',
-												btnClass: 'btn-red',
-												action: function(){
+										if (retorno != "Cadastro realizado com sucesso !") {
+											$.confirm({
+												title: 'Erro!',
+												content: "Aconteceu um erro na requisição: " + erro.responseText,
+												type: 'red',
+												typeAnimated: true,
+												buttons: {
+													Ok: {
+														text: 'Ok',
+														btnClass: 'btn-red',
+														action: function () {
+														}
+													}
+												}
+											});
 										}
+										else {
+											$.confirm({
+												title: 'Erro!',
+												content: "Por favor, reveja os campos novamente.",
+												type: 'red',
+												typeAnimated: true,
+												buttons: {
+													Ok: {
+														text: 'Ok',
+														btnClass: 'btn-red',
+														action: function () {
+														}
+													}
+												}
+											});
 										}
+
 									}
-									});
-									}
-								});
-							}
-							else{
-								$.confirm({
-								title: 'Erro!',
-								content:"Por favor, reveja os campos novamente.",
-								type: 'red',
-								typeAnimated: true,
-								buttons: {
-									Ok:{
-										text: 'Ok',
-										btnClass: 'btn-red',
-										action: function(){
-								}
-								}
-							}
 							});
-							}
 
-						});
-					});
-
-
+						}
+					function Validarformulario() {
+						if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+							$("#inputcelular").val() == null || $("#inputcelular").val().trim() == "" ||
+							$("#inputcnpj").val() == null || $("#inputcnpj").val().trim() == "" ||
+							$("#inputelefone").val() == null || $("#inputelefone").val().trim() == "" ||
+							$("#rua").val() == null || $("#rua").val().trim() == "" ||
+							$("#cep").val() == null || $("#cep").val().trim() == "" ||
+							$("#bairro").val() == null || $("#bairro").val().trim() == "" ||
+							$("#uf").val() == null || $("#uf").val().trim() == "" ||
+							$("#cidade").val() == null || $("#cidade").val().trim() == "" ||
+							$("#numero").val() == null || $("#numero").val().trim() == "" ||
+							$("#inputemail").val() == null || $("#inputemail").val().trim() == "" ||
+							$("#inputsenha").val() == null || $("#inputsenha").val().trim() == "" ||
+							$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == "")
+							return false
+						else
+							return true
+					}
 				});
-				function Validarformulario() {
-					if ($("#inputnome").val() == null || $("#inputnome").val().trim() == ""||
-						$("#inputcelular").val() == null || $("#inputcelular").val().trim() == ""||
-						$("#inputcnpj").val() == null || $("#inputcnpj").val().trim() == ""||
-						$("#inputelefone").val() == null || $("#inputelefone").val().trim() == ""||
-						$("#rua").val() == null || $("#rua").val().trim() == ""||
-						$("#cep").val() == null || $("#cep").val().trim() == ""||
-						$("#bairro").val() == null || $("#bairro").val().trim() == ""||
-						$("#uf").val() == null || $("#uf").val().trim() == ""||
-						$("#cidade").val() == null || $("#cidade").val().trim() == ""||
-						$("#numero").val() == null || $("#numero").val().trim() == ""||
-						$("#inputemail").val() == null || $("#inputemail").val().trim() == ""||
-						$("#inputsenha").val() == null || $("#inputsenha").val().trim() == ""||
-						$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == "")
-						return false
-					else
-						return true
-				}
-
-
+			});
 			</script>
 
 </body>
