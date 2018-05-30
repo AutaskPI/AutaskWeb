@@ -14,46 +14,64 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 	<link href="css/cadastro.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 
 </head>
 
 <body>
-<style rel="stylesheet" type="text/css">
-	.esconder{
-		display:none;
-		color:red;
-		position: absolute;
-		top: 35px;	
-		font-size: 12px;
-	}
-</style>
+	<style rel="stylesheet" type="text/css">
+		.esconder {
+			display: none;
+			color: red;
+			position: absolute;
+			top: 35px;
+			font-size: 12px;
+		}
+	</style>
 	<header>
 		<!-- Menu -->
-    <nav id="menufixo" class="white" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="brand-logo">Autask</a>
-            <ul class="right hide-on-med-and-down">
-                <img class="imgLogo" src="img/logoOficial.png" alt="Logo" style="border: 0;position: absolute;width: 4%;right: 101%;bottom: 23%;">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li id="cadastro">
-                    <a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a></li>
-                        <li><a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a></li>
-                    </ul>
-                </li>
-            </ul>
+		<nav id="menufixo" class="white" role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="index.html" class="brand-logo">Autask</a>
+				<ul class="right hide-on-med-and-down">
+					<img class="imgLogo" src="img/logoOficial.png" alt="Logo" style="border: 0;position: absolute;width: 4%;right: 101%;bottom: 23%;">
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="login.html">Login</a>
+					</li>
+					<li id="cadastro">
+						<a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
+						<ul id='dropdown1' class='dropdown-content'>
+							<li>
+								<a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a>
+							</li>
+							<li>
+								<a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 				<!-- Menu Mobile -->
 				<ul id="nav-mobile" class="side-nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a></li>
-					<li><a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a></li>
+					<li>
+						<a href="index.html">Home</a>
+					</li>
+					<li>
+						<a href="login.html">Login</a>
+					</li>
+					<li>
+						<a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a>
+					</li>
+					<li>
+						<a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a>
+					</li>
 				</ul>
-				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+				<a href="#" data-activates="nav-mobile" class="button-collapse">
+					<i class="material-icons">menu</i>
+				</a>
 			</div>
 		</nav>
 		<!-- Inicio do Section -->
@@ -63,7 +81,7 @@
 				<h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Física</h1>
 				<!-- Comeco do formulario -->
 				<form class="col s12">
-				
+
 					<div class="row">
 						<div class="input-field col s12">
 							<input name="Nome" id="inputnome" type="text" class="validate">
@@ -80,115 +98,115 @@
 							<p id="msgErrodata" class="msgErro esconder">Preencher a data de nascimento é obrigatório !</p>
 							<p id="msgErrodata2" class="msgErro esconder">Preencher a data de nascimento (DD/MM/AAAA) corretamente !</p>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<label for="inputcelular">Celular</label>
-                            <input type="text"  class="form-control" name="Celular" id="inputcelular"  pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+							<input type="text" class="form-control" name="Celular" id="inputcelular" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
 							<script type="text/javascript">$("#inputcelular").mask("(00) 0000-00000");</script>
 							<p id="msgErrocelular" class="msgErro esconder">Preencher o campo celular é obrigatório !</p>
 							<p id="msgErrocelular2" class="msgErro esconder">Digite o numero do celular corretamente!</p>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<label for="inputelefone">Telefone</label>
-                            <input type="text" class="form-control" name="Telefone" id="inputelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
-							<script type="text/javascript">$("#inputelefone").mask("(00) 0000-00000");</script>		                					
+							<input type="text" class="form-control" name="Telefone" id="inputelefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+							<script type="text/javascript">$("#inputelefone").mask("(00) 0000-00000");</script>
 							<p id="msgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
 							<p id="msgErrotelefone2" class="msgErro esconder">Digite o numero do telefone corretamente!</p>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="input-field col s6">
 							<label for="CPF">CPF</label>
-                            <input type="text" class="form-control" id="inputcpf" name="CPF"  pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
-							<script type="text/javascript">$("#inputcpf").mask("000.000.000-00");</script>	
+							<input type="text" class="form-control" id="inputcpf" name="CPF" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+							<script type="text/javascript">$("#inputcpf").mask("000.000.000-00");</script>
 							<p id="msgErrocpf" class="msgErro esconder">Preencher o campo CPF é obrigatório !</p>
 							<p id="msgErrocpf2" class="msgErro esconder">Digite o numero do CPF corretamente!</p>
 						</div>
-						
+
 						<div class="input-field col s6">
-							<input id="inputcontato" name="EmailContato"type="email" class="validate">
+							<input id="inputcontato" name="EmailContato" type="email" class="validate">
 							<label for="email">E-mail</label>
 							<p id="msgErrocontato" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
 							<p id="msgErrocontato2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
-						
+
 					</div>
-					
+
 					<br>
 					<hr>
 					<br>
-					
+
 					<div class="row">
 						<div class="input-field col s6">
 							<label for="rua">Rua</label>
-                            <input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
+							<input type="text" class="form-control" name="Logradouro" id="rua" placeholder="Rua" disabled>
 						</div>
-						
-							<div class="input-field col s6">
+
+						<div class="input-field col s6">
 							<label for="numero">Numero</label>
-                            <input type="text" class="form-control" name="Numero" id="numero" >	
+							<input type="text" class="form-control" name="Numero" id="numero">
 							<p id="msgErronumero" class="msgErro esconder">Preencher o campo numero é obrigatório!!</p>
 							<p id="msgErronumero2" class="msgErro esconder">Digite o numero corretamente!</p>
-							</div>
-					</div>
-					
-					<div class="row">
-						<div class="input-field col s6">	
-							<label for="complemento">Complemento</label>
-                            <input type="text" class="form-control" name="Complemento" id="complemento" >	
 						</div>
-						
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<label for="complemento">Complemento</label>
+							<input type="text" class="form-control" name="Complemento" id="complemento">
+						</div>
+
 						<div class="input-field col s6">
 							<label for="bairro">Bairro</label>
 							<input type="text" class="form-control" name="Bairro" id="bairro" placeholder="Bairro" disabled>
-						</div>	
-					</div>	
-					
-					<div class="row">		
+						</div>
+					</div>
+
+					<div class="row">
 						<div class="input-field col s4">
 							<label for="cidade">Cidade</label>
-                            <input type="text" class="form-control"name="Cidade" id="cidade" placeholder="Cidade" disabled>
+							<input type="text" class="form-control" name="Cidade" id="cidade" placeholder="Cidade" disabled>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<label for="uf">UF</label>
-                            <input type="text" class="form-control" name="UF" id="uf" placeholder="UF" disabled>
+							<input type="text" class="form-control" name="UF" id="uf" placeholder="UF" disabled>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<label for="cep">CEP</label>
-							<input type="text" class="form-control" name="CEP" id="cep" >
+							<input type="text" class="form-control" name="CEP" id="cep">
 							<script type="text/javascript">$("#cep").mask("00000-000");</script>
-                            <p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
+							<p id="msgErrocep" class="msgErro esconder">Preencher o campo CEP é obrigatório !</p>
 							<p id="msgErrocep2" class="msgErro esconder">Digite o CEP corretamente!</p>
-						</div>	
-						
-						 <div class="form-group col-sm-4">
-                            <button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
-                         </div>
+						</div>
+
+						<div class="form-group col-sm-4">
+							<button type="button" class="btn btn-info mt-4" id="buscarcep">Buscar</button>
+						</div>
 					</div>
-					
+
 					<br>
 					<hr>
 					<br>
-					
+
 					<div class="row">
 						<div class="input-field col s4">
-							<input id="inputemail" name="Email"type="email" class="validate">
+							<input id="inputemail" name="Email" type="email" class="validate">
 							<label for="email">E-mail</label>
 							<p id="msgErroemail" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
 							<p id="msgErroemail2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<input id="inputsenha" name="Senha" type="password" class="validate">
 							<label for="senha">Senha</label>
 							<p id="msgErrosenha" class="msgErro esconder">Preencher o campo senha é obrigatório !</p>
 							<p id="msgErrosenha2" class="msgErro esconder">Senha precisa ter 4 ou mais caracteres!</p>
 						</div>
-						
+
 						<div class="input-field col s4">
 							<input id="inputconfirma" name="Confirmar" type="password" class="validate">
 							<label for="confirmarsenha">Confirmar Senha</label>
@@ -196,412 +214,410 @@
 							<p id="msgErroconfirma2" class="msgErro esconder">As senhas nao se equivalem, digite a senha novamente!</p>
 						</div>
 					</div>
-					
-						<div class="modal-footer">
-							<button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
-						</div>					
-					
-		</div>
-		<!-- Fim section -->
 
-		
+					<div class="modal-footer">
+						<button id="cadastrar" type="button" class="btn btn-primary">Cadastrar </button>
+						<!-- Esta feito para fechar somente-->
+					</div>
+
+			</div>
+			<!-- Fim section -->
 
 
-		<!--  Scripts-->
-		<script src="js/materialize.js"></script>
-		<script src="js/init.js"></script>
-		<script>
-		// Java script//
-			$(document).ready(function() {
-			
-				$('#buscarcep').click(function(){
-					var cep = $('#cep').val();
-					var url = 'https://viacep.com.br/ws/' +cep+ '/json';
-					$.getJSON(url, function(data){
-					if("error" in data){
-						console.log("Deu bosta");
-						}
-						$('#rua').val(data.logradouro);
-						$('#bairro').val(data.bairro);
-						$('#cidade').val(data.localidade);
-						$('#uf').val(data.uf);
-						$('#complemento').val(data.complemento);
-						console.log("Deu certo");
-					})
-				});
-				
-				$('#inputnome').blur(function(){
-					if ($(this).val() == null || $(this).val().trim() == "")
-						$('#msgErronome').fadeIn();
-					else
-						$('#msgErronome').fadeOut(0);			
-				});		
-				
-				$('#inputdata').blur(function(){
-					var data=$('#inputdata').val();
-					if ($(this).val() == null || $(this).val().trim() == "")
-						$('#msgErrodata').fadeIn();
-					else{
-						$('#msgErrodata').fadeOut(0);
-						if (data.length < 10)	
-							$('#msgErrodata2').fadeIn();
+
+
+			<!--  Scripts-->
+			<script src="js/materialize.js"></script>
+			<script src="js/init.js"></script>
+			<script>
+				// Java script//
+				$(document).ready(function () {
+
+					$('#buscarcep').click(function () {
+						var cep = $('#cep').val();
+						var url = 'https://viacep.com.br/ws/' + cep + '/json';
+						$.getJSON(url, function (data) {
+							if ("error" in data) {
+								console.log("Deu bosta");
+							}
+							$('#rua').val(data.logradouro);
+							$('#bairro').val(data.bairro);
+							$('#cidade').val(data.localidade);
+							$('#uf').val(data.uf);
+							$('#complemento').val(data.complemento);
+							console.log("Deu certo");
+						})
+					});
+
+					$('#inputnome').blur(function () {
+						if ($(this).val() == null || $(this).val().trim() == "")
+							$('#msgErronome').fadeIn();
 						else
-							$('#msgErrodata2').fadeOut(0);
-						}	
-				});	
-				
-				$('#inputcelular').blur(function(){
-					var celular=$('#inputcelular').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErrocelular').fadeIn();
-						$('#msgErrocelular2').fadeOut(0);
-					}else{
-						$('#msgErrocelular').fadeOut(0);
-						if (celular.length < 14)	
-							$('#msgErrocelular2').fadeIn();
-						else
-							$('#msgErrocelular2').fadeOut(0);
-						}
-				});	
-				$('#inputelefone').blur(function(){
-					var telefone=$('#inputelefone').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErrotelefone').fadeIn();
-						$('#msgErrotelefone2').fadeOut(0);
-					}else{
-						$('#msgErrotelefone').fadeOut(0);
-						if (telefone.length < 13)	
-							$('#msgErrotelefone2').fadeIn();
-						else
-							$('#msgErrotelefone2').fadeOut(0);
-					}
-				});	
-				
-				$('#inputcpf').blur(function(){
-					var cpf=$('#inputcpf').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErrocpf').fadeIn();
-						$('#msgErrocpf2').fadeOut(0);
-					}else{
-						$('#msgErrocpf').fadeOut(0);
-						if (cpf.length < 14)	
-							$('#msgErrocpf2').fadeIn();
-						else
-							$('#msgErrocpf2').fadeOut(0);
-					}
-				});	
-				
-				$('#inputcontato').blur(function(){
-					if ($(this).val() == null || $(this).val().trim() == "")
-						$('#msgErrocontato').fadeIn();
-					else
-						$('#msgErrocontato').fadeOut(0);			
-				});	
-						
-				$('#numero').blur(function(){
-					var numero=$('#numero').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErronumero').fadeIn();
-						$('#msgErronumero2').fadeOut(0);
-					}else{
-						$('#msgErronumero').fadeOut(0);		
-						if(isNaN(numero))
-							$('#msgErronumero2').fadeIn();
-						else
-							$('#msgErronumero2').fadeOut(0);	
+							$('#msgErronome').fadeOut(0);
+					});
+
+					$('#inputdata').blur(function () {
+						var data = $('#inputdata').val();
+						if ($(this).val() == null || $(this).val().trim() == "")
+							$('#msgErrodata').fadeIn();
+						else {
+							$('#msgErrodata').fadeOut(0);
+							if (data.length < 10)
+								$('#msgErrodata2').fadeIn();
+							else
+								$('#msgErrodata2').fadeOut(0);
 						}
 					});
-					
-				$('#cep').blur(function(){
-					var cep=$('#cep').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErrocep').fadeIn();
-						$('#msgErrocep2').fadeOut(0);
-					}else{
-						$('#msgErrocep').fadeOut(0);
-						if (cep  .length < 9)	
-							$('#msgErrocep2').fadeIn();
+
+					$('#inputcelular').blur(function () {
+						var celular = $('#inputcelular').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErrocelular').fadeIn();
+							$('#msgErrocelular2').fadeOut(0);
+						} else {
+							$('#msgErrocelular').fadeOut(0);
+							if (celular.length < 14)
+								$('#msgErrocelular2').fadeIn();
+							else
+								$('#msgErrocelular2').fadeOut(0);
+						}
+					});
+					$('#inputelefone').blur(function () {
+						var telefone = $('#inputelefone').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErrotelefone').fadeIn();
+							$('#msgErrotelefone2').fadeOut(0);
+						} else {
+							$('#msgErrotelefone').fadeOut(0);
+							if (telefone.length < 13)
+								$('#msgErrotelefone2').fadeIn();
+							else
+								$('#msgErrotelefone2').fadeOut(0);
+						}
+					});
+
+					$('#inputcpf').blur(function () {
+						var cpf = $('#inputcpf').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErrocpf').fadeIn();
+							$('#msgErrocpf2').fadeOut(0);
+						} else {
+							$('#msgErrocpf').fadeOut(0);
+							if (cpf.length < 14)
+								$('#msgErrocpf2').fadeIn();
+							else
+								$('#msgErrocpf2').fadeOut(0);
+						}
+					});
+
+					$('#inputcontato').blur(function () {
+						if ($(this).val() == null || $(this).val().trim() == "")
+							$('#msgErrocontato').fadeIn();
 						else
+							$('#msgErrocontato').fadeOut(0);
+					});
+
+					$('#numero').blur(function () {
+						var numero = $('#numero').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErronumero').fadeIn();
+							$('#msgErronumero2').fadeOut(0);
+						} else {
+							$('#msgErronumero').fadeOut(0);
+							if (isNaN(numero))
+								$('#msgErronumero2').fadeIn();
+							else
+								$('#msgErronumero2').fadeOut(0);
+						}
+					});
+
+					$('#cep').blur(function () {
+						var cep = $('#cep').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErrocep').fadeIn();
 							$('#msgErrocep2').fadeOut(0);
-					}
-				});	
-				
-				
-						
-				$('#inputemail').blur(function(){
-					if ($(this).val() == null || $(this).val().trim() == "")
-						$('#msgErroemail').fadeIn();
-					else
-						$('#msgErroemail').fadeOut(0);			
-				});			
-						
-				$('#inputsenha').blur(function(){
-					var senha=$('#inputsenha').val();
-					if ($(this).val() == null || $(this).val().trim() == ""){
-						$('#msgErrosenha').fadeIn();
-						$('#msgErrosenha2').fadeOut(0);	
-					}else{
-						$('#msgErrosenha').fadeOut(0);		
-						if (senha.length < 4){	
-							$('#msgErrosenha2').fadeIn();
-							$('#msgErrosenha').fadeOut(0);	
-						}else
-							$('#msgErrosenha2').fadeOut(0);	
-					}	
-				});	
-				
-				$('#inputconfirma').blur(function(){ 
-					var senha=$('#inputsenha').val();
-					var senha2=$('#inputconfirma').val();
-					if(senha != senha2)
-						$('#msgErroconfirma2').fadeIn();
-					else
-						$('#msgErroconfirma2').fadeOut(0);	
-				});	
-				
-				$('#cadastrar').click(function(){
-					var nome =$('#inputnome').val();
-					var data =$('#inputdata').val();
-					var celular=$('#inputcelular').val();
-					var cpf=$('#inputcpf').val();
-					var contato=$('#inputcontato').val();
-					var telefone=$('#inputelefone').val();
-					var rua=$('#rua').val();
+						} else {
+							$('#msgErrocep').fadeOut(0);
+							if (cep.length < 9)
+								$('#msgErrocep2').fadeIn();
+							else
+								$('#msgErrocep2').fadeOut(0);
+						}
+					});
+
+
+
+					$('#inputemail').blur(function () {
+						if ($(this).val() == null || $(this).val().trim() == "")
+							$('#msgErroemail').fadeIn();
+						else
+							$('#msgErroemail').fadeOut(0);
+					});
+
+					$('#inputsenha').blur(function () {
+						var senha = $('#inputsenha').val();
+						if ($(this).val() == null || $(this).val().trim() == "") {
+							$('#msgErrosenha').fadeIn();
+							$('#msgErrosenha2').fadeOut(0);
+						} else {
+							$('#msgErrosenha').fadeOut(0);
+							if (senha.length < 4) {
+								$('#msgErrosenha2').fadeIn();
+								$('#msgErrosenha').fadeOut(0);
+							} else
+								$('#msgErrosenha2').fadeOut(0);
+						}
+					});
+
+					$('#inputconfirma').blur(function () {
+						var senha = $('#inputsenha').val();
+						var senha2 = $('#inputconfirma').val();
+						if (senha != senha2)
+							$('#msgErroconfirma2').fadeIn();
+						else
+							$('#msgErroconfirma2').fadeOut(0);
+					});
+				});
+
+				$('#cadastrar').click(function () {
+					var nome = $('#inputnome').val();
+					var data = $('#inputdata').val();
+					var celular = $('#inputcelular').val();
+					var cpf = $('#inputcpf').val();
+					var contato = $('#inputcontato').val();
+					var telefone = $('#inputelefone').val();
+					var rua = $('#rua').val();
 					var cep = $('#cep').val();
-				    var bairro= $('#bairro').val();
+					var bairro = $('#bairro').val();
 					var uf = $('#uf').val();
 					var cidade = $('#cidade').val();
-					var numero=$('#numero').val();
-					var complemento= $('#complemento').val();
+					var numero = $('#numero').val();
+					var complemento = $('#complemento').val();
 					var email = $('#inputemail').val();
 					var senha = $('#inputsenha').val();
 					var confirma = $('#inputconfirma').val();
-					
-					
-					if (nome==null || nome=="")
+
+
+					if (nome == null || nome == "")
 						$('#msgErronome').fadeIn();
 					else
 						$('#msgErronome').fadeOut(0);
-					
-					if (data==null || data=="")
+
+					if (data == null || data == "")
 						$('#msgErrodata').fadeIn();
-					else{
+					else {
 						$('#msgErrodata').fadeOut(0);
-						if (data.length < 10)	
+						if (data.length < 10)
 							$('#msgErrodata2').fadeIn();
 						else
 							$('#msgErrodata2').fadeOut(0);
-						}		
+					}
 
-					if (celular==null || celular==""){	
+					if (celular == null || celular == "") {
 						$('#msgErrocelular').fadeIn();
 						$('#msgErrocelular2').fadeOut(0);
-					}else{
+					} else {
 						$('#msgErrocelular').fadeOut(0);
-						if (celular.length < 14)	
+						if (celular.length < 14)
 							$('#msgErrocelular2').fadeIn();
 						else
 							$('#msgErrocelular2').fadeOut(0);
-						}	
-						
-					if (telefone==null || telefone==""){
+					}
+
+					if (telefone == null || telefone == "") {
 						$('#msgErrotelefone').fadeIn();
 						$('#msgErrotelefone2').fadeOut(0);
-					}else{
+					} else {
 						$('#msgErrotelefone').fadeOut(0);
-						if (telefone.length < 13)	
+						if (telefone.length < 13)
 							$('#msgErrotelefone2').fadeIn();
 						else
 							$('#msgErrotelefone2').fadeOut(0);
 					}
-					
-					if (cpf==null || cpf==""){
+
+					if (cpf == null || cpf == "") {
 						$('#msgErrocpf').fadeIn();
 						$('#msgErrocpf2').fadeOut(0);
-					}else{
+					} else {
 						$('#msgErrocpf').fadeOut(0);
-						if (cpf.length < 14)	
+						if (cpf.length < 14)
 							$('#msgErrocpf2').fadeIn();
 						else
 							$('#msgErrocpf2').fadeOut(0);
 					}
-					
-					if (contato==null || contato=="")
+
+					if (contato == null || contato == "")
 						$('#msgErrocontato').fadeIn();
 					else
-						$('#msgErrocontato').fadeOut(0);	
-						
-					if(numero==null || numero=="")
+						$('#msgErrocontato').fadeOut(0);
+
+					if (numero == null || numero == "")
 						$('#msgErronumero').fadeIn();
-					else{
-						$('#msgErronumero').fadeOut(0);		
-						if(isNaN(numero))
+					else {
+						$('#msgErronumero').fadeOut(0);
+						if (isNaN(numero))
 							$('#msgErronumero2').fadeIn();
 						else
-							$('#msgErronumero2').fadeOut(0);	
-						}
-						
-					if(cep==null || cep==""){	
+							$('#msgErronumero2').fadeOut(0);
+					}
+
+					if (cep == null || cep == "") {
 						$('#msgErrocep').fadeIn();
 						$('#msgErrocep2').fadeOut(0);
-					}else{
+					} else {
 						$('#msgErrocep').fadeOut(0);
-						if (cep  .length < 9)	
+						if (cep.length < 9)
 							$('#msgErrocep2').fadeIn();
 						else
 							$('#msgErrocep2').fadeOut(0);
 					}
-					
-					if(email==null || email=="")
+
+					if (email == null || email == "")
 						$('#msgErroemail').fadeIn();
 					else
-						$('#msgErroemail').fadeOut(0);	
-					
-					if(senha==null || senha==""){
+						$('#msgErroemail').fadeOut(0);
+
+					if (senha == null || senha == "") {
 						$('#msgErrosenha').fadeIn();
-						$('#msgErrosenha2').fadeOut(0);	
-					}else{
-						$('#msgErrosenha').fadeOut(0);		
-						if (senha.length < 4){	
+						$('#msgErrosenha2').fadeOut(0);
+					} else {
+						$('#msgErrosenha').fadeOut(0);
+						if (senha.length < 4) {
 							$('#msgErrosenha2').fadeIn();
-							$('#msgErrosenha').fadeOut(0);	
-						}else
-							$('#msgErrosenha2').fadeOut(0);	
-					}	
-					
-					if(confirma != senha)
+							$('#msgErrosenha').fadeOut(0);
+						} else
+							$('#msgErrosenha2').fadeOut(0);
+					}
+
+					if (confirma != senha)
 						$('#msgErroconfirma2').fadeIn();
 					else
-						$('#msgErroconfirma2').fadeOut(0);	
-						
-						$('#cadastrar').click(function () {
-							if (Validarformulario()) {
+						$('#msgErroconfirma2').fadeOut(0);
 
+					if (Validarformulario()) {
 						var Pessoa = {
-							Nome:string = nome.trim(),
-							TipoPessoa:"F".trim(),
-							CPF:string = cpf.trim(),
-							DataNascimento: string= data.trim(),
-							Telefone:string= telefone.trim(),
-							Celular:string= celular.trim(),
-							EmailContato:string= contato.trim(),
-							CEP: string= cep.trim(),
-							Logradouro: string= rua.trim(),
-							Bairro: string= bairro.trim(),
-							UF: string= uf.trim(),
-							Cidade: string= cidade.trim(),
-							Numero: string= numero.trim(),
-							Complemento: string= complemento.trim(),
+							Nome: string = nome.trim(),
+							TipoPessoa: "F".trim(),
+							CPF: string = cpf.trim(),
+							DataNascimento: string = data.trim(),
+							Telefone: string = telefone.trim(),
+							Celular: string = celular.trim(),
+							EmailContato: string = contato.trim(),
+							CEP: string = cep.trim(),
+							Logradouro: string = rua.trim(),
+							Bairro: string = bairro.trim(),
+							UF: string = uf.trim(),
+							Cidade: string = cidade.trim(),
+							Numero: string = numero.trim(),
+							Complemento: string = complemento.trim(),
 							Email: string = email.trim(),
-							Senha: string= senha.trim(),
-							Confirmar: string= confirma.trim()
+							Senha: string = senha.trim(),
+							Confirmar: string = confirma.trim()
 						}
-						
-								$.ajax({
-									type: "POST",
-									url: "http://saulodacruz2-001-site1.itempurl.com/api/Usuario/Cadastrar",
-									data: Pessoa,
-									success: function (retorno) {
-										if(retorno == "Cadastro realizado com sucesso !"){
-											$.confirm({
-    											title: 'Sucesso!',
-    											content:retorno,
-												type: 'green',
-												typeAnimated: true,
-												buttons: {
-													Ok:{
-														text: 'Ok',
-														btnClass: 'btn-green',
-														action: function(){
-															window.location.href="index.html";
-													}
-												}
-											}
-											});
-										}
-										else{
-											$.confirm({
-											title: 'Erro!',
-											content:retorno,
-											type: 'red',
-											typeAnimated: true,
-											buttons: {
-												Ok:{
-													text: 'Ok',
-													btnClass: 'btn-red',
-													action: function(){
-											}
+					}
+
+					$.ajax({
+						type: "POST",
+						url: "http://saulodacruz2-001-site1.itempurl.com/api/Usuario/Cadastrar",
+						data: Pessoa,
+						success: function (retorno) {
+							if (retorno == "Cadastro realizado com sucesso !") {
+								$.confirm({
+									title: 'Sucesso!',
+									content: retorno,
+									type: 'green',
+									typeAnimated: true,
+									buttons: {
+										Ok: {
+											text: 'Ok',
+											btnClass: 'btn-green',
+											action: function () {
+												window.location.href = "index.html";
 											}
 										}
-										});
-										}
-									},
-									error: function (erro) {
-										$.confirm({
-										title: 'Erro!',
-										content:"Aconteceu um erro na requisição: " + erro.responseText,
-										type: 'red',
-										typeAnimated: true,
-										buttons: {
-											Ok:{
-												text: 'Ok',
-												btnClass: 'btn-red',
-												action: function(){
-										}
-										}
-									}
-									});
 									}
 								});
 							}
-							else{
+							else {
 								$.confirm({
-								title: 'Erro!',
-								content:"Por favor, reveja os campos novamente.",
-								type: 'red',
-								typeAnimated: true,
-								buttons: {
-									Ok:{
-										text: 'Ok',
-										btnClass: 'btn-red',
-										action: function(){
-								}
-								}
+									title: 'Erro!',
+									content: retorno,
+									type: 'red',
+									typeAnimated: true,
+									buttons: {
+										Ok: {
+											text: 'Ok',
+											btnClass: 'btn-red',
+											action: function () {
+											}
+										}
+									}
+								});
 							}
-							});
+						},
+						error: function (erro) {
+							if (retorno != "Cadastro realizado com sucesso !") {
+								$.confirm({
+									title: 'Erro!',
+									content: "Aconteceu um erro na requisição: " + erro.responseText,
+									type: 'red',
+									typeAnimated: true,
+									buttons: {
+										Ok: {
+											text: 'Ok',
+											btnClass: 'btn-red',
+											action: function () {
+											}
+										}
+									}
+								});
 							}
+							else {
+								$.confirm({
+									title: 'Erro!',
+									content: "Por favor, reveja os campos novamente.",
+									type: 'red',
+									typeAnimated: true,
+									buttons: {
+										Ok: {
+											text: 'Ok',
+											btnClass: 'btn-red',
+											action: function () {
+											}
+										}
+									}
+								});
+							}
+						}
 
-						});
 					});
 
-
+					function Validarformulario() {
+						if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+							$("#inputcelular").val() == null || $("#inputcelular").val().trim() == "" ||
+							$("#inputdata").val() == null || $("#inputdata").val().trim() == "" ||
+							$("#inputcpf").val() == null || $("#inputcpf").val().trim() == "" ||
+							$("#inputelefone").val() == null || $("#inputelefone").val().trim() == "" ||
+							$("#rua").val() == null || $("#rua").val().trim() == "" ||
+							$("#cep").val() == null || $("#cep").val().trim() == "" ||
+							$("#bairro").val() == null || $("#bairro").val().trim() == "" ||
+							$("#uf").val() == null || $("#uf").val().trim() == "" ||
+							$("#cidade").val() == null || $("#cidade").val().trim() == "" ||
+							$("#numero").val() == null || $("#numero").val().trim() == "" ||
+							$("#inputemail").val() == null || $("#inputemail").val().trim() == "" ||
+							$("#inputsenha").val() == null || $("#inputsenha").val().trim() == "" ||
+							$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == "")
+							return false
+						else
+							return true
+					}
 				});
-				
-				function Validarformulario() {
-					if ($("#inputnome").val() == null || $("#inputnome").val().trim() == ""||
-						$("#inputcelular").val() == null || $("#inputcelular").val().trim() == ""||
-						$("#inputdata").val() == null || $("#inputdata").val().trim() == ""||
-						$("#inputcpf").val() == null || $("#inputcpf").val().trim() == ""||
-						$("#inputelefone").val() == null || $("#inputelefone").val().trim() == ""||
-						$("#rua").val() == null || $("#rua").val().trim() == ""||
-						$("#cep").val() == null || $("#cep").val().trim() == ""||
-						$("#bairro").val() == null || $("#bairro").val().trim() == ""||
-						$("#uf").val() == null || $("#uf").val().trim() == ""||
-						$("#cidade").val() == null || $("#cidade").val().trim() == ""||
-						$("#numero").val() == null || $("#numero").val().trim() == ""||
-						$("#inputemail").val() == null || $("#inputemail").val().trim() == ""||
-						$("#inputsenha").val() == null || $("#inputsenha").val().trim() == ""||
-						$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == "")
-						return false
-					else
-						return true
-				}	
-		</script>
-		
-		<!--Estilo CSS -->
-		
+			</script>
 
-		
+			<!--Estilo CSS -->
+
+
+
 </body>
 
 </html>
