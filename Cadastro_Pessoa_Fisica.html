@@ -60,7 +60,7 @@
 		<div class="container">
 			<div class="row" style="position: relative ;top:45px">
 				<!-- Texto Titulo da página -->
-				<h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Fisica</h1>
+				<h1 id="txtComeco" class="header center teal-text text-lighten-2">Cadastro Pessoa Física</h1>
 				<!-- Comeco do formulario -->
 				<form class="col s12">
 				
@@ -76,7 +76,7 @@
 						<div class="input-field col s4">
 							<input id="inputdata" name="DataNascimento" type="text" class="datepicker" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
 							<label for="Data-nascimento">Nascimento</label>
-							<script type="text/javascript">$("#inputdata").mask("0000/00/00");</script>
+							<script type="text/javascript">$("#inputdata").mask("0000-00-00");</script>
 							<p id="msgErrodata" class="msgErro esconder">Preencher a data de nascimento é obrigatório !</p>
 							<p id="msgErrodata2" class="msgErro esconder">Preencher a data de nascimento (DD/MM/AAAA) corretamente !</p>
 						</div>
@@ -109,7 +109,7 @@
 						
 						<div class="input-field col s6">
 							<input id="inputcontato" name="EmailContato"type="email" class="validate">
-							<label for="email">Email</label>
+							<label for="email">E-mail</label>
 							<p id="msgErrocontato" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
 							<p id="msgErrocontato2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
@@ -177,7 +177,7 @@
 					<div class="row">
 						<div class="input-field col s4">
 							<input id="inputemail" name="Email"type="email" class="validate">
-							<label for="email">Email</label>
+							<label for="email">E-mail</label>
 							<p id="msgErroemail" class="msgErro esconder">Preencher o campo E-mail é obrigatório !</p>
 							<p id="msgErroemail2" class="msgErro esconder">Digite o E-mail corretamente!</p>
 						</div>
@@ -478,23 +478,23 @@
 							if (Validarformulario()) {
 
 						var Pessoa = {
-							Nome:string = nome,
-							TipoPessoa:"F",
-							CPF:string = cpf,
-							DataNascimento: string= data,
-							Telefone:string= telefone,
-							Celular:string= celular,
-							EmailContato:string= contato,
-							CEP: string= cep,
-							Logradouro: string= rua,
-							Bairro: string= bairro,
-							UF: string= uf,
-							Cidade: string= cidade,
-							Numero: string= numero,
-							Complemento: string= complemento,
-							Email: string = email,
-							Senha: string= senha,
-							Confirmar: string= confirma
+							Nome:string = nome.trim(),
+							TipoPessoa:"F".trim(),
+							CPF:string = cpf.trim(),
+							DataNascimento: string= data.trim(),
+							Telefone:string= telefone.trim(),
+							Celular:string= celular.trim(),
+							EmailContato:string= contato.trim(),
+							CEP: string= cep.trim(),
+							Logradouro: string= rua.trim(),
+							Bairro: string= bairro.trim(),
+							UF: string= uf.trim(),
+							Cidade: string= cidade.trim(),
+							Numero: string= numero.trim(),
+							Complemento: string= complemento.trim(),
+							Email: string = email.trim(),
+							Senha: string= senha.trim(),
+							Confirmar: string= confirma.trim()
 						}
 						
 								$.ajax({
