@@ -1,0 +1,30 @@
+var Juridica = {
+	Nome: nome,
+	TipoPessoa:"J",
+	CNPJ: cnpj,
+	Telefone: telefone,
+	Celular: celular,
+	EmailContato: contato,
+	CEP:  cep,
+	Logradouro:  rua,
+	Bairro:  bairro,
+	UF:  uf,
+	Cidade:  cidade,
+	Numero:  numero,
+	Complemento:  complemento,
+	Email: email,
+	Senha:  senha,
+	Confirmar:  confirma
+	}
+	
+$.ajax({
+						type:"POST",
+						url:"http://saulodacruz2-001-site1.itempurl.com/api/Usuario/Cadastrar",
+						data:Juridica,
+						success:function(retorno){
+							alert(retorno);
+						},
+						error:function(erro){
+							alert("Aconteceu um erro na requisição: " + erro.responseText);
+						}
+					});
