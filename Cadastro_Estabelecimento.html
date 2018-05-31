@@ -15,9 +15,10 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
@@ -28,9 +29,9 @@
         }
     </style>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
-        <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" id="mainNav">
+        <img class="hidden-sm-down" src="img/teste.png" alt="Logo" id="imagemlogo">
+        <a id="textoLogo" class="navbar-brand" href="index.html" style="font-size:25px">Autask</a>
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +94,6 @@
 
                     </ul>
                 </li>
-                </li>
             </ul>
             <ul class="navbar-nav sidenav-toggler" style="background-color:#444">
                 <li class="nav-item">
@@ -104,7 +104,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li id="sair" class="nav-item">
-                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="login.html" id="exit">
                         <i class="fa fa-fw fa-sign-out "></i>Sair</a>
                 </li>
             </ul>
@@ -153,19 +153,19 @@
         <i class="fa fa-angle-up "></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade " id="exampleModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog " role="document ">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content ">
                 <div class="modal-header ">
-                    <h5 class="modal-title " id="exampleModalLabel ">Ready to Leave?</h5>
-                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
-                        <span aria-hidden="true ">×</span>
+                    <h5 class="modal-title " id="exampleModalLabel ">Confirmar Saida</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body ">Select "Logout " below if you are ready to end your current session.</div>
+                <div class="modal-body ">Deseja realmente sair?</div>
                 <div class="modal-footer ">
-                    <button class="btn btn-secondary " type="button " data-dismiss="modal ">Cancel</button>
-                    <a class="btn btn-primary " href="login.html ">Logout</a>
+                    <button class="btn btn-secondary " type="button " data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary " href="login.html ">Sair</a>
                 </div>
             </div>
         </div>
@@ -309,7 +309,6 @@
         </div>
     </div>
     <script>
-
         // Parte JavaScript--
         var gridEstabelecimento;
         $(document).ready(function () {
@@ -337,8 +336,9 @@
                         "sSortAscending": ": Ordenar colunas de forma ascendente",
                         "sSortDescending": ": Ordenar colunas de forma descendente"
                     }
-                }
+                },
             });
+            
 
             $('#inputrazao').blur(function () {
                 if ($(this).val() == null || $(this).val().trim() == "")
