@@ -15,6 +15,8 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
@@ -452,31 +454,7 @@
 
             
 
-            $('#cadastrar').click(function () {
-
-                var Estabelecimento = {
-                    Nome: string = razao,
-                    TipoPessoa: "J",
-                    CNPJ: string = cnpj,
-                    Telefone: string = telefone,
-                    Celular: string = celular,
-                    EmailContato: string = contato,
-                    NomeFantasia: string = nome,
-                    Descricao: string = descricao,
-                    HorarioFuncionamento: string = horario,
-                    Logradouro: string = rua,
-                    CEP: string = cep,
-                    Bairro: string = bairro,
-                    UF: string = uf,
-                    Cidade: string = cidade,
-                    Numero: string = numero,
-                    Complemento: string = complemento,
-                    CaminhoLogo: string = valor
-
-
-                }
-
-        function validarFomulario() {
+         $('#cadastrar').click(function () {    
             var razao = $('#inputrazao').val();
             var nome = $('#inputnome').val();
             var horario = $('#inputhorario').val();
@@ -493,7 +471,7 @@
             var cidade = $('#cidade').val();
             var uf = $('#uf').val();
             var complemento = $('#complemento').val();
-        }
+        
         if (razao == null || razao == "") 
             $('#msgErrorazao').fadeIn();
         else
@@ -569,34 +547,132 @@
         else {
             alert("valido");
         }
-    })
-    function CarregarEstabelecimentos(){
-        $.ajax({
-            type:"GET",
-            url:"http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/ObterTodos",
-            success:function(retorno){
-            gridEstabelecimento.draw().clear()
-            var objeto = JSON.parse(retorno);
-            if(objeto.length>=0){
-                for(i=0;i<objeto.length;i++){
-                gridEstabelecimento.row.add([
-                objeto[i].Nome,
-                objeto[i].NomeFantasia,
-                objeto[i].Descricao,
-                objeto[i].HorarioFuncionamento,
-                objeto[i].CNPJ,
-                objeto[i].Celular,
-                objeto[i].Logradouro,
-                objeto[i].UF
-            ]).draw(false);
-                }
-            }
-            },
-            error:function(erro){
+		function validarFomulario() {
+			var Estabelecimento = {
+				Nome: string = razao,
+                TipoPessoa: "J",
+                CNPJ: string = cnpj,
+                Telefone: string = telefone,
+                Celular: string = celular,
+                EmailContato: string = contato,
+                NomeFantasia: string = nome,
+                Descricao: string = descricao,
+                HorarioFuncionamento: string = horario,
+                Logradouro: string = rua,
+                CEP: string = cep,
+                Bairro: string = bairro,
+                UF: string = uf,
+                Cidade: string = cidade,
+                Numero: string = numero,
+                Complemento: string = complemento,
+                CaminhoLogo: string = valor
+               }
+			  } 
+			  $.ajax({
+				type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/Cadastrar",
+				data: Estabelecimento,
+				success: function (retorno) {
+					if (retorno == "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										window.location.href = "index.html";
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},
+				error: function (erro) {
+					if (retorno != "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Erro!',
+							content: "Aconteceu um erro na requisição: " + erro.responseText,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: "Por favor, reveja os campos novamente.",
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				}
+
+			});
+			  
+			});   
+		
+		function CarregarEstabelecimentos(){
+			$.ajax({
+				type:"GET",
+				url:"http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/ObterTodos",
+				success:function(retorno){
+				gridEstabelecimento.draw().clear()
+				var objeto = JSON.parse(retorno);
+				if(objeto.length>=0){
+					for(i=0;i<objeto.length;i++){
+					gridEstabelecimento.row.add([
+					objeto[i].Nome,
+					objeto[i].NomeFantasia,
+					objeto[i].Descricao,
+					objeto[i].HorarioFuncionamento,
+					objeto[i].CNPJ,
+					objeto[i].Celular,
+					objeto[i].Logradouro,
+					objeto[i].UF
+				]).draw(false);
+					}
+				}
+				},
+				error:function(erro){
                 alert("Aconteceu um erro na requisição: " + erro.respondeText);
-            }
-        })
-    }
+				}
+			})
+		}
 </script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>

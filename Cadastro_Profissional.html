@@ -246,17 +246,10 @@
 		})
 		
 			$('#cadastrar').click(function(){	 
-				var Profissional = {
-                    Nome: string = nome,
-                    Descricao: string = descricao
-				}	
-			
-			 function validarFomulario() {
 				var nome =$('#inputnome').val();
 				var descricao=$('#inputdescricao').val();
-			}		
-						
-				if (nome==null || nome=="")
+				
+			if (nome==null || nome=="")
 					$('#msgErronome').fadeIn();
 				else
 					$('#msgErronome').fadeOut(0);
@@ -264,15 +257,100 @@
 				if (descricao==null || descricao=="")
 					$('#msgErrodescricao').fadeIn();
 				else
-					$('#msgErrodescricao').fadeOut(0);	
+					$('#msgErrodescricao').fadeOut(0);					
 			
-				var Profissional= {
-					Nome: string= nome,
-					Descricao: string= descricao
-
+			 function validarFomulario() {
+				var Profissional = {
+                    Nome: string = nome,
+                    Descricao: string = descricao
+				}	
+			}		
+			
+			$.ajax({
+				type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Cadastrar",
+				data: Profissional,
+				success: function (retorno) {
+					if (retorno == "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										window.location.href = "index.html";
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},
+				error: function (erro) {
+					if (retorno != "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Erro!',
+							content: "Aconteceu um erro na requisição: " + erro.responseText,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: "Por favor, reveja os campos novamente.",
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
 				}
 
-			});		
+			});	
+			});	
+
+			function Validarformulario() {
+				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" )
+					return false
+				else
+					return true
+			}
+      
 
 	   
 	   function CarregarProfissional(){
@@ -296,6 +374,8 @@
 				}
 			})
 		}
+		
+		
 		
     </script>		
     <!-- Bootstrap core JavaScript-->
