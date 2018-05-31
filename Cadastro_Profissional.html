@@ -199,10 +199,34 @@
  <script>
     
 	// Parte JavaScript--//
-		
+		 var gridProfissional;
 		$(document).ready(function() {
-		
-			$('#example').DataTable();
+			
+			gridProfissional= $('#example').DataTable({
+                "language": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de START até END de TOTAL registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de MAX registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Mostrando MENU resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                }
+            });
 			
 			$('#inputnome').blur(function(){
 				if ($(this).val() == null || $(this).val().trim() == "")
@@ -218,13 +242,19 @@
 					$('#msgErrodescricao').fadeOut(0);	
 				
 		});
-			
+			CarregarProfissional();	
+		})
 		
-			 
 			$('#cadastrar').click(function(){	 
+				var Profissional = {
+                    Nome: string = nome,
+                    Descricao: string = descricao
+				}	
+			
+			 function validarFomulario() {
 				var nome =$('#inputnome').val();
 				var descricao=$('#inputdescricao').val();
-					
+			}		
 						
 				if (nome==null || nome=="")
 					$('#msgErronome').fadeIn();
@@ -241,10 +271,31 @@
 					Descricao: string= descricao
 
 				}
-				console.log(Profissional);	
 
+			});		
+
+	   
+	   function CarregarProfissional(){
+		$.ajax({
+				type:"GET",
+				url:"http://saulodacruz2-001-site1.itempurl.com/api/Profissional/ObterTodos",
+				success:function(retorno){
+				gridProfissional.draw().clear()
+				var objeto = JSON.parse(retorno);
+				if(objeto.length>=0){
+					for(i=0;i<objeto.length;i++){
+					gridProfissional.row.add([
+					objeto[i].Nome,
+					objeto[i].Descricao 
+				]).draw(false);
+					}
+				}
+				},
+				error:function(erro){
+					alert("Aconteceu um erro na requisição: " + erro.respondeText);
+				}
 			})
-		})			
+		}
 		
     </script>		
     <!-- Bootstrap core JavaScript-->
