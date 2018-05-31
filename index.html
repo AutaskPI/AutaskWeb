@@ -26,7 +26,7 @@
                 <li id="cadastro">
                     <a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a></li>
+                        <li><a href="Cadastro_Pessoa_Física.html">Pessoa Fisica</a></li>
                         <li><a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a></li>
                     </ul>
                 </li>
@@ -46,7 +46,7 @@
         <div id="index-banner" class="parallax-container">
             <div class="section no-pad-bot">
                 <div class="container" style=" position: relative; top:0px;">
-                    <h1 id="txtComeco" class="header center teal-text text-lighten-2">Autask</h1>
+                    <h1 id="txtComeco" class="header center ">Autask</h1>
 
                     <h5 id="txtComeco2" class="header row center col s12 light">A melhor empresa para você e seu negócio</h5>
                
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h4 class="center brown-text"><i>Plataforma Usuário</i></h4>
+                        <h4 id="usuario" class="blue-text"><i>Plataforma Usuário</i></h4>
 
                         <p class="light">-Localiza empresa. <br></br>-Escolhe o serviço <br></br>- Agenda melhor dia para o atendimento. <br></br>- Orçamento do serviço.
 						<br></br>- Consulta de historico. <br></br>- Recebe notificação de atraso. </p>
@@ -73,7 +73,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h4 class="center brown-text"><i>Plataforma Adminstrador</i></h4>
+                        <h4 id="adm" class="blue-text"><i>Plataforma Adminstrador</i></h4>
 		
                         <p class="light">- Cadastrar empresa. <br></br>- Cadastrar serviço. <br></br>- Ganho financeiro diário. <br></br>- Consulta de historico.  <br></br>
 						- Notificação de atraso. <br></br>- Facil usabilidade. 
@@ -83,7 +83,7 @@
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h4 class="center brown-text"><i>Autask</i></h4>
+                        <h4 id="aut" class="blue-text"><i>Autask</i></h4>
 						<p class="light">O Autask é um grupo de amigos que se conhecemos em 2017, onde determinado dia resolvemos fazer um aplicativo para auxiliar as empresas
 						nos processos de agendamento. Esse foi o primeiro projeto de sucesso em nossa compania.<br></br>"Tempo é dinheiro", e quando falamos de tempo falamos de Autask. Onde que nosso compromisso é otimizar seu tempo.
 						</p>
@@ -117,7 +117,10 @@
                     </ul>
                 </div>
                 <div class="col l3 s12">
-                    <h5 class="white-text">Rede Sociais</h5>
+                     <h5 class="white-text">Rede Sociais</h5>
+					 <img id="img" src="img\face.png">
+					  <img id="img" src="img\instagram.png">
+					 
                     <ul>
          
                     </ul>
@@ -142,7 +145,37 @@
     <script>
         $("#nav-mobile").removeClass("nav")
     </script>
+	<style rel="stylesheet" type="text/css">
+	
+	#txtComeco{
+		position:relative;
+		top: 15px;
+		color:#6495ED;	
+		text-shadow:7px 7px #FFFFFF;
+	}
+	
+	#txtComeco2{
+		color:#6495ED;	
+		text-shadow:5px 5px #FFFFFF;
+	}
+	
+	#usuario{
+		font-size: 22px;	
+	}
+	
+	#adm{
+		font-size: 22px;	
+	}
+		
+	#aut{
+		font-size: 22px;	
+	}	
+	
+	#img{
+		width:25%;
 
+	}	
+	</style>
 
 </body>
 
