@@ -14,6 +14,8 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 
@@ -199,7 +201,7 @@
  <script>
     
 	// Parte JavaScript--//
-		 var gridProfissional;
+		var gridProfissional;
 		$(document).ready(function() {
 			
 			gridProfissional= $('#example').DataTable({
@@ -259,7 +261,7 @@
 				else
 					$('#msgErrodescricao').fadeOut(0);					
 			
-			 function validarFomulario() {
+			if (Validarformulario()) {	
 				var Profissional = {
                     Nome: string = nome,
                     Descricao: string = descricao
@@ -282,7 +284,8 @@
 									text: 'Ok',
 									btnClass: 'btn-green',
 									action: function () {
-										window.location.href = "index.html";
+										CarregarProfissional();
+										$("#profissional").modal("hide");
 									}
 								}
 							}
@@ -343,15 +346,6 @@
 			});	
 			});	
 
-			function Validarformulario() {
-				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
-					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" )
-					return false
-				else
-					return true
-			}
-      
-
 	   
 	   function CarregarProfissional(){
 		$.ajax({
@@ -375,17 +369,23 @@
 			})
 		}
 		
+		function Validarformulario() {
+				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" )
+					return false
+				else
+					return true
+			}
+      	
 		
 		
     </script>		
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js "></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
    
 </body>

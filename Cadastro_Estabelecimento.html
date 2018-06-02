@@ -18,7 +18,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
     
 </head>
@@ -543,11 +542,8 @@
                 $('#msgErronumero2').fadeOut(0);
         }
 
-        if (descricao == null || descricao == "") { }
-        else {
-            alert("valido");
-        }
-		function validarFomulario() {
+
+		if (Validarformulario()) {	
 			var Estabelecimento = {
 				Nome: string = razao,
                 TipoPessoa: "J",
@@ -567,7 +563,8 @@
                 Complemento: string = complemento,
                 CaminhoLogo: string = valor
                }
-			  } 
+			 } 
+			  
 			  $.ajax({
 				type: "POST",
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/Cadastrar",
@@ -674,6 +671,27 @@
 				}
 			})
 		}
+		
+					function Validarformulario() {
+				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+					$("#inputhorario").val() == null || $("#inputhorario").val().trim() == "" ||
+					$("#inputcnpj").val() == null || $("#inputcnpj").val().trim() == "" ||
+					$("#inputcontato").val() == null || $("#inputcontato").val().trim() == "" ||
+					$("#inputelefone").val() == null || $("#inputelefone").val().trim() == "" ||
+					$("#inputcelular").val() == null || $("#inputcelular").val().trim() == "" ||
+					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" ||
+					$("#rua").val() == null || $("#rua").val().trim() == "" ||
+					$("#cep").val() == null || $("#cep").val().trim() == "" ||
+					$("#bairro").val() == null || $("#bairro").val().trim() == "" ||
+					$("#uf").val() == null || $("#uf").val().trim() == "" ||
+					$("#cidade").val() == null || $("#cidade").val().trim() == "" ||
+					$("#numero").val() == null || $("#numero").val().trim() == "" ||
+					$("#complemento").val() == null || $("#complemento").val().trim() == "")
+					return false
+				else
+					return true
+			}
+
 </script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
