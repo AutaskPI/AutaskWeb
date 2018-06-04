@@ -125,6 +125,7 @@
             <table id="example" class="display">
                 <thead>
                     <tr>
+						<th id="cscodigo">Código</th>
                         <th id="erazao">Razão Social</th>
                         <th id="enome">Nome Fantasia</th>
                         <th id="edescricao">Descrição</th>
@@ -212,6 +213,8 @@
                                     <div class="form-group col-sm-6">
                                         <label for="inputcontato">E-mail de contato</label>
                                         <input class="form-control" type="email" name="EmailContato" id="inputcontato" placeholder="Email">
+										<p id="msgErroemail" class="msgErro esconder">Preencher o campo e-mail é obrigatório!</p>
+										<p id="msgeEroemail2" class="msgErro esconder">Digite o e-mail corretamente!</p>
                                     </div>
 
                                     <div class="form-group col-sm-6">
@@ -404,6 +407,18 @@
                         $('#msgErrocelular2').fadeOut(0);
                 }
             });
+			
+			$('#inputemail').blur(function(){
+			$("form").submit(function () { return false; });
+			    var sEmail	= $("#inputemail").val();
+				var emailFilter=/^.+@.+\..{2,}$/;
+				var illegalChars= /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+			if(!(emailFilter.test(sEmail))||sEmail.match(illegalChars)){
+				$('#msgErroemail').fadeIn();
+			}else{
+				$('#msgErroemail').fadeOut(0);
+			 }
+			});
 
             $('#cep').blur(function () {
                 var cep = $('#cep').val();
@@ -654,6 +669,7 @@
 				if(objeto.length>=0){
 					for(i=0;i<objeto.length;i++){
 					gridEstabelecimento.row.add([
+					objeto[i].CodEstabelecimento,
 					objeto[i].Nome,
 					objeto[i].NomeFantasia,
 					objeto[i].Descricao,

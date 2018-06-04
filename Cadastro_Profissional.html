@@ -17,8 +17,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-
-
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
@@ -116,6 +114,7 @@
 			<table id="example" class="display" style="width:100%">
 				<thead>
 					<tr>
+						<th id="cscodigo">Código</th>
 						<th id="pnome">Nome</th>
 						<th id="pdescricao">Descrição</th>
 					</tr>
@@ -245,7 +244,7 @@
 				
 		});
 			CarregarProfissional();	
-		})
+		});
 		
 			$('#cadastrar').click(function(){	 
 				var nome =$('#inputnome').val();
@@ -264,7 +263,8 @@
 			if (Validarformulario()) {	
 				var Profissional = {
                     Nome: string = nome,
-                    Descricao: string = descricao
+                    Descricao: string = descricao,
+					CodEstabelecimento: string = "30"
 				}	
 			}		
 			
@@ -357,8 +357,9 @@
 				if(objeto.length>=0){
 					for(i=0;i<objeto.length;i++){
 					gridProfissional.row.add([
+					objeto[i].CodProfissional,
 					objeto[i].Nome,
-					objeto[i].Descricao 
+					objeto[i].Descricao
 				]).draw(false);
 					}
 				}

@@ -345,8 +345,9 @@
 			}if (email==null || email=="")
 				$('#msgErroemail').fadeIn();
 			 else
-				$('#msgErroemail').fadeOut(0);			
-			
+				$('#msgErroemail').fadeOut(0);	
+			eEmail("inputemail");
+				
 			if ((cpf.length  > 0)&&( cpf.length  <14))
 				$('#msgErrocpf2').fadeIn();
 			else
@@ -481,6 +482,16 @@
             }
         })
     }	
+	
+			function eEmail(){
+					var exclude=/[^@-.w]|^[@.-]|[.-]{2}|[@.]{2}|(@)[^@]*1/;
+					var check=/@[w-]+./;
+					var checkend=/.[a-zA-Z]{2,3}$/;
+				if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1))
+					$('#msgErroemail2').fadeIn();
+				else
+					$('#msgErroemail2').fadeOut(0);	
+				}
 	</script>	
 
     <!-- Bootstrap core JavaScript-->
