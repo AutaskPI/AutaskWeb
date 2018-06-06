@@ -8,12 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cadastro de Cliente</title>
+    <script src="js/jquery.js"></script>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
-    <script src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
@@ -165,7 +165,7 @@
         </div>
     </div>
     <!--Modal não cliente-->
-    <div class="modal" id="naocliente" tabindex="-1" role="dialog">
+    <div class="modal fade" id="naocliente" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -295,6 +295,8 @@
 			
 			CarregarCliente();
 			});
+
+            CarregarCliente();
 			 
 		 $('#cadastrar').click(function(){	 
 			var nome =$('#inputnome').val();
@@ -337,7 +339,7 @@
 					Email: string= email
 				}
 			}	
-			
+			function CarregarClientes(){
 			$.ajax({
 				type: "POST",
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/ClienteSemUsuario/Cadastrar ",
@@ -413,6 +415,7 @@
 				}
 
 			});
+        }
 			
 			function Validarformulario() {
 				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
@@ -455,7 +458,6 @@
 	</script>	
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js "></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
