@@ -14,8 +14,13 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
+<<<<<<< HEAD
+=======
+    <script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+>>>>>>> 85c9398cadc2d4b05c59423e153e9d208f365df4
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
     
 </head>
@@ -123,6 +128,7 @@
             <table id="example" class="display">
                 <thead>
                     <tr>
+						<th id="cscodigo">Código</th>
                         <th id="erazao">Razão Social</th>
                         <th id="enome">Nome Fantasia</th>
                         <th id="edescricao">Descrição</th>
@@ -210,6 +216,8 @@
                                     <div class="form-group col-sm-6">
                                         <label for="inputcontato">E-mail de contato</label>
                                         <input class="form-control" type="email" name="EmailContato" id="inputcontato" placeholder="Email">
+										<p id="msgErroemail" class="msgErro esconder">Preencher o campo e-mail é obrigatório!</p>
+										<p id="msgeEroemail2" class="msgErro esconder">Digite o e-mail corretamente!</p>
                                     </div>
 
                                     <div class="form-group col-sm-6">
@@ -402,6 +410,18 @@
                         $('#msgErrocelular2').fadeOut(0);
                 }
             });
+			
+			$('#inputemail').blur(function(){
+			$("form").submit(function () { return false; });
+			    var sEmail	= $("#inputemail").val();
+				var emailFilter=/^.+@.+\..{2,}$/;
+				var illegalChars= /[\(\)\<\>\,\;\:\\\/\"\[\]]/
+			if(!(emailFilter.test(sEmail))||sEmail.match(illegalChars)){
+				$('#msgErroemail').fadeIn();
+			}else{
+				$('#msgErroemail').fadeOut(0);
+			 }
+			});
 
             $('#cep').blur(function () {
                 var cep = $('#cep').val();
@@ -432,7 +452,7 @@
             });
             
             CarregarEstabelecimentos();
-        })
+        });
             $('#buscarcep').click(function () {
                 var cep = $('#cep').val();
                 var url = 'https://viacep.com.br/ws/' + cep + '/json';
@@ -451,31 +471,7 @@
 
             
 
-            $('#cadastrar').click(function () {
-
-                var Estabelecimento = {
-                    Nome: string = razao,
-                    TipoPessoa: "J",
-                    CNPJ: string = cnpj,
-                    Telefone: string = telefone,
-                    Celular: string = celular,
-                    EmailContato: string = contato,
-                    NomeFantasia: string = nome,
-                    Descricao: string = descricao,
-                    HorarioFuncionamento: string = horario,
-                    Logradouro: string = rua,
-                    CEP: string = cep,
-                    Bairro: string = bairro,
-                    UF: string = uf,
-                    Cidade: string = cidade,
-                    Numero: string = numero,
-                    Complemento: string = complemento,
-                    CaminhoLogo: string = valor
-
-
-                }
-
-        function validarFomulario() {
+         $('#cadastrar').click(function () {    
             var razao = $('#inputrazao').val();
             var nome = $('#inputnome').val();
             var horario = $('#inputhorario').val();
@@ -492,7 +488,7 @@
             var cidade = $('#cidade').val();
             var uf = $('#uf').val();
             var complemento = $('#complemento').val();
-        }
+        
         if (razao == null || razao == "") 
             $('#msgErrorazao').fadeIn();
         else
@@ -564,38 +560,157 @@
                 $('#msgErronumero2').fadeOut(0);
         }
 
-        if (descricao == null || descricao == "") { }
-        else {
-            alert("valido");
-        }
-    })
-    function CarregarEstabelecimentos(){
-        $.ajax({
-            type:"GET",
-            url:"http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/ObterTodos",
-            success:function(retorno){
-            gridEstabelecimento.draw().clear()
-            var objeto = JSON.parse(retorno);
-            if(objeto.length>=0){
-                for(i=0;i<objeto.length;i++){
-                gridEstabelecimento.row.add([
-                objeto[i].Nome,
-                objeto[i].NomeFantasia,
-                objeto[i].Descricao,
-                objeto[i].HorarioFuncionamento,
-                objeto[i].CNPJ,
-                objeto[i].Celular,
-                objeto[i].Logradouro,
-                objeto[i].UF
-            ]).draw(false);
-                }
-            }
-            },
-            error:function(erro){
+
+		if (Validarformulario()) {	
+			var Estabelecimento = {
+				Nome: string = razao,
+                TipoPessoa: "J",
+                CNPJ: string = cnpj,
+                Telefone: string = telefone,
+                Celular: string = celular,
+                EmailContato: string = contato,
+                NomeFantasia: string = nome,
+                Descricao: string = descricao,
+                HorarioFuncionamento: string = horario,
+                Logradouro: string = rua,
+                CEP: string = cep,
+                Bairro: string = bairro,
+                UF: string = uf,
+                Cidade: string = cidade,
+                Numero: string = numero,
+                Complemento: string = complemento,
+                CaminhoLogo: string = valor
+               }
+			 } 
+			  
+			  $.ajax({
+				type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/Cadastrar",
+				data: Estabelecimento,
+				success: function (retorno) {
+					if (retorno == "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										CarregarEstabelecimentos();
+										$("#Estabelecimento").modal("hide");
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},
+				error: function (erro) {
+					if (retorno != "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Erro!',
+							content: "Aconteceu um erro na requisição: " + erro.responseText,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: "Por favor, reveja os campos novamente.",
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				}
+
+			});
+			  
+			});   
+		
+		function CarregarEstabelecimentos(){
+			$.ajax({
+				type:"GET",
+				url:"http://saulodacruz2-001-site1.itempurl.com/api/Estabelecimento/ObterTodos",
+				success:function(retorno){
+				gridEstabelecimento.draw().clear()
+				var objeto = JSON.parse(retorno);
+				if(objeto.length>=0){
+					for(i=0;i<objeto.length;i++){
+					gridEstabelecimento.row.add([
+					objeto[i].CodEstabelecimento,
+					objeto[i].Nome,
+					objeto[i].NomeFantasia,
+					objeto[i].Descricao,
+					objeto[i].HorarioFuncionamento,
+					objeto[i].CNPJ,
+					objeto[i].Celular,
+					objeto[i].Logradouro,
+					objeto[i].UF
+				]).draw(false);
+					}
+				}
+				},
+				error:function(erro){
                 alert("Aconteceu um erro na requisição: " + erro.respondeText);
-            }
-        })
-    }
+				}
+			})
+		}
+		
+					function Validarformulario() {
+				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+					$("#inputhorario").val() == null || $("#inputhorario").val().trim() == "" ||
+					$("#inputcnpj").val() == null || $("#inputcnpj").val().trim() == "" ||
+					$("#inputcontato").val() == null || $("#inputcontato").val().trim() == "" ||
+					$("#inputelefone").val() == null || $("#inputelefone").val().trim() == "" ||
+					$("#inputcelular").val() == null || $("#inputcelular").val().trim() == "" ||
+					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" ||
+					$("#rua").val() == null || $("#rua").val().trim() == "" ||
+					$("#cep").val() == null || $("#cep").val().trim() == "" ||
+					$("#bairro").val() == null || $("#bairro").val().trim() == "" ||
+					$("#uf").val() == null || $("#uf").val().trim() == "" ||
+					$("#cidade").val() == null || $("#cidade").val().trim() == "" ||
+					$("#numero").val() == null || $("#numero").val().trim() == "" ||
+					$("#complemento").val() == null || $("#complemento").val().trim() == "")
+					return false
+				else
+					return true
+			}
+
 </script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>

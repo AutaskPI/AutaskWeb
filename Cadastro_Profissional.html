@@ -14,9 +14,9 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-
-
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
@@ -114,6 +114,7 @@
 			<table id="example" class="display" style="width:100%">
 				<thead>
 					<tr>
+						<th id="cscodigo">Código</th>
 						<th id="pnome">Nome</th>
 						<th id="pdescricao">Descrição</th>
 					</tr>
@@ -199,7 +200,7 @@
  <script>
     
 	// Parte JavaScript--//
-		 var gridProfissional;
+		var gridProfissional;
 		$(document).ready(function() {
 			
 			gridProfissional= $('#example').DataTable({
@@ -243,20 +244,13 @@
 				
 		});
 			CarregarProfissional();	
-		})
+		});
 		
 			$('#cadastrar').click(function(){	 
-				var Profissional = {
-                    Nome: string = nome,
-                    Descricao: string = descricao
-				}	
-			
-			 function validarFomulario() {
 				var nome =$('#inputnome').val();
 				var descricao=$('#inputdescricao').val();
-			}		
-						
-				if (nome==null || nome=="")
+				
+			if (nome==null || nome=="")
 					$('#msgErronome').fadeIn();
 				else
 					$('#msgErronome').fadeOut(0);
@@ -264,15 +258,93 @@
 				if (descricao==null || descricao=="")
 					$('#msgErrodescricao').fadeIn();
 				else
-					$('#msgErrodescricao').fadeOut(0);	
+					$('#msgErrodescricao').fadeOut(0);					
 			
-				var Profissional= {
-					Nome: string= nome,
-					Descricao: string= descricao
-
+			if (Validarformulario()) {	
+				var Profissional = {
+                    Nome: string = nome,
+                    Descricao: string = descricao,
+					CodEstabelecimento: string = "30"
+				}	
+			}		
+			
+			$.ajax({
+				type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Cadastrar",
+				data: Profissional,
+				success: function (retorno) {
+					if (retorno == "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										CarregarProfissional();
+										$("#profissional").modal("hide");
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},
+				error: function (erro) {
+					if (retorno != "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Erro!',
+							content: "Aconteceu um erro na requisição: " + erro.responseText,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: "Por favor, reveja os campos novamente.",
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
 				}
 
-			});		
+			});	
+			});	
 
 	   
 	   function CarregarProfissional(){
@@ -285,8 +357,9 @@
 				if(objeto.length>=0){
 					for(i=0;i<objeto.length;i++){
 					gridProfissional.row.add([
+					objeto[i].CodProfissional,
 					objeto[i].Nome,
-					objeto[i].Descricao 
+					objeto[i].Descricao
 				]).draw(false);
 					}
 				}
@@ -297,15 +370,23 @@
 			})
 		}
 		
+		function Validarformulario() {
+				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
+					$("#inputdescricao").val() == null || $("#inputdescricao").val().trim() == "" )
+					return false
+				else
+					return true
+			}
+      	
+		
+		
     </script>		
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js "></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
    
 </body>
