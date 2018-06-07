@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cadastro de Cliente</title>
-    <script src="js/jquery.js"></script>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -22,6 +21,7 @@
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
+
 <style rel="stylesheet" type="text/css">
 	.esconder{
 		display:none;
@@ -84,7 +84,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="Agendamentos.html">Agendamentos</a>
+                            <a href="#">Registros</a>
+                        </li>
+                        <li>
+                            <a href="#">Agenda</a>
                         </li>
                     </ul>
                 </li>
@@ -110,10 +113,13 @@
 		<div id="TituloPagina">
 			<h4>Cadastro do Cliente</h4>
 		</div>	
+		
+		<br></br>
         <div class="container-fluid">
-                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#naocliente">Cadastro</button>
+                <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#naocliente">Cadastrar</button>
         </div>
 		<br></br>
+		
 		<div>
 			<table id="example" class="display" style="width:100%; text-align: center;">
 				<thead>
@@ -125,6 +131,7 @@
 						<th id="cscelular">Celular</th>
 						<th id="csemail">E-mail</th>
 						<th id="cscpf">CPF</th>
+						<th id="btnEditarClliente">Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -163,8 +170,9 @@
             </div>
         </div>
     </div>
-    <!--Modal não cliente-->
-    <div class="modal fade" id="naocliente" tabindex="-1" role="dialog">
+    <!--Modal Cadastro não cliente-->
+    <div class="modal" id="naocliente" tabindex="-1" role="dialog">
+		<input type="hidden" id="idCodCliente" />
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -230,6 +238,79 @@
                         <div class="modal-footer">
 						 <button id="cancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
 						 <button id="cadastrar" type="button" class="btn btn-primary" >Cadastrar </button><!-- Esta feito para fechar somente-->
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+	<!--Modal Editar não cliente-->
+    <div class="modal" id="editCliente" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Editar Cadastro</h5>
+                            <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                    </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h5 class="display-4">Editar Cadastro de Cliente</h5>
+                                </div>
+                            </div>
+                                <div class="row mb-5">
+                                    <div class="col-sm-12 text-center">
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="form-group col-sm-12">
+                                                    <label for="Nome">Nome</label>
+                                                   <input type="text" class="form-control" name="Nome" id="editnome" placeholder="Nome Completo">
+													<p id="emsgErronome" class="msgErro esconder">Preencher o campo nome completo é obrigatório !</p>
+                                                </div>
+												
+                                                <div class="form-group col-sm-6">
+                                                    <label for="Telefone">Telefone</label>
+													<input type="text/javascript" class="form-control" name="Telefone" id="editelefone" placeholder="Telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+													<script type="text/javascript">$("#editelefone").mask("(00) 0000-0000");</script>	
+													<p id="emsgErrotelefone" class="msgErro esconder">Preencher o campo telefone é obrigatório !</p>
+													<p id="emsgErrotelefone2" class="msgErro esconder">Digite o numero do telefone corretamente!</p>
+                                                </div>
+												
+																								
+                                                <div class="form-group col-sm-6">
+                                                    <label for="Celular">Celular</label>
+													<input type="text/javascript" class="form-control" name="Celular" id="editcelular" placeholder="Telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" >
+													<script type="text/javascript">$("#editcelular").mask("(00) 00000-0000");</script>	
+													<p id="emsgErrocelular" class="msgErro esconder">Preencher o campo celular é obrigatório !</p>
+													<p id="emsgErrocelular2" class="msgErro esconder">Digite o numero do celular corretamente!</p>
+                                                </div>
+                                 
+                                                <div class="form-group col-sm-6">
+                                                    <label for="Email">Email</label>
+                                                    <input type="email" class="form-control" id="editemail" name="Email" placeholder="Email">
+													<p id="emsgErroemail" class="msgErro esconder">Preencher o campo e-mail é obrigatório!</p>
+													<p id="emsgErroemail2" class="msgErro esconder">Digite o e-mail corretamente!</p>
+                                                </div>
+												
+                                                <div class="form-group col-sm-6">
+                                                    <label for="CPF">CPF</label>
+                                                    <input type="text" class="form-control" id="editcpf" name="CPF" placeholder="CPF" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+													<script type="text/javascript">$("#editcpf").mask("000.000.000-00");</script>	
+													<p id="emsgErrocpf2" class="msgErro esconder">Digite o numero do CPF corretamente!</p>
+                                                </div>
+												
+                                                <div class="form-group col-sm-12">
+                                                    <label for="editdescricao">Descrição do serviço</label>
+                                                    <textarea class="form-control" rows="5"id="editdescricao" name="Descricao" placeholder="Descreva seu serviço."></textarea>
+                                                </div>
+												
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+						 <button id="editcancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						 <button id="salvar" type="button" class="btn btn-primary" >Salvar </button><!-- Esta feito para fechar somente-->
                     </div>
                 </div>
             </div>
@@ -317,8 +398,6 @@
 			
 			CarregarCliente();
 			});
-
-            CarregarCliente();
 			 
 		 $('#cadastrar').click(function(){	 
 			var nome =$('#inputnome').val();
@@ -346,7 +425,7 @@
 				$('#msgErroemail').fadeIn();
 			 else
 				$('#msgErroemail').fadeOut(0);	
-			eEmail("inputemail");
+			
 				
 			if ((cpf.length  > 0)&&( cpf.length  <14))
 				$('#msgErrocpf2').fadeIn();
@@ -364,7 +443,7 @@
 					Email: string= email
 				}
 			}	
-			function CarregarClientes(){
+			
 			$.ajax({
 				type: "POST",
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/ClienteSemUsuario/Cadastrar ",
@@ -441,7 +520,6 @@
 				}
 
 			});
-        }
 			
 			function Validarformulario() {
 				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
@@ -473,7 +551,8 @@
 				objeto[i].Telefone,
 				objeto[i].Celular,
 				objeto[i].Email,
-                objeto[i].CPF
+                objeto[i].CPF,
+				"<a onclick='EditarClliente("+objeto[i].CodClienteSemUsuario+")' style='cursor:pointer'><i class='fa fa-edit'></i></a>"
             ]).draw(false);
                 }
             }
@@ -481,20 +560,211 @@
             error:function(erro){
                 alert("Aconteceu um erro na requisição: " + erro.respondeText);
             }
-        })
+        });
     }	
 	
-			function eEmail(){
-					var exclude=/[^@-.w]|^[@.-]|[.-]{2}|[@.]{2}|(@)[^@]*1/;
-					var check=/@[w-]+./;
-					var checkend=/.[a-zA-Z]{2,3}$/;
-				if(((email.search(exclude) != -1)||(email.search(check)) == -1)||(email.search(checkend) == -1))
-					$('#msgErroemail2').fadeIn();
-				else
-					$('#msgErroemail2').fadeOut(0);	
+	function EditarClliente(CodClienteSemUsuario){
+		if(CodClienteSemUsuario <= 0)
+			return;
+	
+	$.ajax({
+			type: "GET",
+			url: "http://saulodacruz2-001-site1.itempurl.com/api/ClienteSemUsuario/Obter/"+CodClienteSemUsuario,
+			success: function(retorno){
+				if(retorno.indexOf("CodClienteSemUsuario") > 0){		
+					retorno = JSON.parse(retorno);
+					$("#editnome").val(retorno.Nome);
+					$("#editcpf").val(retorno.CPF);
+					$("#editelefone").val(retorno.Telefone);
+					$("#editcelular").val(retorno.Celular);
+					$("#editdescricao").val(retorno.Descricao);
+					$("#editemail").val(retorno.Email);
+					$("#idCodCliente").val(retorno.CodClienteSemUsuario);
+					
+					$('#editCliente').modal('show');
 				}
-	</script>	
+				else{
+					$.confirm({
+						title: 'Erro!',
+						content: "Por favor verifique os campos. Caso continue com o erro, tente novamente mais tarde.",
+						type: 'red',
+						typeAnimated: true,
+						buttons: {
+							Ok: {
+								text: 'Ok',
+								btnClass: 'btn-red',
+								action: function () {
+								}
+							}
+						}
+				});
+				}
+			},
+			error: function(erro){
+				$.confirm({
+					title: 'Erro!',
+					content: '',
+					type: 'red',
+					typeAnimated: true,
+					buttons: {
+						Ok: {
+							text: 'Ok',
+							btnClass: 'btn-red',
+							action: function () {
+							}
+						}
+					}
+				});
+			}
+		});
+	}	
+	
+		$('#salvar').click(function () {  
+		var enome = $('#editnome').val();
+		var ecpf = $('#editcpf').val();
+		var etelefone = $('#editelefone').val();
+		var ecelular = $('#editcelular').val();
+		var edescricao = $('#editdescricao').val();
+		var eemail = $('#editemail').val();
+		
+        if (enome == null || enome == "")
+            $('#emsgErronome').fadeIn();
+        else
+            $('#emsgErronome').fadeOut(0);
+			
+	
+		if (ecpf == null || ecpf == "")
+			
+		if ((ecpf.length  > 0)&&( ecpf.length  <14))
+				$('#msgErrocpf2').fadeIn();
+			else
+				$('#msgErrocpf2').fadeOut(0);	
+				
+		if ((etelefone == null) || (etelefone == '')) {
+            $('#emsgErrotelefone').fadeIn();
+            $('#emsgErrotelefone2').fadeOut(0);
+        } else {
+            $('#emsgErrotelefone').fadeOut(0);
+            if (etelefone.length < 14)
+                $('#emsgErrotelefone2').fadeIn();
+            else
+                $('#emsgErrotelefone2').fadeOut(0);
+        }
+		
+		 if (ecelular == null || ecelular == "") {
+            $('#emsgErrocelular').fadeIn();
+            $('#emsgErrocelular2').fadeOut(0);
+        } else {
+            $('#emsgErrocelular').fadeOut(0);
+            if (ecelular.length < 14)
+                $('#emsgErrocelular2').fadeIn();
+            else
+                $('#emsgErrocelular2').fadeOut(0);
+        }
+		
+		if (eemail==null || eemail=="")
+				$('#emsgErroemail').fadeIn();
+			 else
+				$('#emsgErroemail').fadeOut(0);		
+		
+		if(ValidarFormularioDeEdicao()){
+			var Cliente = {
+				CodClienteSemUsuario: string = $("#idCodCliente").val(),
+				Nome: string = enome,
+                CPF: string = ecpf,
+                Telefone: string = etelefone,
+                Celular: string = ecelular,
+                Email: string = eemail,	
+				Descricao: string = edescricao
+			}	
+			
+			$.ajax({
+				type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/ClienteSemUsuario/Editar",
+				data: Cliente,
+				success: function (retorno) {
+					if (retorno == "Edição realizada com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										CarregarCliente();
+										$("#editCliente").modal("hide");
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},error: function (erro) {				
+					$.confirm({
+						title: 'Erro!',
+						content: "Aconteceu um erro ao se comunicar com o servidor. Por favor tente novamente mais tarde.",
+						type: 'red',
+						typeAnimated: true,
+						buttons: {
+							Ok: {
+								text: 'Ok',
+								btnClass: 'btn-red',
+								action: function () {
+								}
+							}
+						}
+					});
+				}
+			});
+		}
+		else
+		{
+			$.confirm({
+				title: 'Erro!',
+				content: "Por favor reveja os campos.",
+				type: 'red',
+				typeAnimated: true,
+				buttons: {
+					Ok: {
+						text: 'Ok',
+						btnClass: 'btn-red',
+						action: function () {
+						}
+					}
+				}
+			});
+		}
+		});
 
+		function ValidarFormularioDeEdicao() {
+		if ($("#editnome").val() == null || $("#editnome").val().trim() == "" ||
+			$("#editemail").val() == null || $("#editemail").val().trim() == "" ||
+			$("#editelefone").val() == null || $("#editelefone").val().trim() == "" ||
+			$("#editcelular").val() == null || $("#editcelular").val().trim() == "" ||
+			$("#editemail").val().indexOf("@") < 0 )
+			return false;
+		else
+			return true;
+	}	
+</script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
     <!-- Core plugin JavaScript-->

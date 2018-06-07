@@ -76,7 +76,10 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
                         <li>
-                            <a href="Agendamentos.html">Agendamentos</a>
+                            <a href="#">Registros</a>
+                        </li>
+                        <li>
+                            <a href="#">Agenda</a>
                         </li>
                     </ul>
                 </li>
@@ -106,7 +109,8 @@
         <div class="container-fluid">
             <button  type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#profissional">Cadastro</button>
         </div>
-		<br></br> 
+		<br></br>
+		
 		<div>
 			<table id="example" class="display" style="width:100%">
 				<thead>
@@ -114,6 +118,7 @@
 						<th id="cscodigo">Código</th>
 						<th id="pnome">Nome</th>
 						<th id="pdescricao">Descrição</th>
+						<th id="btnEditarProfissional">Editar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -153,7 +158,8 @@
             </div>
         </div>
     </div>
-    <!--Cadastro de Proffisional-->
+	
+    <!--Modal Cadastro de Proffisional-->
     <div class="modal" id="profissional" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -194,6 +200,51 @@
             </div>
         </div>
 	 </div>	
+	 
+	    <!--Modal Editar Cadastro de Proffisional-->
+    <div class="modal" id="editProfissional" tabindex="-1" role="dialog">
+		<input type="hidden" id="idCodProfissional" />
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar Cadastro</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>x</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h5 class="display-4">Editar Cadastro de Profissional</h5>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-sm-12 text-center">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="Nome">Nome do Profissional</label>
+                                            <input type="text" class="form-control" id="editnome" name="Nome" placeholder="Nome">
+											<p id="emsgErronome" class="msgErro esconder">Preencher o campo nome do funcionario é obrigatório !</p>
+                                        </div>
+										
+                                        <div class="form-group col-sm-12">
+                                            <label for="Descricao">Descrição do serviço</label>
+                                            <textarea class="form-control" rows="5" id="editdescricao" name="Descricao "placeholder="Descreva seu serviço."></textarea>
+											<p id="emsgErrodescricao" class="msgErro esconder">Preencher o campo descrição do serviço é obrigatório !</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+						<button id="editcancelar" type="reset" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+						<button id="salvar" type="button" class="btn btn-primary" >Salvar </button><!-- Esta feito para fechar somente-->
+                    </div>
+                </div>
+            </div>
+        </div>
+	 
+	 
  <script>
     
 	// Parte JavaScript--//
@@ -356,7 +407,8 @@
 					gridProfissional.row.add([
 					objeto[i].CodProfissional,
 					objeto[i].Nome,
-					objeto[i].Descricao
+					objeto[i].Descricao,
+					"<a onclick='EditarProfissional("+objeto[i].CodProfissional+")' style='cursor:pointer'><i class='fa fa-edit'></i></a>"
 				]).draw(false);
 					}
 				}
@@ -375,7 +427,165 @@
 					return true
 			}
       	
+		function EditarProfissional(CodProfissional){
+			if(CodProfissional <= 0)
+				return;
+		$.ajax({
+			type: "GET",
+			url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Obter/"+CodProfissional,
+			success: function(retorno){
+				if(retorno.indexOf("CodProfissional") > 0){		
+					retorno = JSON.parse(retorno);
+					$("#editnome").val(retorno.Nome);
+					$("#editdescricao").val(retorno.Descricao);	
+					$("#idCodProfissional").val(retorno.CodProfissional);
+					$('#editProfissional').modal('show');
+				}
+				else{
+					$.confirm({
+						title: 'Erro!',
+						content: "Por favor verifique os campos. Caso continue com o erro, tente novamente mais tarde.",
+						type: 'red',
+						typeAnimated: true,
+						buttons: {
+							Ok: {
+								text: 'Ok',
+								btnClass: 'btn-red',
+								action: function () {
+								}
+							}
+						}
+				});
+				}
+			},
+			error: function(erro){
+				$.confirm({
+					title: 'Erro!',
+					content: '',
+					type: 'red',
+					typeAnimated: true,
+					buttons: {
+						Ok: {
+							text: 'Ok',
+							btnClass: 'btn-red',
+							action: function () {
+							}
+						}
+					}
+				});
+			}
+		});
+	}		
 		
+	$('#salvar').click(function () {  
+		var edescricao = $('#editdescricao').val();
+		var enome = $('#editnome').val();
+		
+		if (enome==null || enome=="")
+			$('#emsgErronome').fadeIn();
+		else
+			$('#emsgErronome').fadeOut(0);
+				
+		if (edescricao==null || edescricao=="")
+			$('#emsgErrodescricao').fadeIn();
+		else
+			$('#emsgErrodescricao').fadeOut(0);		
+		
+		if(ValidarFormularioDeEdicao()){
+			var Profissional = {
+				CodProfissional: string = $("#idCodProfissional").val(),	
+                Nome: string = enome,
+                Descricao: string = edescricao
+				}	
+			}	
+			
+		$.ajax({	
+			type: "POST",
+				url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Editar",
+				data: Profissional,
+				success: function (retorno) {
+					if (retorno == "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Sucesso!',
+							content: retorno,
+							type: 'green',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-green',
+									action: function () {
+										CarregarProfissional();
+										$("#editProfissional").modal("hide");
+									
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				},
+				error: function (erro) {
+					if (retorno != "Cadastro realizado com sucesso !") {
+						$.confirm({
+							title: 'Erro!',
+							content: "Aconteceu um erro na requisição: " + erro.responseText,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+					else {
+						$.confirm({
+							title: 'Erro!',
+							content: "Por favor, reveja os campos novamente.",
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				}
+
+			});		
+		});
+		
+		function ValidarFormularioDeEdicao() {
+		if ($("#editnome").val() == null || $("#editnome").val().trim() == "" ||
+			$("#editdescricao").val() == null || $("#editdescricao").val().trim() == "" )
+			return false;
+		else
+			return true;
+		}
+			 
 		
     </script>		
     <!-- Bootstrap core JavaScript-->
