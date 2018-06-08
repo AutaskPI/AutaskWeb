@@ -13,7 +13,8 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
-    <script src="js/jquery.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.mask.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
@@ -74,12 +75,9 @@
                         <span class="nav-link-text">Agenda</span>
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseMulti">
-                        <li>
-                            <a href="#">Registros</a>
-                        </li>
-                        <li>
-                            <a href="#">Agenda</a>
-                        </li>
+						<li>
+							<a href="Agendamentos.html">Agendamentos</a>
+						</li>
                     </ul>
                 </li>
                 </li>
@@ -93,7 +91,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li id="sair" class="nav-item">
-                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
+                    <a class=" nav-link " data-toggle="modal" data-target="#Sair" href="login.html">
                         <i class="fa fa-fw fa-sign-out "></i>Sair</a>
                 </li>
             </ul>
@@ -111,8 +109,8 @@
 		
 		<br></br>
 	
-		<div>
-			<table id="example" class="display" style="width:100%">
+		<div style="padding: 15px">
+			<table id="example" class="display">
 				<thead>
 					<tr>
 						<th id="cscodigo">Código</th>
@@ -143,31 +141,27 @@
         <i class="fa fa-angle-up "></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog " role="document ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title " id="exampleModalLabel ">Ready to Leave?</h5>
-                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
-              <span aria-hidden="true ">×</span>
-            </button>
-                </div>
-                <div class="modal-body ">Select "Logout " below if you are ready to end your current session.</div>
-                <div class="modal-footer ">
-                    <button class="btn btn-secondary " type="button " data-dismiss="modal ">Cancel</button>
-                    <a class="btn btn-primary " href="login.html ">Logout</a>
+	<div class="modal fade" id="Sair" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title " id="exampleModalLabel ">Confirmar Saida</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">Deseja realmente sair?</div>
+                    <div class="modal-footer ">
+                        <button class="btn btn-secondary " type="button " data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-primary " href="login.html ">Sair</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js "></script>
-    </div>
 	
     <!-- modal Cadastro de Serviço-->
-    <div class="modal" id="servico" tabindex="-1" role="dialog">
+    <div class="modal fade" id="servico" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -324,11 +318,7 @@
 					$('#msgErrotempo').fadeIn();
 					$('#msgErrotempo2').fadeOut(0);
 				}else{
-					$('#msgErrotempo').fadeOut(0);	
-					if(isNaN(tempo))
-						$('#msgErrotempo2').fadeIn();
-					else
-						$('#msgErrotempo2').fadeOut(0);		
+					$('#msgErrotempo').fadeOut(0);			
 				}	
 			
 			});
@@ -339,11 +329,7 @@
 					$('#msgErroreal').fadeIn();
 					$('#msgErroreal2').fadeOut(0);	
 				}else{
-					$('#msgErroreal').fadeOut(0);	
-					if(isNaN(real))
-						$('#msgErroreal2').fadeIn();
-					else
-						$('#msgErroreal2').fadeOut(0);		
+					$('#msgErroreal').fadeOut(0);			
 					}	
 			});
 			
@@ -354,6 +340,8 @@
 					$('#msgErrodescricao').fadeOut(0);	
 			});
 			CarregarServicos();
+			$('#inputreal').mask("#.##0,00", {reverse: true});
+			$('#inputtempo').mask("000")
 			});
 			 
 			 
@@ -372,22 +360,14 @@
 					$('#msgErrotempo').fadeIn();
 					$('#msgErrotempo2').fadeOut(0);		
 				}else{
-					$('#msgErrotempo').fadeOut(0);	
-				if(isNaN(tempo))
-						$('#msgErrotempo2').fadeIn();
-					else
-						$('#msgErrotempo2').fadeOut(0);		
+					$('#msgErrotempo').fadeOut(0);			
 				}	
 				
 				if (real==null || real==""){
 					$('#msgErroreal').fadeIn();
 					$('#msgErroreal2').fadeOut(0);	
 				}else{
-					$('#msgErroreal').fadeOut(0);	
-				if(isNaN(real))
-					$('#msgErroreal2').fadeIn();
-				else
-					$('#msgErroreal2').fadeOut(0);		
+					$('#msgErroreal').fadeOut(0);			
 				}	
 			
 				if (descricao==null || descricao=="")
@@ -708,4 +688,9 @@
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 </body>
 
+
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js "></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js "></script>
 </html>

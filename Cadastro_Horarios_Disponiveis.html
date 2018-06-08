@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <title>Cadastro de Horarios Disponiveis</title>
     <script src="js/jquery.js" type="text/javascript"></script>
-    <script src="js/jquery.mask.min.js" type="text/javascript"></script>
+     
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -96,7 +96,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li id="sair" class="nav-item">
-                    <a class=" nav-link " data-toggle="modal " data-target="#exampleModal " href="login.html">
+                    <a class="nav-link" data-toggle="modal" data-target="#Sair" href="login.html">
                         <i class="fa fa-fw fa-sign-out "></i>Sair</a>
                 </li>
             </ul>
@@ -137,25 +137,25 @@
         <i class="fa fa-angle-up "></i>
     </a>
     <!-- Logout Modal-->
-    <div class="modal fade " id="exampleModal " tabindex="-1 " role="dialog " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-        <div class="modal-dialog " role="document ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <h5 class="modal-title " id="exampleModalLabel ">Ready to Leave?</h5>
-                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
-                        <span aria-hidden="true ">×</span>
-                    </button>
-                </div>
-                <div class="modal-body ">Select "Logout " below if you are ready to end your current session.</div>
-                <div class="modal-footer ">
-                    <button class="btn btn-secondary " type="button " data-dismiss="modal ">Cancel</button>
-                    <a class="btn btn-primary " href="login.html ">Logout</a>
+    <div class="modal fade" id="Sair" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title " id="exampleModalLabel ">Confirmar Saida</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ">Deseja realmente sair?</div>
+                    <div class="modal-footer ">
+                        <button class="btn btn-secondary " type="button " data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-primary " href="login.html ">Sair</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- Modal Cadastro não cliente-->
-    <div class="modal" id="Horariosdisponiveis" tabindex="-1" role="dialog">
+    <div class="modal fade" id="Horariosdisponiveis" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -256,6 +256,9 @@
             });
             
             CarregarHorario();
+            $('#inputdata').mask("00/00/000");
+            $('#inputHorInicio').mask("00:00");
+            $('#inputHorFinal').mask("00:00");
         });
 
         $("#cadastrar").click(function () {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/login.css" type="text/css" rel="stylesheet" media="screen,projection" />
-	<script src="js/jquery.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 </head>
 
 <body>
@@ -24,94 +24,148 @@
             <a id="logo-container" href="index.html" class="brand-logo">Autask</a>
             <ul class="right hide-on-med-and-down">
                 <img class="imgLogo" src="img/logoOficial.png" alt="Logo" style="border: 0;position: absolute;width: 4%;right: 101%;bottom: 23%;">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
                 <li id="cadastro">
                     <a class='dropdown-button' href='#' data-activates='dropdown1'>Cadastre-se</a>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a></li>
-                        <li><a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a></li>
+                        <li>
+                            <a href="Cadastro_Pessoa_Fisica.html">Pessoa Fisica</a>
+                        </li>
+                        <li>
+                            <a href="Cadastro_Pessoa_Juridica.html">Pessoa Juridica</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
             <!-- Menu Mobile -->
             <ul id="nav-mobile" class="side-nav">
-                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
 
-                <li><a href="login.html">Login</a></li>
-                <li><a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a></li>
-                <li><a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a></li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+                <li>
+                    <a href="Cadastro_Pessoa_Fisica.html">Cadastro Pessoa Fisica</a>
+                </li>
+                <li>
+                    <a href="Cadastro_Pessoa_Juridica.html">Cadastro Pessoa Juridica</a>
+                </li>
             </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="#" data-activates="nav-mobile" class="button-collapse">
+                <i class="material-icons">menu</i>
+            </a>
         </div>
     </nav>
 
-    <div class="col s12 m4 container center-align">
-
+    <div class="col s12 m4 container center-align" id="Vailogar">
         <hgroup>
             <h3 class="center-align">Login</h3>
         </hgroup>
-
         <form class="center-align">
             <div class="group">
                 <input id="email" type="email" class="validate" placeholder="Email">
             </div>
             <div class="group">
+                <input id="emailrec" type="email" class="validate" placeholder="Email para Recuperação">
+            </div>
+            <div class="group">
                 <input id="password" type="password" class="validate" placeholder="Senha">
             </div>
             <div id="btn-cadastrar">
-                <button type="button" class="btn"><a href="Cadastro_Pagina.html" id="Logar">Logar</a></button><br>
-				<br></br>
-				<button type="button" class="btn"><a href="Cadastro_Pagina.html">Esqueceu a senha</a></button><br>
-         </form>
-    </div>
-    <footer>
-        <p>Desenvolvimento Autask</p>
-    </footer>
+                <button type="button" class="btn" id="Logar">
+                    <a>Logar</a>
+                </button>
+                <br>
+                <button type="button" class="btn" id="Recbot">
+                    <a>Recuperar Senha</a>
+                </button>
+                <br>
+                <button type="button" class="btn" id="Esqueci">
+                    <a>Esqueceu a senha</a>
+                </button>
+                <br>
+            </div>
+        </form>
+        <footer>
+            <p>Desenvolvimento Autask</p>
+        </footer>
 </body>
 
 <script>
-		$('#Logar').click(function(){
-		var email=$('#email').val();
-		var senha=$('#password').val();
-		
-		
-		
-			var Login = {
-			Email:string = email,
-			Senha:string = senha
-			}
-		
-			$.ajax({
-			type:"POST",
-			url:"http://saulodacruz2-001-site1.itempurl.com/api/Usuario/EfetuarLogin",
-			data:Login,
-			sucess: function(retorno){
-				if(retorno=="Login efetuado com sucesso!"){
-				window.location.href="Cadastro.Profissional.html"
-			}
-				else{
-				$.confirm({
-							title: 'Erro!',
-							content: retorno,
-							type: 'red',
-							typeAnimated: true,
-							buttons: {
-								Ok: {
-									text: 'Ok',
-									btnClass: 'btn-red',
-									action: function () {
-									}
-								}
-							}
-						});
-					}
-				}
-			})
-		})
-</script>
+    $(document).ready(function () {
+        $('#emailrec').hide();
+        $('#Recbot').hide();
+    })
 
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    $('#Logar').click(function () {
+        var email = $('#email').val();
+        var senha = $('#password').val();
+
+        if (Validarformulario()) {
+            var Login = {
+                Email: string = email,
+                Senha: string = senha,
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "http://saulodacruz2-001-site1.itempurl.com/api/Usuario/EfetuarLogin",
+                data: Login,
+                success: function (retorno) {
+                    if (retorno == "Login efetuado com sucesso !") {
+                        window.location.href = "Cadastro_Profissional.html"
+                    }
+                    else {
+                        $.confirm({
+                            title: 'Erro!',
+                            content: retorno,
+                            type: 'red',
+                            typeAnimated: true,
+                            buttons: {
+                                Ok: {
+                                    text: 'Ok',
+                                    btnClass: 'btn-red',
+                                    action: function () {
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    $("#Esqueci").click(function () {
+        $('#Esqueci').hide(200),
+            $('#Logar').hide(100),
+            $('#email').hide(50),
+            $('#password').hide(50),
+            $('#emailrec').show(500),
+            $('#Recbot').show(500)
+
+    })
+
+    $("Recbot").click(function(){
+        
+    })
+
+    function Validarformulario() {
+        if ($("#email").val() == null || $("#email").val().trim() == "" ||
+            $("#password").val() == null || $("#password").val().trim() == "")
+            return false
+        else
+            return true
+    }
+
+</script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 
