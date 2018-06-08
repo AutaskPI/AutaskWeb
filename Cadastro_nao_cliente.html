@@ -441,8 +441,7 @@
 					Celular: string= celular,
 					Telefone: string= telefone,
 					Email: string= email
-				}
-			}	
+				}	
 			
 			$.ajax({
 				type: "POST",
@@ -518,9 +517,10 @@
 						});
 					}
 				}
-
+																																													
 			});
-			
+			}
+			});
 			function Validarformulario() {
 				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
 					$("#inputelefone").val() == null || $("#inputelefone").val().trim() == "" ||
@@ -530,10 +530,7 @@
 					return false
 				else
 					return true
-			}
-         });
-		
-		
+		}
 		function CarregarCliente(){
         $.ajax({
             type:"GET",
@@ -683,7 +680,7 @@
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/ClienteSemUsuario/Editar",
 				data: Cliente,
 				success: function (retorno) {
-					if (retorno == "Edição realizada com sucesso !") {
+					if (retorno == "Editado com sucesso !") {
 						$.confirm({
 							title: 'Sucesso!',
 							content: retorno,

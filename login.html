@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="css/login.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 </head>
 
 <body>
@@ -57,7 +60,9 @@
                 <input id="password" type="password" class="validate" placeholder="Senha">
             </div>
             <div id="btn-cadastrar">
-                <button type="button" class="btn"><a href="Cadastro_Pagina.html">Logar</a></button><br>
+                <button type="button" class="btn"><a href="Cadastro_Pagina.html" id="Logar">Logar</a></button><br>
+				<br></br>
+				<button type="button" class="btn"><a href="Cadastro_Pagina.html">Esqueceu a senha</a></button><br>
          </form>
     </div>
     <footer>
@@ -65,14 +70,49 @@
     </footer>
 </body>
 
+<script>
+		$('#Logar').click(function(){
+		var email=$('#email').val();
+		var senha=$('#password').val();
+		
+		
+		
+			var Login = {
+			Email:string = email,
+			Senha:string = senha
+			}
+		
+			$.ajax({
+			type:"POST",
+			url:"http://saulodacruz2-001-site1.itempurl.com/api/Usuario/EfetuarLogin",
+			data:Login,
+			sucess: function(retorno){
+				if(retorno=="Login efetuado com sucesso!"){
+				window.location.href="Cadastro.Profissional.html"
+			}
+				else{
+				$.confirm({
+							title: 'Erro!',
+							content: retorno,
+							type: 'red',
+							typeAnimated: true,
+							buttons: {
+								Ok: {
+									text: 'Ok',
+									btnClass: 'btn-red',
+									action: function () {
+									}
+								}
+							}
+						});
+					}
+				}
+			})
+		})
+</script>
+
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
-
-<script>
-    function teste1() {
-        window.open('Cadastro_Pagina.html', '_blank');
-    }
-</script>
 
 </html>

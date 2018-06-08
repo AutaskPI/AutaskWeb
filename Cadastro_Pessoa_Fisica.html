@@ -481,7 +481,6 @@
 					Senha: string = senha.trim(),
 					Confirmar: string = confirma.trim()
 				}
-			}
 
 			$.ajax({
 				type: "POST",
@@ -558,7 +557,8 @@
 				}
 
 			});
-
+			}
+			});
 			function Validarformulario() {
 				if ($("#inputnome").val() == null || $("#inputnome").val().trim() == "" ||
 					$("#inputcelular").val() == null || $("#inputcelular").val().trim() == "" ||
@@ -573,12 +573,12 @@
 					$("#numero").val() == null || $("#numero").val().trim() == "" ||
 					$("#inputemail").val() == null || $("#inputemail").val().trim() == "" ||
 					$("#inputsenha").val() == null || $("#inputsenha").val().trim() == "" ||
-					$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == "")
+					$("#inputconfirma").val() == null || $("#inputconfirma").val().trim() == ""||
+					("#editcontato").val().indexOf("@") < 0 )
 					return false
 				else
 					return true
 			}
-		});
 	</script>
 
 	<!--Estilo CSS -->

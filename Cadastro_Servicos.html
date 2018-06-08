@@ -612,14 +612,14 @@
 						TempoMin: string= etempo,
 						Valor: string= ereal,
 					}
-				}
+		
 				
 			$.ajax({	
 			type: "POST",
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/Servico/Editar",
 				data: Servicos,
 				success: function (retorno) {
-					if (retorno == "Cadastro realizado com sucesso !") {
+					if (retorno == "Editado com sucesso !") {
 						$.confirm({
 							title: 'Sucesso!',
 							content: retorno,
@@ -690,7 +690,8 @@
 					}
 				}
 
-			});		
+			});	
+		  }		
 		});
 		
 		function ValidarFormularioDeEdicao() {

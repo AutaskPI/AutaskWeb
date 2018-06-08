@@ -314,7 +314,7 @@
                     Descricao: string = descricao,
 					CodEstabelecimento: string = "30"
 				}	
-			}		
+				
 			
 			$.ajax({
 				type: "POST",
@@ -392,7 +392,8 @@
 				}
 
 			});	
-			});	
+			}
+		});	
 
 	   
 	   function CarregarProfissional(){
@@ -430,6 +431,7 @@
 		function EditarProfissional(CodProfissional){
 			if(CodProfissional <= 0)
 				return;
+				
 		$.ajax({
 			type: "GET",
 			url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Obter/"+CodProfissional,
@@ -497,14 +499,13 @@
                 Nome: string = enome,
                 Descricao: string = edescricao
 				}	
-			}	
 			
 		$.ajax({	
 			type: "POST",
 				url: "http://saulodacruz2-001-site1.itempurl.com/api/Profissional/Editar",
 				data: Profissional,
 				success: function (retorno) {
-					if (retorno == "Cadastro realizado com sucesso !") {
+					if (retorno == "Editado com sucesso !") {
 						$.confirm({
 							title: 'Sucesso!',
 							content: retorno,
@@ -575,7 +576,8 @@
 					}
 				}
 
-			});		
+			});
+         }			
 		});
 		
 		function ValidarFormularioDeEdicao() {
