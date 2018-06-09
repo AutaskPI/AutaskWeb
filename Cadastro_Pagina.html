@@ -14,27 +14,28 @@
     <link href="css/index.css" rel="stylesheet">
     <link rel="icon" href="img/logoOficial.png" type="imagem/x-icon">
     <script src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.mask.min.js"/></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 </head>
 
 <body class="fixed-nav sticky-footer" style="background-color: #494f56" id="page-top">
-<style rel="stylesheet" type="text/css">
-	.esconder{
-		display:none;
-		color:red;
-	}
-</style>
+    <style rel="stylesheet" type="text/css">
+        .esconder {
+            display: none;
+            color: red;
+        }
+    </style>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #494f56">
         <img class="hidden-sm-down" src="img/teste.png" alt="Logo">
-        <a id="textoLogo" class="navbar-brand" href="index.html">Autask</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <a id="textoLogo" class="navbar-brand" href="Agendamentos.html">Autask</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
- 
+
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-user-circle"></i>
@@ -44,23 +45,23 @@
                         <li>
                             <a href="Cadastro_Servicos.html">Cadastro de Serviço</a>
                         </li>
-						
+
                         <li>
                             <a href="Cadastro_Estabelecimento.html">Cadastro de Estabelecimento</a>
                         </li>
-						
+
                         <li>
-                                <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
+                            <a href="Cadastro_Profissional.html">Cadastro de Profissional</a>
                         </li>
-						
+
                         <li>
-                                <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
+                            <a href="Cadastro_Horarios_Disponiveis.html">Cadastro de Horarios Disponiveis</a>
                         </li>
-						
+
                         <li>
-                                <a href="Cadastro_nao_cliente.html">Cadastro de cliente</a>
+                            <a href="Cadastro_nao_cliente.html">Cadastro de cliente</a>
                         </li>
-						
+
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -70,7 +71,7 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="#">Deashboard de ganho</a>
+                            <a href="Dashboard_de_ganho.html">Deashboard de ganho</a>
                         </li>
                     </ul>
                 </li>
@@ -102,11 +103,11 @@
                     <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-fw fa-envelope"></i>
                         <span class="d-lg-none">Notificações
-              <span class="badge badge-pill badge-primary">12 New</span>
+                            <span class="badge badge-pill badge-primary">12 New</span>
                         </span>
                         <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
+                            <i class="fa fa-fw fa-circle"></i>
+                        </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="messagesDropdown">
                         <h6 class="dropdown-header">Novas Notificações:</h6>
@@ -122,7 +123,7 @@
                             <span class="small float-right text-muted">01:40 AM</span>
                             <div class="dropdown-message small">Queria estar na faculdade com vocês T_T</div>
                         </a>
-						
+
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <strong>Reginaldo</strong>
@@ -138,10 +139,10 @@
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="Procurar...">
                             <span class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
                         </div>
                     </form>
                 </li>
@@ -170,84 +171,84 @@
         <i class="fa fa-angle-up "></i>
     </a>
 
-	<script>	
-	  //Parte JavaScript//
-		$(document).ready(function() {	
-		
-			$('#example').DataTable();
-			
-			$('#inputnome').blur(function(){
-			
-				if ($(this).val() == null || $(this).val().trim() == "")
-					$('#msgErronome').fadeIn();
-				else
-					$('#msgErronome').fadeOut(0);	
-				
-		});
-			$('#inputelefone').blur(function(){
-				var telefone=$('#inputelefone').val();
-				if ($(this).val() == null || $(this).val().trim() == ""){
-					$('#msgErrotelefone').fadeIn();
-					$('#msgErrotelefone2').fadeOut(0);
-				}else{
-					$('#msgErrotelefone').fadeOut(0);
-					if (telefone.length < 14)	
-						$('#msgErrotelefone2').fadeIn();
-					else
-						$('#msgErrotelefone2').fadeOut(0);
-					}
-				});	
-				
-			$('#inputemail').blur(function(){
-				if ($(this).val() == null || $(this).val().trim() == "")
-					$('#msgErroemail').fadeIn();
-				else
-					$('#msgErroemail').fadeOut(0);	
-				
-		});
-			$('#inputcpf').blur(function(){
-				var cpf=$('#inputcpf').val();
-				if ((cpf.length  > 0)&&( cpf.length  <14))
-					$('#msgErrocpf2').fadeIn();
-				else
-					$('#msgErrocpf2').fadeOut(0);		
-			});		
-		
-			 
-		 $('#cadastrar').click(function(){	 
-			var nome =$('#inputnome').val();
-			var telefone=$('#inputelefone').val();
-			var email=$('#inputemail').val();
-			var cpf=$('#inputcpf').val();
-				
-			 if (nome==null || nome=="")
-				$('#msgErronome').fadeIn();
-			 else
-				$('#msgErronome').fadeOut(0);
-				
-			if((telefone==null) || (telefone==''))
-					$('#msgErrotelefone').fadeIn();
-				else{
-				$('#msgErrotelefone').fadeOut(0);
-					if (telefone.length  < 14)
-						$('#msgErrotelefone2').fadeIn();
-					else
-						$('#msgErrotelefone2').fadeOut(0);		
-						
-			}if (email==null || email=="")
-				$('#msgErroemail').fadeIn();
-			 else
-				$('#msgErroemail').fadeOut(0);			
-			
-			if ((cpf.length  > 0)&&( cpf.length  <14))
-				$('#msgErrocpf2').fadeIn();
-			else
-				$('#msgErrocpf2').fadeOut(0);	
-			
-					
-	})	
-})
-	</script>	
+    <script>	
+        //Parte JavaScript//
+        $(document).ready(function () {
+
+            $('#example').DataTable();
+
+            $('#inputnome').blur(function () {
+
+                if ($(this).val() == null || $(this).val().trim() == "")
+                    $('#msgErronome').fadeIn();
+                else
+                    $('#msgErronome').fadeOut(0);
+
+            });
+            $('#inputelefone').blur(function () {
+                var telefone = $('#inputelefone').val();
+                if ($(this).val() == null || $(this).val().trim() == "") {
+                    $('#msgErrotelefone').fadeIn();
+                    $('#msgErrotelefone2').fadeOut(0);
+                } else {
+                    $('#msgErrotelefone').fadeOut(0);
+                    if (telefone.length < 14)
+                        $('#msgErrotelefone2').fadeIn();
+                    else
+                        $('#msgErrotelefone2').fadeOut(0);
+                }
+            });
+
+            $('#inputemail').blur(function () {
+                if ($(this).val() == null || $(this).val().trim() == "")
+                    $('#msgErroemail').fadeIn();
+                else
+                    $('#msgErroemail').fadeOut(0);
+
+            });
+            $('#inputcpf').blur(function () {
+                var cpf = $('#inputcpf').val();
+                if ((cpf.length > 0) && (cpf.length < 14))
+                    $('#msgErrocpf2').fadeIn();
+                else
+                    $('#msgErrocpf2').fadeOut(0);
+            });
+
+
+            $('#cadastrar').click(function () {
+                var nome = $('#inputnome').val();
+                var telefone = $('#inputelefone').val();
+                var email = $('#inputemail').val();
+                var cpf = $('#inputcpf').val();
+
+                if (nome == null || nome == "")
+                    $('#msgErronome').fadeIn();
+                else
+                    $('#msgErronome').fadeOut(0);
+
+                if ((telefone == null) || (telefone == ''))
+                    $('#msgErrotelefone').fadeIn();
+                else {
+                    $('#msgErrotelefone').fadeOut(0);
+                    if (telefone.length < 14)
+                        $('#msgErrotelefone2').fadeIn();
+                    else
+                        $('#msgErrotelefone2').fadeOut(0);
+
+                } if (email == null || email == "")
+                    $('#msgErroemail').fadeIn();
+                else
+                    $('#msgErroemail').fadeOut(0);
+
+                if ((cpf.length > 0) && (cpf.length < 14))
+                    $('#msgErrocpf2').fadeIn();
+                else
+                    $('#msgErrocpf2').fadeOut(0);
+
+
+            })
+        })
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js "></script>
@@ -256,10 +257,9 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js "></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js "></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     </div>
 </body>
 
 </html>
-
