@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <title>Cadastro de Horarios Disponiveis</title>
     <script src="js/jquery.js" type="text/javascript"></script>
-     
+    <script type="text/javascript" src="js/jquery.mask.min.js" /></script>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -178,7 +178,6 @@
                                     <div class="form-group col-sm-12">
                                         <label for="inputdata">Escolha a Data</label>
                                         <input type="text" class="form-control" name="DataAgenda" id="inputdata" placeholder="Digite a data da agenda">
-                                        <small id="dataHelp" class="form-text text-muted text-center">Escreva a data no seguinte padrão: Mês / Dia / Ano</small>
                                         <p id="msgErrodata" class="msgErro esconder">Preencher o campo Data é obrigatório !</p>
                                     </div>
                                     <div class="form-group col-sm-6">
@@ -257,7 +256,7 @@
             });
             
             CarregarHorario();
-            $('#inputdata').mask("00/00/000");
+            $('#inputdata').mask("00/00/0000");
             $('#inputHorInicio').mask("00:00");
             $('#inputHorFinal').mask("00:00");
         });
@@ -273,20 +272,24 @@
                 $('#msgErrodata').fadeOut(0);
 
             if (HorarioInicio == null || HorarioInicio == "")
-                $('#inputHorInicio').fadeIn();
+                $('#msgHorInicio').fadeIn();
             else
-                $('#inputHorInicio').fadeOut(0);
+                $('#msgHorInicio').fadeOut(0);
 
             if (HorarioInicio == null || HorarioInicio == "")
                 $('#msgErroHorFinal').fadeIn();
             else
                 $('#msgErroHorFinal').fadeOut(0);
 
+            split = Datadisponivel.split('/');
+			dataame = split[2] + "/" + split[1] + "/" + split[0];
+			console.log(dataame);
+
             if(Validarformulario()){
                 var Horario = {
                     CodProfissional : "4",
                     CodUsuario : "21",
-                    DataDisponivel:String = Datadisponivel,
+                    DataDisponivel:String = dataame,
                     HorarioFinal:String = HorarioFinal,
                     HorarioInicial:String = HorarioInicio,
                 }
